@@ -3,10 +3,10 @@ import { bundleMDX } from 'mdx-bundler';
 import path from 'path';
 import { glob } from 'glob/dist/esm';
 
-import { IDocService } from './IDocService';
+import { IMDXService } from './IMDXService';
 import { FileNotRequiredError } from './FileNotRequiredError';
 
-export class DocService implements IDocService {
+export class MDXService implements IMDXService {
   constructor(private readonly options: DocServiceOptions) {}
 
   async getDocs(

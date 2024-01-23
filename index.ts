@@ -1,6 +1,6 @@
-import { DocService } from './DocService';
+import { MDXService } from './MDXService';
 
-export type { IDocService } from './IDocService';
+export type { IMDXService } from './IMDXService';
 export type {
   DocServiceOptions,
   DocHeading,
@@ -9,6 +9,6 @@ export type {
   ConfigOptions,
   FrontmatterProcessor,
 } from './types';
-export { DocService };
+export { MDXService };
 
-export default DocService;
+export default MDXService;
