@@ -11,10 +11,10 @@ export function TableOfContents({
   ...props
 }: ComponentProps<'nav'>) {
   const {
-    pageProps: { frontmatter },
+    pageProps: { headings },
   } = usePageContext();
-  const lowest = Math.min(...frontmatter.headings.map((x) => x.level));
-  const components = frontmatter.headings.map((x) => ({
+  const lowest = Math.min(...headings.map((x) => x.level));
+  const components = headings.map((x) => ({
     ...x,
     Component: getMDXComponent(x.content),
   }));

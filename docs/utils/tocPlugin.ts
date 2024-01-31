@@ -4,12 +4,13 @@ import * as unist from 'unist';
 import { MdxJsxTextElement, mdxToMarkdown } from 'mdast-util-mdx';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import { bundleMDX } from 'mdx-bundler';
+import { Parent } from 'unist';
 
 export const tocPlugin =
   (headings: DocHeading[]): unified.Plugin =>
   () => {
-    return async (node: unist.Parent) => {
-      for (const element of node.children.filter(
+    return async (node) => {
+      for (const element of ((node as Parent)?.children ?? []).filter(
         (_: unist.Node) => _.type === 'heading'
       )) {
         if (element.type === 'heading') {

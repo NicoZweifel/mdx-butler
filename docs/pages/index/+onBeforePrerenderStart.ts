@@ -1,15 +1,17 @@
 import options from '../../options';
 
-import { DocService, PageService } from '../../services';
+import { Options, PageService } from '../../services';
 import { frontmatterProcessor } from '../../utils/frontmatterProcessor';
 import { tocPlugin } from '../../utils/tocPlugin';
 import { navGenerator } from '../../utils/navGenerator';
 import { sortProvider } from '../../utils/sortProvider';
+import { MDXService } from 'mdx-service';
+import { Frontmatter } from '../../types/Frontmatter';
 
 export { onBeforePrerenderStart };
 
 async function onBeforePrerenderStart() {
-  const docService = new DocService({
+  const mdxService = MDXService.create<Frontmatter, Options>({
     tocPlugin,
     sortProvider,
     frontmatterProcessor,
@@ -19,7 +21,7 @@ async function onBeforePrerenderStart() {
   const pageService = new PageService({
     navGenerator,
     ...options,
-    docService,
+    mdxService,
   });
 
   return pageService.getPages();

@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "dubbed-repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "pnpm --parallel test",
+    "build": "pnpm --filter mdx-service build",
+    "watch": "pnpm --parallel --filter mdx-service watch",
+    "prepare": "husky install",
+    "lint-staged": "npx lint-staged --allow-empty"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lint-staged": "^15.2.0",
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.2",
+    "husky": "^8.0.3"
+  },
+  "lint-staged": {
+    "*.{md,json,cjs,js,css}": "prettier --write",
+    "*.{ts,tsx,mdx}": "eslint --fix"
+  }
+}

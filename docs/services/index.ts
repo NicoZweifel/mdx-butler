@@ -1,9 +1,10 @@
-import { DocService, DocServiceOptions } from './DocService';
 import { PageService, PageServiceOptions, NavGenerator } from './PageService';
 import { ConfigOptions } from '../types';
+import { MDXServiceBaseOptions } from 'mdx-service';
+import { Frontmatter } from '../types/Frontmatter';
 
-export { PageService, DocService };
-export type { NavGenerator, DocServiceOptions, PageServiceOptions };
+export { PageService };
+export type { NavGenerator, PageServiceOptions };
 export type Options = ConfigOptions &
-  Omit<DocServiceOptions, keyof ConfigOptions> &
+  Omit<MDXServiceBaseOptions<Frontmatter>, keyof ConfigOptions> &
   Partial<Pick<PageServiceOptions, 'navGenerator'>>;

@@ -1,5 +1,5 @@
 {
-  "name": "vike-docs-template",
+  "name": "mdx-service-docs",
   "repository": "https://github.com/NicoZweifel/vike-docs-template",
   "type": "module",
   "license": "MIT",
@@ -10,8 +10,6 @@
     "preview": "vite preview",
     "format": "prettier **/*.{cjs,js,ts,tsx,css,json,md,mdx} --write",
     "lint": "eslint **/*.{ts,tsx,mdx} --fix",
-    "prepare": "husky install",
-    "lint-staged": "npx lint-staged --allow-empty",
     "test": "vitest"
   },
   "dependencies": {
@@ -26,6 +24,7 @@
   "devDependencies": {
     "preact-render-to-string": "^6.3.1",
     "mdx-bundler": "^10.0.1",
+    "mdx-service": "workspace:*",
     "esbuild": "^0.19.11",
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",
@@ -55,7 +54,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-vitest": "^0.3.20",
     "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
     "prettier": "^3.2.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
@@ -65,9 +63,5 @@
     "vite": "^5.0.12",
     "vite-plugin-full-reload": "^1.1.0",
     "vitest": "^1.2.1"
-  },
-  "lint-staged": {
-    "*.{md,json,cjs,js,css}": "prettier --write",
-    "*.{ts,tsx,mdx}": "eslint --fix"
   }
 }

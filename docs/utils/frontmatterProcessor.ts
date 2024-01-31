@@ -1,13 +1,13 @@
 import path from 'path';
 import fs from 'fs';
+import { FrontmatterProcessor } from 'mdx-service';
+import { Frontmatter } from '../types/Frontmatter';
+import { Options } from '../services';
 
-export const frontmatterProcessor = (
-  cwd: string,
-  file: string,
-  basePath: string,
-  // eslint-disable-next-line
-  frontmatter: Record<string, any>
-) => {
+export const frontmatterProcessor: FrontmatterProcessor<
+  Frontmatter,
+  Options & { route?: string }
+> = ({ file, cwd, basePath, route, frontmatter }) => {
   const absoluteCwd = path.join(process.cwd(), cwd);
 
   const filePath = path.join(absoluteCwd, file);
@@ -30,7 +30,6 @@ export const frontmatterProcessor = (
 
   if ((frontmatter.path?.length ?? 0) === 0) frontmatter.path = '/';
 
-  frontmatter.headings = [];
   frontmatter.lastEdited = fs.statSync(filePath).mtime.toDateString();
 
   const p = frontmatter.path.split('/').slice(-1)[0];
@@ -48,4 +47,10 @@ export const frontmatterProcessor = (
     frontmatter.index = true;
     frontmatter.title = p.charAt(0).toUpperCase() + p.slice(1);
   }
+
+  return (
+    route == undefined ||
+    route.toLowerCase() === frontmatter.route.toLowerCase() ||
+    route.toLowerCase() === frontmatter.path.toLowerCase()
+  );
 };
