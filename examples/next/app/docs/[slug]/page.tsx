@@ -1,5 +1,5 @@
 import { bundle } from "mdx-service";
-import { getMDXComponent } from "mdx-bundler/client";
+import { component } from "mdx-service/client";
 import { cache } from "react";
 
 type Frontmatter = {
@@ -36,7 +36,7 @@ export default async function Docs({
 
   if (!doc) return <div>not found</div>;
 
-  const Component = getMDXComponent(doc.code);
+  const Component = component(doc);
 
   return (
     <div>

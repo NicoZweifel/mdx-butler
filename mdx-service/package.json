@@ -25,9 +25,6 @@
   "keywords": [],
   "author": "Nico Zweifel",
   "license": "MIT",
-  "files": [
-    "./build"
-  ],
   "type": "module",
   "dependencies": {
     "unified": "^11.0.4",

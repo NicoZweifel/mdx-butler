@@ -8,3 +8,4 @@ export type { UnknownFrontMatter } from './UnknownFrontMatter';
 export type { FrontmatterProcessor } from './FrontmatterProcessor';
 export type { SortProvider } from './SortProvider';
 export type { SourceFileType } from './SourceFileType';
+export type { FieldDefinitions } from './FieldDefinitions';

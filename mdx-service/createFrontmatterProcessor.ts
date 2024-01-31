@@ -1,39 +1,18 @@
 import {
   FrontmatterProcessor,
   MDXServiceBaseOptions,
-  UnknownFrontMatter,
+  FieldDefinitions,
 } from './types';
 
-export type FieldDefinitions<
-  TFrontmatter extends Record<
-    keyof FieldDefinitions,
-    string
-  > = UnknownFrontMatter,
-  TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
-> = Record<
-  string,
-  {
-    required?: boolean;
-    resolve?: (
-      options: TOptions & {
-        frontmatter: Partial<TFrontmatter>;
-        file: string;
-        path: string;
-      }
-    ) => string;
-  }
->;
-
 export function createFrontmatterProcessor<
-  TFields extends FieldDefinitions<Record<string, string>, TOptions>,
+  TFields extends FieldDefinitions<Record<string, string>>,
   TOptions extends MDXServiceBaseOptions<
-    Record<string, string>
-  > = MDXServiceBaseOptions<Record<string, string>>,
+    Record<keyof TFields, string>
+  > = MDXServiceBaseOptions<Record<keyof TFields, string>>,
 >(
   fields: TFields
-): FrontmatterProcessor<Record<keyof FieldDefinitions, string>, TOptions> {
-  return (options) => {
+): FrontmatterProcessor<Record<keyof TFields, string>, TOptions> {
+  return function frontmatterProcessor(options) {
     for (const key in fields) {
       const isRequired = fields[key].required;
       const isDefined = options.frontmatter[key] != undefined;
@@ -50,7 +29,7 @@ export function createFrontmatterProcessor<
 
       if (!resolve) continue;
 
-      options.frontmatter[key] = resolve(options) as never;
+      options.frontmatter[key] = resolve(options as never);
     }
 
     return true;

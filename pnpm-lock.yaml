@@ -220,15 +220,9 @@ importers:
       '@remix-run/serve':
         specifier: ^2.5.1
         version: 2.5.1(typescript@5.3.3)
-      esbuild:
-        specifier: ^0.19.11
-        version: 0.19.11
       isbot:
         specifier: ^4.1.0
         version: 4.4.0
-      mdx-bundler:
-        specifier: ^10.0.1
-        version: 10.0.1(esbuild@0.19.11)
       mdx-service:
         specifier: workspace:*
         version: link:../../mdx-service
@@ -266,6 +260,9 @@ importers:
       eslint-plugin-jsx-a11y:
         specifier: ^6.7.1
         version: 6.8.0(eslint@8.56.0)
+      eslint-plugin-mdx:
+        specifier: ^2.3.4
+        version: 2.3.4(eslint@8.56.0)
       eslint-plugin-react:
         specifier: ^7.33.2
         version: 7.33.2(eslint@8.56.0)

@@ -1,4 +1,26 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import { bundle,createFrontmatterProcessor} from "../mdx-service.server";
+
+type Frontmatter = {
+  title: string;
+};
+
+export  function loader() {
+  return  json(bundle<Frontmatter>({
+    cwd:'/docs',
+    frontmatterProcessor:(x)=>{
+      const processor = createFrontmatterProcessor({
+        title:{
+          required:true,
+        }
+      })
+
+      return  processor(x)
+    },
+  }));
+}
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,6 +30,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const data = useLoaderData<typeof loader>();
+  console.log(data)
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>

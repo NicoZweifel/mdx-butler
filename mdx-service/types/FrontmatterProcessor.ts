@@ -1,6 +1,7 @@
 import { UnknownFrontMatter } from './UnknownFrontMatter';
 import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
-import { FieldDefinitions } from '../createFrontmatterProcessor';
+
+import { FieldDefinitions } from './FieldDefinitions';
 
 export type FrontmatterProcessor<
   TFrontmatter extends UnknownFrontMatter,

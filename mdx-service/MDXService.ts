@@ -56,10 +56,9 @@ export class MDXService<
     if (options.fields != undefined) {
       options.frontmatterProcessor =
         options.frontmatterProcessor ??
-        (createFrontmatterProcessor(options.fields) as FrontmatterProcessor<
-          TFrontmatter,
-          TOptions
-        >);
+        (createFrontmatterProcessor(
+          options.fields as never
+        ) as FrontmatterProcessor<TFrontmatter, TOptions>);
     } else {
       options.frontmatterProcessor =
         options.frontmatterProcessor ?? (() => true);
