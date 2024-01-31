@@ -1,0 +1,36 @@
+---
+title: Cloudflare Pages
+description: Deploying the project to [`Cloudflare Pages`](https://pages.cloudflare.com/).
+---
+
+import { Image } from '@unpic/preact';
+
+To deploy to [`Cloudflare Pages`](https://pages.cloudflare.com/), connect your `Github` account to `Cloudflare`.
+
+## Create Project
+
+- Create a new Pages project with the following Build & deployment settings:
+
+| Key                    | Value                                                          |
+| ---------------------- | -------------------------------------------------------------- |
+| Build command          | `npx pnpm i --store=node_modules/.pnpm-store && npm run build` |
+| Build output directory | `/dist/client`                                                 |
+| Root directory         | `/`                                                            |
+
+The `Cloudflare` build configuration section should look like this:
+
+<Image
+  priority
+  alt="Cloudflare pages settings"
+  src={'/cloudflare_pages_settings.png'}
+/>
+
+`pnpm` is used in this project, so we'll have to bypass `npm i` on `Cloudflare` by setting an environment variable in the pages project:
+
+```
+NPM_FLAGS=--version
+```
+
+## Done!
+
+<Success>Deploy by pushing your commits to `Github`!</Success>
