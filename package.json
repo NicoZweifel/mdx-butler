@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ci:publish": "pnpm publish -r",
     "test": "pnpm --parallel test",
     "build": "pnpm --filter mdx-tug build",
     "watch": "pnpm --parallel --filter mdx-tug watch",
