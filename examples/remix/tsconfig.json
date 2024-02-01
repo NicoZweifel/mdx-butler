@@ -8,6 +8,7 @@
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "target": "ES2022",
+    "module": "ESNext",
     "strict": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "mdx-service": ["./mdx-service/build/*"],
+      "mdx-tug": ["../../mdx-tug/build/*"],
+      "mdx-tug/client": ["../../mdx-tug/build/client"],
     },
 
     // Remix takes care of building everything in `remix build`.

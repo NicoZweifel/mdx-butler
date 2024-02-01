@@ -12,7 +12,8 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "jsx": "preserve",
   },
-  "include": ["index.ts", "client.ts"],
+  "include": ["index.ts", "client.ts", "preactEntry.ts"],
   "exclude": ["node_modules", "build"],
 }

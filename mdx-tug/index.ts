@@ -1,4 +1,4 @@
-import { MDXService } from './MDXService';
+import { MDXBundlerService } from './MDXBundlerService';
 import { bundle } from './bundle';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor';
 
@@ -12,6 +12,6 @@ export type {
   MDXBundlerOptions,
   FrontmatterProcessor,
 } from './types';
-export { MDXService, bundle, createFrontmatterProcessor };
+export { MDXBundlerService, bundle, createFrontmatterProcessor };
 
-export default MDXService;
+export default bundle;

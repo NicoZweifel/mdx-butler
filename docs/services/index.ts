@@ -1,6 +1,6 @@
 import { PageService, PageServiceOptions, NavGenerator } from './PageService';
 import { ConfigOptions } from '../types';
-import { MDXServiceBaseOptions } from 'mdx-service';
+import { MDXServiceBaseOptions } from 'mdx-tug';
 import { Frontmatter } from '../types/Frontmatter';
 
 export { PageService };

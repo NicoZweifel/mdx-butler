@@ -1,4 +1,4 @@
-import { MDXService } from './MDXService';
+import { MDXBundlerService } from './MDXBundlerService';
 import {
   MDXServiceBaseOptions,
   MDXServiceOptions,
@@ -10,7 +10,7 @@ export function bundle<
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
 >(options: MDXServiceOptions<TFrontmatter, TOptions>) {
-  const service = MDXService.create<TFrontmatter, TOptions>(options);
+  const service = MDXBundlerService.create<TFrontmatter, TOptions>(options);
 
   return service.bundle();
 }

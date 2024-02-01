@@ -1,5 +1,5 @@
 {
-  "name": "mdx-service-docs",
+  "name": "mdx-tug-docs",
   "repository": "https://github.com/NicoZweifel/vike-docs-template",
   "type": "module",
   "license": "MIT",
@@ -17,14 +17,14 @@
     "@unpic/preact": "^0.0.36",
     "clsx": "^2.1.0",
     "preact": "^10.19.3",
-    "react": "npm:@preact/compat@^17.1.2",
-    "react-dom": "npm:@preact/compat@^17.1.2",
     "react-feather": "^2.0.10"
   },
   "devDependencies": {
+    "react": "npm:@preact/compat@^17.1.2",
+    "react-dom": "npm:@preact/compat@^17.1.2",
     "preact-render-to-string": "^6.3.1",
     "mdx-bundler": "^10.0.1",
-    "mdx-service": "workspace:*",
+    "mdx-tug": "workspace:*",
     "esbuild": "^0.19.11",
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",

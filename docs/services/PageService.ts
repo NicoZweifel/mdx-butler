@@ -1,7 +1,7 @@
 import { ConfigOptions, NavItem } from '../types';
 import { NavTreeNode } from '../types/NavTreeNode';
 import { bundleMDX } from 'mdx-bundler';
-import { IMDXService } from 'mdx-service';
+import { IMDXService } from 'mdx-tug';
 import { Frontmatter } from '../types/Frontmatter';
 import { Options } from './index';
 

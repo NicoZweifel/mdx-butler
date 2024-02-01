@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { FrontmatterProcessor } from 'mdx-service';
+import { FrontmatterProcessor } from 'mdx-tug';
 import { Frontmatter } from '../types/Frontmatter';
 import { Options } from '../services';
 

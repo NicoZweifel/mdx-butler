@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "paths": {
-      "mdx-service": ["./mdx-service/build/*"],
-    },
-  },
-}

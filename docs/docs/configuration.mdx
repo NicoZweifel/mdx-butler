@@ -7,7 +7,7 @@ Configuration can be done through options or by adding or customizing styles, co
 
 ## Options
 
-Configure the `name`, `repository`, `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
+Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
 
 <Info>
   For convenience, you can re-use the fields in `package.json`, if they are
@@ -15,46 +15,16 @@ Configure the `name`, `repository`, `cwd`, `pattern` and other options like `reh
 </Info>
 
 ```ts {4-5,18-26,11-12} showLineNumbers
-import packageJsonFile from './package.json';
-
-const options: BundleMDXOptions = {
-  name: packageJsonFile.name,
-  repository: packageJsonFile.repository,
-  // other options
-  license: packageJsonFile.license,
-  author: packageJsonFile.author,
-  baseRoute: '/',
-  logo: '/vite.svg',
-  pattern: '**/*.mdx',
-  cwd: '/docsServer',
-  toc: true,
-  mdxBundlerOptions: {
-    mdxOptions: {
-      jsxImportSource: 'preact',
-      // rehype/remark plugins...
-      remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],
-      rehypePlugins: [
-        [
-          rehypePrism,
-          {
-            defaultLanguage: 'bash',
-          },
-        ],
-        rehypeSlug,
-      ],
-    },
-  },
+export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
+  cwd: string;
+  mdxBundlerOptions?: MDXBundlerOptions;
+  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
+  tocPlugin?: (headings: DocHeading[]) => Plugin;
+  filePattern?: string;
+  fileProvider?: () => Promise<SourceFileType[]>;
 };
-
-export default options;
 ```
-
-<Info>
-  Check out the [styling](/customization/ui/styling) section to learn more about
-  changing styles, components and themes, including [prism
-  themes](/customization/ui/styling#prism-themes).
-</Info>
 
 ## Bring your own!
 
-Use-case specific configurations and implementations are kept to a minimum. Adding additional solutions is recommended.
+Use-case specific configurations and implementations are kept to a minimum. Adding additional solutions or extending the existing ones is recommended.

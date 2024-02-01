@@ -1,13 +1,13 @@
 {
   "private": true,
-  "name": "dubbed-repo",
-  "version": "1.0.0",
+  "name": "mdx-tugged-monorepo",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "pnpm --parallel test",
-    "build": "pnpm --filter mdx-service build",
-    "watch": "pnpm --parallel --filter mdx-service watch",
+    "build": "pnpm --filter mdx-tug build",
+    "watch": "pnpm --parallel --filter mdx-tug watch",
     "prepare": "husky install",
     "lint-staged": "npx lint-staged --allow-empty"
   },

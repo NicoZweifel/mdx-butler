@@ -1,13 +1,10 @@
-import { bundle } from "mdx-service";
-import { component } from "mdx-service/client";
+import { bundle } from "mdx-tug";
 import { cache } from "react";
+import { Component } from "mdx-tug/client";
 
-type Frontmatter = {
-  title: string;
-};
 
 const getDocs = cache(() =>
-  bundle<Frontmatter>({
+  bundle({
     cwd: "/docs",
    fields:{
       title:{
@@ -36,12 +33,27 @@ export default async function Docs({
 
   if (!doc) return <div>not found</div>;
 
-  const Component = component(doc);
-
   return (
-    <div>
-      <h1>{doc.frontmatter.title}</h1>
-      <Component />
+    <div style={{
+      display:'flex',
+      gap:'1rem',
+      flexDirection:"row"
+    }}>
+      <div>
+        <h1>{doc.frontmatter.title}</h1>
+        <Component doc={doc} />
+      </div>
+      <div
+        style={{
+          display:'flex',
+          gap:'1rem',
+          flexDirection:"column"
+        }}
+      >
+        <h2>On this page</h2>
+        {doc.headings.map(x=> <a key={x.title} href={`#${x.title}`}>{x.title}</a>)}
+      </div>
     </div>
   );
+
 }

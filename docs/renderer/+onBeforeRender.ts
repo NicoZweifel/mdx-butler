@@ -7,7 +7,7 @@ import { frontmatterProcessor } from '../utils/frontmatterProcessor';
 import { tocPlugin } from '../utils/tocPlugin';
 import { navGenerator } from '../utils/navGenerator';
 import { sortProvider } from '../utils/sortProvider';
-import { MDXService } from 'mdx-service';
+import { MDXBundlerService } from 'mdx-tug';
 import { Frontmatter } from '../types/Frontmatter';
 
 export { onBeforeRender };
@@ -18,7 +18,7 @@ async function onBeforeRender(pageContext: PageContext) {
     route: pageContext.urlPathname,
   };
 
-  const docService = MDXService.create<
+  const docService = MDXBundlerService.create<
     Frontmatter,
     Options & { route?: string }
   >({

@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+        <a style={{fontWeight:600,fontSize:'24px'}} href={'/docs/hello'}>GO TO DOCS EXAMPLE</a>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.tsx</code>

@@ -18,7 +18,7 @@ import { SOURCE_FILE_TYPE } from './types/SourceFileType';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor';
 import { bundleHeadings } from './utils';
 
-export class MDXService<
+export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
@@ -70,7 +70,7 @@ export class MDXService<
         return x.sort((a, b) => a.file.localeCompare(b.file));
       });
 
-    return new MDXService(options);
+    return new MDXBundlerService(options);
   }
 
   async bundle(

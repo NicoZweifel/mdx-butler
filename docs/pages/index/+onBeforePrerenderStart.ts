@@ -5,13 +5,13 @@ import { frontmatterProcessor } from '../../utils/frontmatterProcessor';
 import { tocPlugin } from '../../utils/tocPlugin';
 import { navGenerator } from '../../utils/navGenerator';
 import { sortProvider } from '../../utils/sortProvider';
-import { MDXService } from 'mdx-service';
+import { MDXBundlerService } from 'mdx-tug';
 import { Frontmatter } from '../../types/Frontmatter';
 
 export { onBeforePrerenderStart };
 
 async function onBeforePrerenderStart() {
-  const mdxService = MDXService.create<Frontmatter, Options>({
+  const mdxService = MDXBundlerService.create<Frontmatter, Options>({
     tocPlugin,
     sortProvider,
     frontmatterProcessor,

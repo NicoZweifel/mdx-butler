@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { MDXService } from './MDXService';
+import { MDXBundlerService } from './MDXBundlerService';
 
 describe('MDXService integration tests', () => {
   afterEach(() => {
@@ -9,7 +9,7 @@ describe('MDXService integration tests', () => {
   it('should process hello_world.mdx headings.', async () => {
     const cwd = '/data';
 
-    const mdxService = MDXService.create<{ title: string }>({
+    const mdxService = MDXBundlerService.create<{ title: string }>({
       filePattern: 'hello_world.mdx',
       cwd,
     });
