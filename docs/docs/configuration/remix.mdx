@@ -10,6 +10,8 @@ Rendering with Remix requires a couple of steps.
   [GitHub](https://github.com/NicoZweifel/mdx-tug/tree/main/examples/remix)
 </Info>
 
+## Server modules
+
 <Warning>
   To prevent server modules in the client bundle, use
   [`*.server.ts`](https://remix.run/docs/en/main/file-conventions/-server) file
@@ -21,6 +23,10 @@ Create a file named `mdx-tug.server.ts`.
 ```ts
 export { bundle, createFrontmatterProcessor } from 'mdx-tug';
 ```
+
+## Page
+
+Import the previously created server exports in your page.
 
 <Info>
   Remix uses a [`loader`](https://remix.run/docs/en/main/route/loader) to load
