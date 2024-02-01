@@ -2,14 +2,23 @@
 description: Change how sorting is handled
 ---
 
-The sort order can be determined by passing a `SortProvider`.
+The sort order can be customized by passing a `SortProvider`.
 
-```tsx
-export type Options = {
+<Info>Documents are sorted alphabetically by their path.</Info>
+
+```ts {4} showLineNumbers
+return bundle({
   // other options
-  sortProvider?: SortProvider<Awaited<ReturnType<typeof bundleMDX>>>;
-};
+  sortProvider: (/*params*/) => {
+    // implementation
+  },
+});
 ```
+
+<Info>
+  To get full control over how sorting is handled, it is possible to inject a
+  custom `SortProvider`.
+</Info>
 
 ```ts
 export type SortProvider<

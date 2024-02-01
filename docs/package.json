@@ -2,6 +2,7 @@
   "name": "mdx-tug-docs",
   "repository": "https://github.com/NicoZweifel/vike-docs-template",
   "type": "module",
+  "private": true,
   "license": "MIT",
   "author": "Nico Zweifel",
   "scripts": {

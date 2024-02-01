@@ -1,6 +1,26 @@
 ---
-description: Static Site Generation with [Remix](https://remix.run/)
+description: Rendering with [Remix](https://remix.run/)
+order: 4
 ---
+
+Rendering with Remix requires a couple of steps.
+
+<Warning>
+  To prevent server modules in the client bundle, use
+  [`*.server.ts`](https://remix.run/docs/en/main/file-conventions/-server) file
+  names.
+</Warning>
+
+Create a file named `mdx-tug.server.ts`.
+
+```ts
+export { bundle, createFrontmatterProcessor } from 'mdx-tug';
+```
+
+<Info>
+  Remix uses a [`loader`](https://remix.run/docs/en/main/route/loader) to load
+  page data.
+</Info>
 
 ```tsx
 import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';

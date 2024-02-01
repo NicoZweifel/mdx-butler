@@ -1,6 +1,9 @@
 ---
 description: Static Site Generation with [Next.js](https://nextjs.org/)
+order: 3
 ---
+
+[Next.js](https://nextjs.org/) does not require any additional setup and should work out of the box.
 
 ## Simple
 
@@ -72,6 +75,8 @@ export default async function Docs({
 
 ## Optimized
 
+For more ambitious use-cases and for filtering that depends on the `Frontmatter` object, the `getDocs` function can be adjusted.
+
 ```tsx
 import { bundle, createFrontmatterProcessor } from 'mdx-tug';
 import { cache } from 'react';
@@ -91,6 +96,7 @@ const getDocs = cache((slug?: string) =>
         },
       });
 
+      // returning false will prevent bundling on unwanted documents.
       return (processor(x) && slug == undefined) || slug === x.path;
     },
   })

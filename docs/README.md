@@ -1,4 +1,6 @@
-# vike-docsServer-template
+# mdx-tuc-docs
+
+## based on: [vike-docs-template](https://github.com/NicoZweifel/vike-docs-template)
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://vike-docs-template.nicozweifel.com/)
 
@@ -12,7 +14,7 @@ A simple template to easily deploy [`MDX`](https://mdxjs.com/) files.
 
 ## Notes
 
-- Author mdx files in a `docsServer` folder or with [any file pattern](https://vike-docs-template.nicozweifel.com/configuration#options).
+- Author mdx files in a `/docs` folder or with [any file pattern](https://vike-docs-template.nicozweifel.com/configuration#options).
 - File and frontmatter based routing
 - A Perfect lighthouse score.
 - Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.

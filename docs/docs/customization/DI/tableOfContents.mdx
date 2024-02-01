@@ -5,20 +5,27 @@ description: Change how the table of contents is generated
 
 You can Override the default table of contents plugin by passing an alternative plugin.
 
-```tsx
-export type Options = {
-  // other options
-  tocPlugin?: (headings: DocHeading[]) => unified.Plugin;
-};
-```
-
 <Info>
   The array that is passed to the plugin should be filled with the headings that
   are retrieving when parsing the `AST`.
 </Info>
 
-```ts
-export type DocServiceOptions = ConfigOptions & {
+```ts {4} showLineNumbers
+return bundle({
+  // other options
+  tocPlugin: (/*params*/) => {
+    // implementation
+  },
+});
+```
+
+<Info>
+  To get full control of the `header` and `tableOfContents` creation, it is
+  possible to inject a custom `tocPlugin`.
+</Info>
+
+```ts {2} showLineNumbers
+export type DocServiceOptions = Pick<ConfigOptions, 'baseRoute'> & {
   // other options
   tocPlugin?: (headings: DocHeading[]) => unified.Plugin;
 };
