@@ -97,7 +97,7 @@ const getDocs = cache((slug?: string) =>
         },
       });
 
-      // returning false will prevent bundling on unwanted documents.
+      // returning false will prevent bundling of unwanted documents.
       return (processor(x) && slug == undefined) || slug === x.path;
     },
   })
