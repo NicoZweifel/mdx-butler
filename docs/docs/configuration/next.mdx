@@ -121,7 +121,7 @@ export default async function Docs({
 }: {
   params: { slug: string };
 }) {
-  const docs = await getDocs();
+  const docs = await getDocs(slug);
 
   const doc = docs.filter((x) => slug === x.path)[0];
 
