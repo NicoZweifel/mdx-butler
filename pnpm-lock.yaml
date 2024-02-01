@@ -148,6 +148,9 @@ importers:
       esbuild:
         specifier: ^0.19.11
         version: 0.19.11
+      estree-util-build-jsx:
+        specifier: ^3.0.1
+        version: 3.0.1
       glob:
         specifier: ^10.3.10
         version: 10.3.10

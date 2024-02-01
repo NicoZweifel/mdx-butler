@@ -36,6 +36,7 @@
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-mdx-expression": "^2.0.0",
+    "estree-util-build-jsx": "^3.0.1",
     "esbuild": "^0.19.11"
   },
   "peerDependencies": {
