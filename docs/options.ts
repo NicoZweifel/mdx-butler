@@ -7,7 +7,7 @@ import { Options } from './services';
 import packageJsonFile from './package.json';
 
 const options: Options = {
-  name: packageJsonFile.name,
+  name: 'mdx-tug',
   repository: packageJsonFile.repository,
   license: packageJsonFile.license,
   author: packageJsonFile.author,
