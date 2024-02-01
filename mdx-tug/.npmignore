@@ -1,0 +1,4 @@
+.eslintrc.cjs
+.prettierrc
+**/*.test.*
+**/*.mdx

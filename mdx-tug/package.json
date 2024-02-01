@@ -15,6 +15,7 @@
   },
   "scripts": {
     "publish": "pnpm publish -r",
+    "prepublish": "pnpm build",
     "compile": "tsc",
     "compile:watch": "tsc",
     "watch": "npm-run-all build:clean compile:watch",
