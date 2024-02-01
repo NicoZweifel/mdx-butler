@@ -21,7 +21,8 @@ pnpm i mdx-tub
 
 The easiest way to get all bundled documents within a folder is to call the `bundle` function.
 
-> [!Warning] > `bundle`, `MDXService` or any other exports from the `mdx-tug` root entrypoint
+> [!Warning]
+> Exports like `bundle`, `MDXService` or any others from the `mdx-tug` root entrypoint
 > should only be imported in a server or build context.
 
 Options and dependencies can be passed to `bundle` or `MDXService.create`.
