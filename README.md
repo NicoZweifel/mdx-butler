@@ -107,6 +107,13 @@ return (
 > Start editing `MDX` documents inside `/docs` or the configured [working
 > directory](https://mdx-tug.com/configuration)
 
+## Security Notice
+
+> [!CAUTION]
+> MDX is javascript. If not carefully done, evaluating user content can expose to XSS attacks.
+>
+> Always be careful if you are not evaluating your own content.
+
 ## Mentions
 
 - [`vike`](https://vike.dev/) for providing a customizable, versatile web framework.
