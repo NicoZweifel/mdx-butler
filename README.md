@@ -1,4 +1,4 @@
-# mdx-tuc
+# mdx-tug
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-tug.pages.dev/)
 
