@@ -21,20 +21,16 @@ pnpm i mdx-tub
 
 The easiest way to get all bundled documents within a folder is to call the `bundle` function.
 
-<Warning>
-  `bundle`, `MDXService` or any other exports from the `mdx-tug` root entrypoint
-  should only be imported in a server or build context.
-</Warning>
+> [!Warning] > `bundle`, `MDXService` or any other exports from the `mdx-tug` root entrypoint
+> should only be imported in a server or build context.
 
 Options and dependencies can be passed to `bundle` or `MDXService.create`.
 
-<Info>
-  If you require more control, consider [injecting
-  dependencies](/customization/DI) and using `MDXService` directly.
-
-For more information check out the [Configuration](/configuration) section!
-
-</Info>
+> [!Note]
+> If you require more control, consider [injecting
+> dependencies](/customization/DI) and using `MDXService` directly.
+>
+> For more information check out the [Configuration](/configuration) section!
 
 ```ts {1,7-10} showLineNumbers
 import { bundle } from "mdx-tug";
@@ -51,10 +47,9 @@ return bundle({
 });
 ```
 
-<Success>
-  Automatically generates a `FrontmatterProcessor`, according to the given
-  `fields`.
-</Success>
+> [!Tip]
+> Automatically generates a `FrontmatterProcessor`, according to the given
+> `fields`.
 
 #### Types
 
@@ -77,12 +72,10 @@ return bundle<Frontmatter>({
 });
 ```
 
-<Info>
-  The given Fields cannot be undefined after the `Frontmatter` has been processed.
-
-If a required field is `undefined`, an `Error` will be thrown.
-
-</Info>
+> [!Note]
+> The given Fields cannot be undefined after the `Frontmatter` has been processed.
+>
+> If a required field is `undefined`, an `Error` will be thrown.
 
 ### `Component`
 
@@ -103,10 +96,9 @@ return (
 );
 ```
 
-<Success>
-  Start editing `MDX` documents inside `/docs` or the configured [working
-  directory](/configuration)
-</Success>
+> [!Tip]
+> Start editing `MDX` documents inside `/docs` or the configured [working
+> directory](/configuration)
 
 ## Notes
 
