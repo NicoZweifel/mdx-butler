@@ -1,12 +1,12 @@
 # mdx-tug
 
-[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-tug.pages.dev/)
+[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-tug.com/)
 
 Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 
 ## Notes
 
-- Author mdx files in a `docs` folder, with [any file pattern](https://mdx-tug.pages.dev/configuration#options) or with a custom [`FileProvider`](https://mdx-tug.pages.dev/customization/di/fileProvider).
+- Author mdx files in a `docs` folder, with [any file pattern](https://mdx-tug.com/configuration#options) or with a custom [`FileProvider`](https://mdx-tug.com/customization/di/fileProvider).
 - Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
 - Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
 
@@ -20,8 +20,8 @@ pnpm i mdx-tug
 
 ### Examples
 
-- [Next.js](https://mdx-tug.pages.dev/configuration/next)
-- [Remix](https://mdx-tug.pages.dev/configuration/remix)
+- [Next.js](https://mdx-tug.com/configuration/next)
+- [Remix](https://mdx-tug.com/configuration/remix)
 
 ### Bundling
 
@@ -35,9 +35,9 @@ Options and dependencies can be passed to `bundle` or `MDXService.create`.
 
 > [!Note]
 > If you require more control, consider [injecting
-> dependencies](https://mdx-tug.pages.dev/customization/DI) and using `MDXService` directly.
+> dependencies](https://mdx-tug.com/customization/DI) and using `MDXService` directly.
 >
-> For more information check out the [Configuration](https://mdx-tug.pages.dev/configuration) section!
+> For more information check out the [Configuration](https://mdx-tug.com/configuration) section!
 
 ```ts {1,7-10} showLineNumbers
 import { bundle } from "mdx-tug";
@@ -105,7 +105,7 @@ return (
 
 > [!Tip]
 > Start editing `MDX` documents inside `/docs` or the configured [working
-> directory](https://mdx-tug.pages.dev/configuration)
+> directory](https://mdx-tug.com/configuration)
 
 ## Mentions
 
