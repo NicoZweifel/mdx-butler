@@ -1,0 +1,21 @@
+---
+description: Customize the source of the files.
+---
+
+To add a custom file source, for example a database, pass a custom `FileProvider`.
+
+```ts {4} showLineNumbers
+return bundle({
+  // other options
+  fileProvider: (/*params*/) => {
+    // implementation
+  },
+});
+```
+
+```ts {2} showLineNumbers
+export type DocServiceOptions = Pick<ConfigOptions, 'baseRoute'> & {
+  // other options
+  fileProvider?: () => Promise<SourceFileType[]>;
+};
+```
