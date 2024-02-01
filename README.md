@@ -15,7 +15,7 @@ Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 ### Installation
 
 ```
-pnpm i mdx-tub
+pnpm i mdx-tug
 ```
 
 ### Examples
