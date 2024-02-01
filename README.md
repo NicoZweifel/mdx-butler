@@ -6,7 +6,7 @@ Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 
 ## Notes
 
-- Author mdx files in a `docs` folder, with [any file pattern](https://mdx-tug.com/configuration#options) or with a custom [`FileProvider`](https://mdx-tug.com/customization/di/fileProvider).
+- Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-tug.com/configuration#options) or with a custom [`FileProvider`](https://mdx-tug.com/customization/di/fileProvider).
 - Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
 - Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
 
