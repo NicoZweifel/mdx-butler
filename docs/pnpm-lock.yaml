@@ -88,8 +88,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(esbuild@0.19.12)
       mdx-tug:
-        specifier: '*'
-        version: 0.0.1(mdx-bundler@10.0.1)
+        specifier: 0.0.2
+        version: 0.0.2
       preact-render-to-string:
         specifier: ^6.3.1
         version: 6.3.1(preact@10.19.3)
@@ -3932,10 +3932,8 @@ packages:
       - supports-color
     dev: true
 
-  /mdx-tug@0.0.1(mdx-bundler@10.0.1):
-    resolution: {integrity: sha512-WIHrbNPGQAaxSPxbj0BW8WtbUi+fNF+QSQ/7r3gBe5KUUJKPbHoKDoajbLDQ/wLwcSTUnb5t+jMyFag3Xhr2Ww==}
-    peerDependencies:
-      mdx-bundler: '>= 10.0.0'
+  /mdx-tug@0.0.2:
+    resolution: {integrity: sha512-AsghCQTncISuonEU0/PavLjHtVm7UL/h4jq2BQgdDAEOWnsqm45yVZKFaoCDPaFUq9JWw16gAXK/pQR7VAmxBw==}
     dependencies:
       esbuild: 0.19.12
       glob: 10.3.10

@@ -6,17 +6,17 @@ import {
   MDXServiceReturnType,
   SourceFileType,
   UnknownFrontMatter,
-} from './types';
+} from './types/index.js';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
 
-import { IMDXService } from './IMDXService';
-import { FileNotRequiredError } from './FileNotRequiredError';
-import { tocPlugin } from './tocPlugin';
-import { SOURCE_FILE_TYPE } from './types/SourceFileType';
-import { createFrontmatterProcessor } from './createFrontmatterProcessor';
-import { bundleHeadings } from './utils';
+import { IMDXService } from './IMDXService.js';
+import { FileNotRequiredError } from './FileNotRequiredError.js';
+import { tocPlugin } from './tocPlugin.js';
+import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
+import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
+import { bundleHeadings } from './utils.js';
 
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,

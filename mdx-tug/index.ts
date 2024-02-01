@@ -1,17 +1,17 @@
-import { MDXBundlerService } from './MDXBundlerService';
-import { bundle } from './bundle';
-import { createFrontmatterProcessor } from './createFrontmatterProcessor';
+import { MDXBundlerService } from './MDXBundlerService.js';
+import { bundle } from './bundle.js';
+import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 
 export * from 'mdx-bundler';
 
-export type { IMDXService } from './IMDXService';
+export type { IMDXService } from './IMDXService.js';
 export type {
   MDXServiceBaseOptions,
   DocHeading,
   MDXOptions,
   MDXBundlerOptions,
   FrontmatterProcessor,
-} from './types';
+} from './types/index.js';
 export { MDXBundlerService, bundle, createFrontmatterProcessor };
 
 export default bundle;

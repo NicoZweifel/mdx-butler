@@ -2,7 +2,7 @@ import {
   FrontmatterProcessor,
   MDXServiceBaseOptions,
   FieldDefinitions,
-} from './types';
+} from './types/index.js';
 
 export function createFrontmatterProcessor<
   TFields extends FieldDefinitions<Record<string, string>>,

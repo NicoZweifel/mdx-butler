@@ -1,9 +1,9 @@
-import { MDXBundlerService } from './MDXBundlerService';
+import { MDXBundlerService } from './MDXBundlerService.js';
 import {
   MDXServiceBaseOptions,
   MDXServiceOptions,
   UnknownFrontMatter,
-} from './types';
+} from './types/index.js';
 
 export function bundle<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,

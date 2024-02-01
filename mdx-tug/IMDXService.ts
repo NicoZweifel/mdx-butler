@@ -4,7 +4,7 @@ import {
   MDXServiceOptions,
   MDXServiceReturnType,
   SourceFileType,
-} from './types';
+} from './types/index.js';
 
 export interface IMDXService<
   TFrontmatter extends UnknownFrontMatter,
