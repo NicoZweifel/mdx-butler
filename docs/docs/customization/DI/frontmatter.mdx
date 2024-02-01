@@ -14,7 +14,7 @@ This can be useful, if you want to optimize and bundle only certain files on dem
 ```ts {7} showLineNumbers
 return bundle({
   // other options
-  frontmatterProcessor: () => {
+  frontmatterProcessor: (/*params*/) => {
     // implementation
   },
 });
