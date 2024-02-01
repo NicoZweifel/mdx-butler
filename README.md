@@ -1,6 +1,6 @@
 # mdx-tuc
 
-[![Docs](https://img.shields.io/badge/docs-online-green)](https://github.com/NicoZweifel/mdx-tug)
+[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-tug.com)
 
 Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 
@@ -14,7 +14,7 @@ pnpm i mdx-tub
 
 ### Examples
 
-- [Next.js](https://mdx-tug.com/configuration/next.js)
+- [Next.js](https://mdx-tug.com/configuration/next)
 - [Remix](https://mdx-tug.com/configuration/remix)
 
 ### Bundling

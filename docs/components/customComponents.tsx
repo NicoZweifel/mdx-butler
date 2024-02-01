@@ -14,7 +14,7 @@ export const Error = (p: ActionCardProps) => <Card {...p} variant={'error'} />;
 
 export const Examples = () => (
   <div className={'flex sm:flex-row flex-col gap-4'}>
-    <a className={'grow'} href={'/configuration/next.js'}>
+    <a className={'grow'} href={'/configuration/next'}>
       <Card className={'font-bold flex flex-row'}>Next.js</Card>
     </a>
     <a className={'grow'} href={'/configuration/remix'}>
