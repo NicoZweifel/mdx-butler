@@ -13,8 +13,8 @@
     "paths": {
       "react": ["./node_modules/preact/compat/"],
       "react-dom": ["./node_modules/preact/compat/"],
-      "mdx-tug": ["./../mdx-tug/build/*"],
-      "mdx-tug/client": ["./../mdx-tug/build/client"],
+      "mdx-tug": ["./node_modules/mdx-tug/build/*"],
+      "mdx-tug/client": ["./node_modules/mdx-tug/build/client"],
     },
   },
   "include": ["node_modules/vite/client.d.ts", "**/*.ts", "**/*.tsx"],
