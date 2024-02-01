@@ -1,6 +1,6 @@
 {
   "name": "mdx-tug",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "private": false,
   "repository": "https://github.com/NicoZweifel/mdx-tug",
@@ -36,8 +36,8 @@
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-mdx-expression": "^2.0.0",
-    "estree-util-build-jsx": "^3.0.1",
-    "esbuild": "^0.19.11"
+    "esbuild": "^0.19.11",
+    "estree-util-build-jsx": "3.0.0"
   },
   "peerDependencies": {
     "mdx-bundler": ">= 10.0.0"

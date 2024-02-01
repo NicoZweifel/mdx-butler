@@ -149,8 +149,8 @@ importers:
         specifier: ^0.19.11
         version: 0.19.11
       estree-util-build-jsx:
-        specifier: ^3.0.1
-        version: 3.0.1
+        specifier: 3.0.0
+        version: 3.0.0
       glob:
         specifier: ^10.3.10
         version: 10.3.10
@@ -1326,7 +1326,7 @@ packages:
       '@types/mdx': 2.0.10
       collapse-white-space: 2.1.0
       devlop: 1.1.0
-      estree-util-build-jsx: 3.0.1
+      estree-util-build-jsx: 3.0.0
       estree-util-is-identifier-name: 3.0.0
       estree-util-to-js: 2.0.0
       estree-walker: 3.0.3
@@ -3793,8 +3793,8 @@ packages:
       estree-walker: 3.0.3
     dev: true
 
-  /estree-util-build-jsx@3.0.1:
-    resolution: {integrity: sha512-8U5eiL6BTrPxp/CHbs2yMgP8ftMhR5ww1eIKoWRMlqvltHF8fZn5LRDvTKuxD3DUn+shRbLGqXemcP51oFCsGQ==}
+  /estree-util-build-jsx@3.0.0:
+    resolution: {integrity: sha512-mIxOqyNfkwCz7MU7d8Hd0meGj+Vnn2U06mGuUkPTPlNumBfM1gqL2OlC+rB+QgRAmodoUGaHK5GgqoKQ0T8QRw==}
     dependencies:
       '@types/estree-jsx': 1.0.3
       devlop: 1.1.0

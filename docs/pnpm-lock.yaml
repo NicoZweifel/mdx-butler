@@ -88,8 +88,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(esbuild@0.19.12)
       mdx-tug:
-        specifier: 0.0.4
-        version: 0.0.4(mdx-bundler@10.0.1)
+        specifier: 0.1.1
+        version: 0.1.1(mdx-bundler@10.0.1)
       preact-render-to-string:
         specifier: ^6.3.1
         version: 6.3.1(preact@10.19.3)
@@ -798,7 +798,7 @@ packages:
       '@types/mdx': 2.0.11
       collapse-white-space: 2.1.0
       devlop: 1.1.0
-      estree-util-build-jsx: 3.0.1
+      estree-util-build-jsx: 3.0.0
       estree-util-is-identifier-name: 3.0.0
       estree-util-to-js: 2.0.0
       estree-walker: 3.0.3
@@ -2514,6 +2514,15 @@ packages:
       '@types/estree': 1.0.5
     dev: true
 
+  /estree-util-build-jsx@3.0.0:
+    resolution: {integrity: sha512-mIxOqyNfkwCz7MU7d8Hd0meGj+Vnn2U06mGuUkPTPlNumBfM1gqL2OlC+rB+QgRAmodoUGaHK5GgqoKQ0T8QRw==}
+    dependencies:
+      '@types/estree-jsx': 1.0.4
+      devlop: 1.1.0
+      estree-util-is-identifier-name: 3.0.0
+      estree-walker: 3.0.3
+    dev: true
+
   /estree-util-build-jsx@3.0.1:
     resolution: {integrity: sha512-8U5eiL6BTrPxp/CHbs2yMgP8ftMhR5ww1eIKoWRMlqvltHF8fZn5LRDvTKuxD3DUn+shRbLGqXemcP51oFCsGQ==}
     dependencies:
@@ -3932,12 +3941,13 @@ packages:
       - supports-color
     dev: true
 
-  /mdx-tug@0.0.4(mdx-bundler@10.0.1):
-    resolution: {integrity: sha512-4t7uHHMAA8yEe39yZZJuIZ3ZZjOEuCA7aHEWaFiIasN1nsVZM4CNH2cEFvVst14UFzhsDRs4JNGIuJUlLSpIQA==}
+  /mdx-tug@0.1.1(mdx-bundler@10.0.1):
+    resolution: {integrity: sha512-0GBmNs704nV8yhEDHEE2YlLvmBRwzdJsMv4ounfoXObzzMemGawRyZUbKyub+/Qpi0W26o8cciX/kXj81gj2Ew==}
     peerDependencies:
       mdx-bundler: '>= 10.0.0'
     dependencies:
       esbuild: 0.19.12
+      estree-util-build-jsx: 3.0.1
       glob: 10.3.10
       mdast-util-mdx: 3.0.0
       mdast-util-mdx-expression: 2.0.0
