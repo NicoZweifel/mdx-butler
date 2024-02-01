@@ -4,7 +4,7 @@ import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 
 export * from 'mdx-bundler';
 
-export type { IMDXService } from './IMDXService.js';
+export type { IMDXBundlerService } from './IMDXBundlerService';
 export type {
   MDXServiceBaseOptions,
   DocHeading,

@@ -6,7 +6,7 @@ import {
   SourceFileType,
 } from './types/index.js';
 
-export interface IMDXService<
+export interface IMDXBundlerService<
   TFrontmatter extends UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,

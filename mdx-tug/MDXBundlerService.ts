@@ -11,18 +11,35 @@ import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
 
-import { IMDXService } from './IMDXService.js';
+import { IMDXBundlerService } from './IMDXBundlerService';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './tocPlugin.js';
 import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 import { bundleHeadings } from './utils.js';
 
+// https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
+if (process.platform === 'win32') {
+  process.env.ESBUILD_BINARY_PATH = join(
+    process.cwd(),
+    'node_modules',
+    'esbuild',
+    'esbuild.exe'
+  );
+} else {
+  process.env.ESBUILD_BINARY_PATH = join(
+    process.cwd(),
+    'node_modules',
+    'esbuild',
+    'bin',
+    'esbuild'
+  );
+}
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
-> implements IMDXService<TFrontmatter, TOptions>
+> implements IMDXBundlerService<TFrontmatter, TOptions>
 {
   protected constructor(
     readonly options: MDXServiceOptions<TFrontmatter, TOptions>
@@ -34,7 +51,7 @@ export class MDXBundlerService<
       MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
   >(
     options: MDXServiceOptions<TFrontmatter, TOptions>
-  ): IMDXService<TFrontmatter, TOptions> {
+  ): IMDXBundlerService<TFrontmatter, TOptions> {
     options.tocPlugin = options.tocPlugin ?? tocPlugin;
     options.fileProvider =
       options.fileProvider ??
