@@ -13,9 +13,6 @@
     "react-dom": "^18",
     "next": "14.1.0",
     "mdx-tug": "workspace:*",
-    "mdast-util-mdx": "^3.0.0",
-    "mdast-util-to-markdown": "^2.1.0",
-    "mdast-util-mdx-expression": "^2.0.0",
     "mdx-bundler": "^10.0.1",
     "esbuild": "^0.19.11"
   },

@@ -2,10 +2,14 @@
 title: remark/rehype
 ---
 
-This template is using a set of common `rehype/mark` plugins, including [`rehype-prism-plus`](https://www.npmjs.com/package/rehype-prism-plus) and [`prism-themes`](https://github.com/PrismJS/prism-themes).
+Pass `rehype/mark` plugins inside a `mdxBundlerOptions` object.
 
 ```ts {7,10} showLineNumbers
-const options: BundleMDXOptions = {
+import { bundle } from 'mdx-tug';
+
+// ...
+
+return bundle({
   // other options
   mdxBundlerOptions: {
     mdxOptions: {
@@ -18,7 +22,5 @@ const options: BundleMDXOptions = {
       ],
     },
   },
-};
-
-export default options;
+});
 ```

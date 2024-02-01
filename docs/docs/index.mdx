@@ -9,7 +9,9 @@ hideLayout: true
 
 ### Installation
 
-- `pnpm i mdx-tub`
+```
+pnpm i mdx-tub
+```
 
 ### Bundling
 
@@ -20,12 +22,16 @@ The easiest way to get all bundled documents within a folder is to call the `bun
   should only be imported in a server or build context.
 </Warning>
 
+Various options and dependencies can be passed.
+
 <Info>
-  If you require more control, consider injecting
-  [dependencies](/customization/DI) and using `MDXService` directly.
+  If you require more control, consider [injecting
+  dependencies](/customization/DI) and using `MDXService` directly.
 </Info>
 
-```ts
+To get started you can generate a `FrontmatterProcessor` automatically by passing `fields`.
+
+```ts {3-5,9} showLineNumbers
 import { bundle } from 'mdx-tug';
 
 // ...
@@ -42,7 +48,7 @@ return bundle({
 
 To guarantee correct type inference, specifying the `Frontmatter` type is recommended.
 
-```ts
+```ts {3-5,9} showLineNumbers
 import { bundle } from 'mdx-tug';
 
 type Frontmatter = {
@@ -63,7 +69,7 @@ return bundle<Frontmatter>({
 
 ### Client `Component`
 
-```tsx
+```tsx {1,12} showLineNumbers
 import { Component } from 'mdx-tug/client';
 
 // ...

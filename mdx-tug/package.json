@@ -28,23 +28,20 @@
   "type": "module",
   "dependencies": {
     "unified": "^11.0.4",
-    "glob": "^10.3.10"
-  },
-  "peerDependencies": {
-    "mdast-util-mdx": ">= 3.0.0",
-    "mdast-util-to-markdown": ">= 2.1.0",
-    "mdast-util-mdx-expression": ">= 2.0.0",
-    "mdx-bundler": "^10.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18.2.33",
-    "@types/react-dom": "^18.2.14",
+    "glob": "^10.3.10",
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-mdx-expression": "^2.0.0",
-    "esbuild": "^0.19.11",
+    "esbuild": "^0.19.11"
+  },
+  "peerDependencies": {
+    "mdx-bundler": ">= 10.0.0"
+  },
+  "devDependencies": {
     "mdx-bundler": "^10.0.1",
+    "@types/node": "^20",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "eslint-plugin-mdx": "^2.3.4",

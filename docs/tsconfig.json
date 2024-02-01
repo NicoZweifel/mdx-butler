@@ -13,9 +13,8 @@
     "paths": {
       "react": ["./node_modules/preact/compat/"],
       "react-dom": ["./node_modules/preact/compat/"],
-      "mdx-tug": ["../mdx-tug/build/*"],
-      "mdx-tug/react": ["../mdx-tug/build/preact"],
-      "mdx-tug/preact": ["../mdx-tug/build/preact"],
+      "mdx-tug": ["./../mdx-tug/build/*"],
+      "mdx-tug/client": ["./../mdx-tug/build/client"],
     },
   },
   "include": ["node_modules/vite/client.d.ts", "**/*.ts", "**/*.tsx"],

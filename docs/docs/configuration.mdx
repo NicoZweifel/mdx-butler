@@ -10,13 +10,14 @@ Configuration can be done through options or by adding or customizing styles, co
 Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
 
 <Info>
-  For convenience, you can re-use the fields in `package.json`, if they are
-  defined.
+  Replace existing application logic by [injecting
+  dependencies](/customization/DI).
 </Info>
 
-```ts {4-5,18-26,11-12} showLineNumbers
+```ts {2-8} showLineNumbers
 export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   cwd: string;
+  pattern?: string;
   mdxBundlerOptions?: MDXBundlerOptions;
   sortProvider?: SortProvider<MDXServiceReturnType<T>>;
   tocPlugin?: (headings: DocHeading[]) => Plugin;

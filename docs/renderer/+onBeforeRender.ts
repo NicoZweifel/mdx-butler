@@ -4,7 +4,6 @@ import options from '../options';
 
 import { Options, PageService } from '../services';
 import { frontmatterProcessor } from '../utils/frontmatterProcessor';
-import { tocPlugin } from '../utils/tocPlugin';
 import { navGenerator } from '../utils/navGenerator';
 import { sortProvider } from '../utils/sortProvider';
 import { MDXBundlerService } from 'mdx-tug';
@@ -22,7 +21,6 @@ async function onBeforeRender(pageContext: PageContext) {
     Frontmatter,
     Options & { route?: string }
   >({
-    tocPlugin,
     frontmatterProcessor,
     sortProvider,
     ...opts,

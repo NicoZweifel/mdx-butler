@@ -2,20 +2,38 @@
 description: Change how frontmatter is processed
 ---
 
-Frontmatter can be manipulated by passing a `FrontmatterProcessor`, which makes changes to the `frontmatter` object, in [`options.ts`](/configuration).
+Frontmatter can be manipulated by passing a `FrontmatterProcessor`, which makes changes to the `frontmatter` object.
 
-```tsx
-export type Options = {
+<Warning>
+  Returning `undefined` or `false` will prevent the file from being bundled.
+
+This can be useful, if you want to optimize and bundle only certain files on demand.
+
+</Warning>
+
+```ts {7} showLineNumbers
+return bundle({
   // other options
-  frontmatterProcessor?: FrontmatterProcessor;
-};
+  frontmatterProcessor: FrontmatterProcessor,
+});
 ```
 
+<Info>
+  To get full control over the frontmatter object, it is possible to inject a
+  custom `FontmatterProcessor`.
+</Info>
+
 ```ts
-export type FrontmatterProcessor = (
-  cwd: string,
-  file: string,
-  baseRoute: string,
-  frontmatter: UnknownFrontMatter
-) => void;
+export type FrontmatterProcessor<
+  TFrontmatter extends UnknownFrontMatter,
+  TOptions extends
+    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+> = (
+  options: TOptions & {
+    frontmatter: Partial<TFrontmatter>;
+    file: string;
+    path: string;
+    fields?: FieldDefinitions<TFrontmatter, TOptions>;
+  }
+) => boolean;
 ```
