@@ -5,16 +5,25 @@ description: Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 hideLayout: true
 ---
 
-## Installation
+## Setup
+
+### Installation
 
 - `pnpm i mdx-tub`
 
-## Bundling
+### Bundling
 
-The easiest way to bundle all docs is to call the `bundle` function.
+The easiest way to bundle all docs within a folder is to call the `bundle` function.
+
+<Warning>
+  `bundle`, `MDXService` or any other exports from the `mdx-tug` root entrypoint
+  should only be imported in a server or build context.
+</Warning>
 
 ```ts
 import { bundle } from 'mdx-tug';
+
+//...
 
 return bundle({
   cwd: '/docs',
@@ -26,7 +35,7 @@ return bundle({
 });
 ```
 
-To guarantee correct type inferrence, specifying the `Frontmatter` type is recommended.
+To guarantee correct type inference, specifying the `Frontmatter` type is recommended.
 
 ```ts
 import { bundle } from 'mdx-tug';
@@ -34,6 +43,8 @@ import { bundle } from 'mdx-tug';
 type Frontmatter = {
   title: string;
 };
+
+//...
 
 return bundle<Frontmatter>({
   cwd: '/docs',
@@ -43,6 +54,21 @@ return bundle<Frontmatter>({
     },
   },
 });
+```
+
+### Client `Component`
+
+```tsx
+import { Component } from 'mdx-tug/client';
+
+//...
+
+return (
+  <div>
+    <h1>{doc.frontmatter.title}</h1>
+    <Component doc={doc} />
+  </div>
+);
 ```
 
 <Success>
