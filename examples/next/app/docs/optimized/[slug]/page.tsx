@@ -33,9 +33,9 @@ export default async function Docs({
 }: {
   params: { slug: string };
 }) {
-  const docs = await getDocs();
+  const docs = await getDocs(slug);
 
-  const doc = docs.filter((x) => slug === x.path)[0];
+  const doc = docs.find((x) => slug === x.path);
 
   if (!doc) return <div>not found</div>;
 
@@ -46,7 +46,7 @@ export default async function Docs({
       flexDirection:"row"
     }}>
       <div>
-      <h1>{doc.frontmatter.title}</h1>
+      <h1>optimized: {doc.frontmatter.title}</h1>
         <Component doc={doc} />
       </div>
       <div

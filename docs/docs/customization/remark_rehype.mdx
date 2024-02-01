@@ -2,13 +2,9 @@
 title: remark/rehype
 ---
 
-Pass `rehype/mark` plugins inside a `mdxBundlerOptions` object.
+Pass `rehype/mark` plugins and other options like `jsxImportSource` inside `mdxBundlerOptions` .
 
-```ts {7,10} showLineNumbers
-import { bundle } from 'mdx-tug';
-
-// ...
-
+```ts {5,7,10} showLineNumbers
 return bundle({
   // other options
   mdxBundlerOptions: {

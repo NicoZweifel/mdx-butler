@@ -1,4 +1,4 @@
-import { json, MetaFunction } from "@remix-run/node";
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { bundle } from "../mdx-tug.server";
 import { useLoaderData } from "@remix-run/react";
 import { getMDXComponent } from "mdx-tug/client";
@@ -7,10 +7,10 @@ type Frontmatter = {
   title: string;
 };
 
-export async  function loader() {
+export async  function loader({params:{slug}}:LoaderFunctionArgs) {
   return  json((await bundle<Frontmatter>({
     cwd:'/docs',
-  }))[0]);
+  })).find((x) => slug === x.path));
 }
 
 export const meta: MetaFunction = () => {

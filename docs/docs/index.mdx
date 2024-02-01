@@ -22,16 +22,17 @@ The easiest way to get all bundled documents within a folder is to call the `bun
   should only be imported in a server or build context.
 </Warning>
 
-Various options and dependencies can be passed.
+Options and dependencies can be passed to `bundle` or `MDXService.create`.
 
 <Info>
   If you require more control, consider [injecting
   dependencies](/customization/DI) and using `MDXService` directly.
+
+For more information check out the [Configuration](/configuration) section!
+
 </Info>
 
-To get started you can generate a `FrontmatterProcessor` automatically by passing `fields`.
-
-```ts {3-5,9} showLineNumbers
+```ts {1,7-10} showLineNumbers
 import { bundle } from 'mdx-tug';
 
 // ...
@@ -46,11 +47,16 @@ return bundle({
 });
 ```
 
-To guarantee correct type inference, specifying the `Frontmatter` type is recommended.
+<Success>
+  Automatically generates a `FrontmatterProcessor`, according to the given
+  `fields`.
+</Success>
 
-```ts {3-5,9} showLineNumbers
-import { bundle } from 'mdx-tug';
+#### Types
 
+To guarantee a correct type inference, specifying the `Frontmatter` type is recommended.
+
+```ts {1-3,7} showLineNumbers
 type Frontmatter = {
   title: string;
 };
@@ -67,7 +73,14 @@ return bundle<Frontmatter>({
 });
 ```
 
-### Client `Component`
+<Info>
+  The given Fields cannot be undefined after the `Frontmatter` has been processed.
+
+If a required field is `undefined`, an `Error` will be thrown.
+
+</Info>
+
+### `Component`
 
 ```tsx {1,12} showLineNumbers
 import { Component } from 'mdx-tug/client';
@@ -97,3 +110,10 @@ return (
 - Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
 - Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
 - [`prettier`](https://prettier.io/) and [`eslint`](https://eslint.org/) configuration for automatic linting and formatting of files, including [`MDX`](https://mdxjs.com/) documents and Code blocks.
+
+## Mentions
+
+- [`vike`](https://vike.dev/) for providing a customizable, versatile web framework.
+- [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) for providing a blazingly fast [`esbuild`](https://esbuild.github.io/mdx-bundler) based bundler for [`MDX`](https://mdxjs.com/) files.
+- [`Contentlayer`](https://contentlayer.dev/) for providing inspiration around the [`MDX`](https://mdxjs.com/) Developer Experience.
+- [`feather`](https://feathericons.com/) for providing customizable lightweight svg icons.

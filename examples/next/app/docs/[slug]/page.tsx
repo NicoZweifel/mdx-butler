@@ -29,7 +29,7 @@ export default async function Docs({
 }) {
   const docs = await getDocs();
 
-  const doc = docs.filter((x) => slug === x.path)[0];
+  const doc = docs.find((x) => slug === x.path);
 
   if (!doc) return <div>not found</div>;
 

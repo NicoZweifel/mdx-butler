@@ -1,4 +1,4 @@
 ## Messes up some of the React example dependencies.
 ## Can be uncommented to test docs with local package.
-packages:
-  - ../mdx-tug
+#packages:
+#  - ../mdx-tug
