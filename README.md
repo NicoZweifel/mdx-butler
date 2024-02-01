@@ -4,6 +4,12 @@
 
 Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 
+## Notes
+
+- Author mdx files in a `docs` folder or with [any file pattern](https://mdx-tug.pages.dev/configuration#options).
+- Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
+- Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
+
 ## Setup
 
 ### Installation
@@ -100,13 +106,6 @@ return (
 > [!Tip]
 > Start editing `MDX` documents inside `/docs` or the configured [working
 > directory](https://mdx-tug.pages.dev/configuration)
-
-## Notes
-
-- Author mdx files in a `docs` folder or with [any file pattern](https://mdx-tug.pages.dev/configuration#options).
-- Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
-- Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
-- [`prettier`](https://prettier.io/) and [`eslint`](https://eslint.org/) configuration for automatic linting and formatting of files, including [`MDX`](https://mdxjs.com/) documents and Code blocks.
 
 ## Mentions
 
