@@ -1,8 +1,12 @@
 {
   "name": "mdx-tug",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "",
   "private": false,
+  "repository": "https://github.com/NicoZweifel/mdx-tug",
+  "type": "module",
+  "license": "MIT",
+  "author": "Nico Zweifel",
   "exports": {
     ".": {
       "import": "./build/index.js",
@@ -26,9 +30,6 @@
     "test": "vitest"
   },
   "keywords": [],
-  "author": "Nico Zweifel",
-  "license": "MIT",
-  "type": "module",
   "dependencies": {
     "unified": "^11.0.4",
     "glob": "^10.3.10",
