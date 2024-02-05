@@ -11,14 +11,17 @@ order: 3
   [GitHub](https://github.com/NicoZweifel/mdx-tug/tree/main/examples/next)
 </Info>
 
-## Simple page
+## Dynamic RSC page
+
+[React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) are ideal for the purpose of bundling documents because they render in a server context.
+
+### Bundling documents
 
 ```tsx
 import { bundle } from 'mdx-tug';
 import { cache } from 'react';
-import { Component } from 'mdx-tug/client';
 
-const getDocs = cache(() =>
+export const getDocs = cache(() =>
   bundle({
     cwd: '/docs',
     fields: {
@@ -28,7 +31,11 @@ const getDocs = cache(() =>
     },
   })
 );
+```
 
+### Dynamic routes with Static Site Generation ([SSG](https://nextjs.org/docs/app/api-reference/functions/generate-static-params))
+
+```tsx
 export async function generateStaticParams() {
   const docs = await getDocs();
 
@@ -36,7 +43,11 @@ export async function generateStaticParams() {
     slug: x.path.split('/'),
   }));
 }
+```
 
+### Exporting Metadata
+
+```tsx
 export async function generateMetadata({
   params: { slug },
 }: {
@@ -51,6 +62,14 @@ export async function generateMetadata({
     title: doc?.frontmatter.title,
   };
 }
+```
+
+### Creating the Page
+
+```tsx
+import { Component } from 'mdx-tug/client';
+
+//...
 
 export default async function Docs({
   params: { slug },
@@ -95,7 +114,7 @@ export default async function Docs({
 }
 ```
 
-## Optimizing a page
+## Optimization
 
 For more ambitious use-cases and for filtering that depends on the `Frontmatter` object, the `getDocs` function can be adjusted to use a [`FrontmatterProcessor`](/customization/DI/frontmatter) for filtering.
 
