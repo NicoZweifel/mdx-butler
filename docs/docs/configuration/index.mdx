@@ -25,6 +25,34 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
 };
 ```
 
+## Types
+
+To guarantee a correct type inference, specifying the `Frontmatter` type is recommended.
+
+```ts {1-3,7} showLineNumbers
+type Frontmatter = {
+  title: string;
+};
+
+// ...
+
+return bundle<Frontmatter>({
+  cwd: '/docs',
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+```
+
+<Info>
+  The given Fields cannot be `undefined` after the `Frontmatter` has been processed.
+
+If a required field is `undefined`, an `Error` will be thrown.
+
+</Info>
+
 ### Examples
 
 <Examples />
