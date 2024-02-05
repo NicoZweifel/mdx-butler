@@ -1,6 +1,6 @@
 {
   "name": "mdx-tug",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "",
   "private": false,
   "repository": "https://github.com/NicoZweifel/mdx-tug",
@@ -30,17 +30,20 @@
     "test": "vitest"
   },
   "keywords": [],
+  "peerDependencies": {
+    "mdx-bundler": ">= 10.0.0"
+  },
   "dependencies": {
     "unified": "^11.0.4",
     "glob": "^10.3.10",
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-to-markdown": "^2.1.0",
     "mdast-util-mdx-expression": "^2.0.0",
-    "estree-util-build-jsx": "3.0.0",
-    "esbuild": "^0.19.11",
-    "mdx-bundler": "^10.0.1"
+    "estree-util-build-jsx": "3.0.0"
   },
   "devDependencies": {
+    "mdx-bundler": "^10.0.1",
+    "esbuild": "^0.19.11",
     "@types/node": "^20",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
