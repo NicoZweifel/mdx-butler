@@ -12,7 +12,7 @@ export const LinkButton = ({
     <button
       aria-labelledby={p.id}
       className={
-        'underline font-bold decoration-2 underline-offset-2 decoration-neutral-500/80 hover:decoration-neutral-500 text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300/80 flex items-center gap-1 flex-row rounded-sm px-0.5'
+        'underline font-bold decoration-2 underline-offset-2 decoration-secondary-500/80 hover:decoration-secondary-500 text-secondary-600 hover:text-secondary-800 dark:text-secondary-400 dark:hover:text-secondary-300/80 flex items-center gap-1 flex-row rounded-sm px-0.5'
       }
     >
       {(p as { children: ComponentChildren }).children}

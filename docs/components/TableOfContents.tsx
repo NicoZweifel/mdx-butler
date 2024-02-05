@@ -43,7 +43,7 @@ export function TableOfContents({
         <a
           key={title}
           className={
-            'flex flex-row gap-1 group py-0.5 items-center text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 rounded-lg'
+            'flex flex-row gap-1 group py-0.5 items-center text-neutral-600 hover:text-secondary-900 dark:hover:text-secondary-300 dark:text-neutral-100 rounded-lg'
           }
           style={{
             marginLeft: `${Math.max(0, 13 * Math.max(level - lowest, 0))}px`,

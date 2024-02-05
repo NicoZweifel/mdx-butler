@@ -53,7 +53,7 @@ export const Card = ({
     default:
       x = {
         className:
-          'bg-neutral-300/20 hover:bg-neutral-400/20 dark:bg-neutral-500/20 dark:hover:bg-neutral-400/20 border-neutral-500/20 text-neutral-800/80 hover:text-neutral-950/80 dark:text-neutral-100/80 dark:hover:text-neutral-100',
+          'bg-primary-300/20 hover:bg-primary-400/20 dark:bg-primary-700/20 dark:hover:bg-primary-600/20 border-primary-500/20 text-primary-800/80 hover:text-primary-950/80 dark:text-primary-100/80 dark:hover:text-primary-100',
         icon: <ChevronRight size={size} />,
       };
       break;
