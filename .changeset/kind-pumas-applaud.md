@@ -1,0 +1,5 @@
+---
+"mdx-tug": minor
+---
+
+deps
