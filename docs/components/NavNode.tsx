@@ -39,7 +39,7 @@ const useNavNode = ({ node, flex }: NavNodeProps) => {
             {navItems.map(({ title, route }) => (
               <Link
                 key={route}
-                className={`${isBaseRoute ? 'font-semibold' : ''} text-sm py-1 px-2 flex items-center hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 rounded text-neutral-600 hover:text-neutral-900 dark:text-neutral-100 dark:hover:text-neutral-300`}
+                className={`${isBaseRoute ? 'font-semibold' : ''} whitespace-nowrap text-sm py-1 px-2 flex items-center hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 rounded text-neutral-600 hover:text-neutral-900 dark:text-neutral-100 dark:hover:text-neutral-300`}
                 href={route}
               >
                 {title}
@@ -73,7 +73,7 @@ export const NavNode = ({
   ) : (
     <div
       {...props}
-      className={cn(` flex flex-${flex ?? 'col'} gap-1`, className)}
+      className={cn(`flex flex-${flex ?? 'col'} gap-1`, className)}
     >
       <>
         <Link
