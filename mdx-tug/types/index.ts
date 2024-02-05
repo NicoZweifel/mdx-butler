@@ -9,3 +9,5 @@ export type { FrontmatterProcessor } from './FrontmatterProcessor.js';
 export type { SortProvider } from './SortProvider.js';
 export type { SourceFileType } from './SourceFileType.js';
 export type { FieldDefinitions } from './FieldDefinitions.js';
+export type { FileProvider } from './FileProvider.js';
+export { SOURCE_FILE_TYPE } from './SOURCE_FILE_TYPE.js';

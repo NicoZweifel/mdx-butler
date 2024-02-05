@@ -1,9 +1,10 @@
 import {
   DocHeading,
-  FrontmatterProcessor,
+  FieldDefinitions,
   MDXServiceBaseOptions,
   MDXServiceOptions,
   MDXServiceReturnType,
+  SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
 } from './types/index.js';
@@ -11,53 +12,46 @@ import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
 
-import { IMDXBundlerService } from './IMDXBundlerService';
+import { IMDXBundlerService } from './IMDXBundlerService.js';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './tocPlugin.js';
-import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 import { bundleHeadings } from './utils.js';
+import * as process from 'process';
 
-// https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
-if (process.platform === 'win32') {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'esbuild.exe'
-  );
-} else {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'bin',
-    'esbuild'
-  );
-}
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
-> implements IMDXBundlerService<TFrontmatter, TOptions>
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+> implements IMDXBundlerService<TFrontmatter, TOptions, TFields>
 {
   protected constructor(
-    readonly options: MDXServiceOptions<TFrontmatter, TOptions>
+    readonly options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
   ) {}
 
   static create<
     TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
     TOptions extends
       MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+      TFrontmatter,
+      TOptions
+    >,
   >(
-    options: MDXServiceOptions<TFrontmatter, TOptions>
-  ): IMDXBundlerService<TFrontmatter, TOptions> {
+    options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+  ): IMDXBundlerService<TFrontmatter, TOptions, TFields> {
     options.tocPlugin = options.tocPlugin ?? tocPlugin;
     options.fileProvider =
       options.fileProvider ??
       (async () => {
         // absolute
-        const cwd = join(process.cwd(), options.cwd);
+        const cwd = options.cwd
+          ? join(process.cwd(), options.cwd)
+          : process.cwd();
 
         return await glob(options.filePattern ?? '**/*.mdx', {
           ignore: 'node_modules/**',
@@ -65,7 +59,7 @@ export class MDXBundlerService<
         }).then((x) =>
           x.map((x) => ({
             type: SOURCE_FILE_TYPE.LOCAL,
-            name: x,
+            name: x.replaceAll('\\', '/'),
           }))
         );
       });
@@ -73,9 +67,7 @@ export class MDXBundlerService<
     if (options.fields != undefined) {
       options.frontmatterProcessor =
         options.frontmatterProcessor ??
-        (createFrontmatterProcessor(
-          options.fields as never
-        ) as FrontmatterProcessor<TFrontmatter, TOptions>);
+        createFrontmatterProcessor(options.fields);
     } else {
       options.frontmatterProcessor =
         options.frontmatterProcessor ?? (() => true);
@@ -97,7 +89,7 @@ export class MDXBundlerService<
 
     if (files?.length > 0) return this.bundleFiles(files);
 
-    files = (await fileProvider?.()) ?? [];
+    files = (await fileProvider?.(this.options)) ?? [];
 
     return this.bundleFiles(files);
   }
@@ -115,7 +107,9 @@ export class MDXBundlerService<
     const { mdxBundlerOptions, frontmatterProcessor, tocPlugin } = this.options;
 
     // absolute
-    const cwd = join(process.cwd(), this.options.cwd);
+    const cwd = this.options.cwd
+      ? join(process.cwd(), this.options.cwd)
+      : process.cwd();
 
     const headings: DocHeading[] = [];
 

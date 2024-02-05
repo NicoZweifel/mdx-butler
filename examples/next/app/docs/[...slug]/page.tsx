@@ -2,14 +2,13 @@ import { bundle } from "mdx-tug";
 import { cache } from "react";
 import { Component } from "mdx-tug/client";
 
-
 const getDocs = cache(() =>
   bundle({
-    cwd: "/docs",
+    cwd:'/docs',
    fields:{
       title:{
         required:true
-      }
+      },
    }
   }),
 );
@@ -18,18 +17,34 @@ export async function generateStaticParams() {
   const docs = await getDocs();
 
   return docs.map((x) => ({
-    slug: x.path,
+    slug: x.path.split('/'),
   }));
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string[] };
+}) {
+  const docs = await getDocs();
+  const path = slug.join('/')
+
+  const doc = docs.find((x) => path === x.path);
+
+  return {
+    title: doc?.frontmatter.title
+  }
 }
 
 export default async function Docs({
   params: { slug },
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
   const docs = await getDocs();
+  const path = slug.join('/')
 
-  const doc = docs.find((x) => slug === x.path);
+  const doc = docs.find((x) => path === x.path);
 
   if (!doc) return <div>not found</div>;
 

@@ -1,9 +1,9 @@
 import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
-
 import { FieldDefinitions } from './FieldDefinitions';
+import { SourceFileType } from './SourceFileType';
 import { MDXServiceOptions } from './MDXServiceOptions';
 
-export type FrontmatterProcessor<
+export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
@@ -12,9 +12,5 @@ export type FrontmatterProcessor<
     TOptions
   >,
 > = (
-  options: MDXServiceOptions<TFrontmatter, TOptions, TFields> & {
-    frontmatter: Partial<TFrontmatter>;
-    file: string;
-    path: string;
-  }
-) => boolean;
+  options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+) => Promise<SourceFileType[]>;

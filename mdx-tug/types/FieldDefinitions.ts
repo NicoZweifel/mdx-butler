@@ -9,7 +9,7 @@ export type FieldDefinitions<
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
 > = Record<
-  string,
+  keyof TFrontmatter,
   {
     required?: boolean;
     resolve?: (

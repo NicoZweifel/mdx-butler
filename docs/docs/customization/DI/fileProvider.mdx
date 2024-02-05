@@ -7,15 +7,38 @@ To add a custom file source, for example a database, pass a custom `FileProvider
 ```ts {4} showLineNumbers
 return bundle({
   // other options
-  fileProvider: (/*params*/) => {
+  fileProvider: (/*options*/) => {
     // implementation
   },
 });
 ```
 
+<Info>
+
+The returned files need to be of type `SourceFileType`.
+
+</Info>
+
+```ts
+export type SourceFileType =
+  | { type: SOURCE_FILE_TYPE.LOCAL; name: string }
+  | {
+      type: SOURCE_FILE_TYPE.REMOTE;
+      name: string;
+      value: string;
+    };
+```
+
 ```ts {2} showLineNumbers
-export type DocServiceOptions = Pick<ConfigOptions, 'baseRoute'> & {
-  // other options
-  fileProvider?: () => Promise<SourceFileType[]>;
-};
+export type FileProvider<
+  TFrontmatter extends Record<keyof TFields, string>,
+  TOptions extends
+    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+> = (
+  options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+) => Promise<SourceFileType[]>;
 ```
