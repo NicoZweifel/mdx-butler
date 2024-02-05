@@ -26,8 +26,6 @@ export const tocPlugin =
             .replace(/\\/g, '')
             .trim();
 
-          console.log(title);
-
           headings.push({ level: elm.depth, title });
         }
       }
