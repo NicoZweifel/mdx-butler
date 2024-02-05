@@ -25,7 +25,7 @@
     "react-dom": "npm:@preact/compat@^17.1.2",
     "preact-render-to-string": "^6.3.1",
     "mdx-bundler": "^10.0.1",
-    "mdx-tug": "0.2.2",
+    "mdx-tug": "0.2.3",
     "esbuild": "^0.19.11",
     "prism-themes": "^1.9.0",
     "rehype-prism-plus": "^2.0.0",
