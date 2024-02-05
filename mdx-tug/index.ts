@@ -11,6 +11,14 @@ export type {
   MDXOptions,
   MDXBundlerOptions,
   FrontmatterProcessor,
+  SourceFileType,
+  SortProvider,
+  FileProvider,
+  FieldDefinitions,
+  UnknownFrontMatter,
+  SOURCE_FILE_TYPE,
+  MDXServiceOptions,
+  MDXServiceReturnType,
 } from './types/index.js';
 export { MDXBundlerService, bundle, createFrontmatterProcessor };
 
