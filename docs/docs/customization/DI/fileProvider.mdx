@@ -13,6 +13,18 @@ return bundle({
 });
 ```
 
+<Info>The returned files need to be of type `SourceFileType`</Info>
+
+```ts
+export type SourceFileType =
+  | { type: SOURCE_FILE_TYPE.LOCAL; name: string }
+  | {
+      type: SOURCE_FILE_TYPE.REMOTE;
+      name: string;
+      value: string;
+    };
+```
+
 ```ts {2} showLineNumbers
 export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string>,
