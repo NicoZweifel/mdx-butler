@@ -74,7 +74,6 @@ Using `getComponent`, exported by `mdx-bundler` is another valid option.
 
 ```tsx {1,12} showLineNumbers
 import { Component } from 'mdx-tug/client';
-
 const doc = docs.filter((x) => slug === x.path)[0];
 
 if (!doc) return <div>not found</div>;
@@ -82,7 +81,10 @@ if (!doc) return <div>not found</div>;
 return (
   <div>
     <h1>{doc.frontmatter.title}</h1>
-    <Component doc={doc} />
+    <Component
+      doc={doc}
+      /* other props like global components */
+    />
   </div>
 );
 ```
