@@ -1,47 +1,50 @@
-import { bundle, createFrontmatterProcessor } from "mdx-tug";
+import { bundle } from "mdx-tug";
 import { cache } from "react";
 import { Component } from "mdx-tug/client";
 
-type Frontmatter = {
-  title: string;
-  description: string;
-};
-
-const getDocs = cache((slug?: string) =>
-  bundle<Frontmatter>({
-    cwd: "/docs",
-    frontmatterProcessor: (x) => {
-      const processor = createFrontmatterProcessor({
-        title: {
-          required: true,
-        },
-        description: {
-          required: false,
-        },
-      });
-
-      return (processor(x) && slug == undefined) || slug === x.path;
-    },
+const getDocs = cache(() =>
+  bundle({
+    cwd:'/docs',
+   fields:{
+      title:{
+        required:true
+      },
+   }
   }),
 );
-
 
 export async function generateStaticParams() {
   const docs = await getDocs();
 
   return docs.map((x) => ({
-    slug: x.path,
+    slug: x.path.split('/'),
   }));
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: {
+  params: { slug: string[] };
+}) {
+  const docs = await getDocs();
+  const path = slug.join('/')
+
+  const doc = docs.find((x) => path === x.path);
+
+  return {
+    title: doc?.frontmatter.title
+  }
 }
 
 export default async function Docs({
   params: { slug },
 }: {
-  params: { slug: string };
+  params: { slug: string[] };
 }) {
-  const docs = await getDocs(slug);
+  const docs = await getDocs();
+  const path = slug.join('/')
 
-  const doc = docs.find((x) => slug === x.path);
+  const doc = docs.find((x) => path === x.path);
 
   if (!doc) return <div>not found</div>;
 
@@ -52,7 +55,7 @@ export default async function Docs({
       flexDirection:"row"
     }}>
       <div>
-      <h1>optimized: {doc.frontmatter.title}</h1>
+        <h1>{doc.frontmatter.title}</h1>
         <Component doc={doc} />
       </div>
       <div
@@ -67,4 +70,5 @@ export default async function Docs({
       </div>
     </div>
   );
+
 }

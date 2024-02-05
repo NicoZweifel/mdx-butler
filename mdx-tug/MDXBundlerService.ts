@@ -17,23 +17,26 @@ import { tocPlugin } from './tocPlugin.js';
 import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 import { bundleHeadings } from './utils.js';
+import * as process from 'process';
 
-// https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
-if (process.platform === 'win32') {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'esbuild.exe'
-  );
-} else {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'bin',
-    'esbuild'
-  );
+if (__dirname == undefined) {
+  // https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
+  if (process.platform === 'win32') {
+    process.env.ESBUILD_BINARY_PATH = join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'esbuild.exe'
+    );
+  } else {
+    process.env.ESBUILD_BINARY_PATH = join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'bin',
+      'esbuild'
+    );
+  }
 }
 
 export class MDXBundlerService<
@@ -66,7 +69,9 @@ export class MDXBundlerService<
       options.fileProvider ??
       (async () => {
         // absolute
-        const cwd = join(process.cwd(), options.cwd);
+        const cwd = options.cwd
+          ? join(process.cwd(), options.cwd)
+          : process.cwd();
 
         return await glob(options.filePattern ?? '**/*.mdx', {
           ignore: 'node_modules/**',
@@ -74,7 +79,7 @@ export class MDXBundlerService<
         }).then((x) =>
           x.map((x) => ({
             type: SOURCE_FILE_TYPE.LOCAL,
-            name: x,
+            name: x.replaceAll('\\', '/'),
           }))
         );
       });
@@ -122,7 +127,9 @@ export class MDXBundlerService<
     const { mdxBundlerOptions, frontmatterProcessor, tocPlugin } = this.options;
 
     // absolute
-    const cwd = join(process.cwd(), this.options.cwd);
+    const cwd = this.options.cwd
+      ? join(process.cwd(), this.options.cwd)
+      : process.cwd();
 
     const headings: DocHeading[] = [];
 

@@ -7,7 +7,7 @@ import { MDXServiceReturnType } from './MDXServiceReturnType';
 import { SourceFileType } from './SourceFileType';
 
 export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
-  cwd: string;
+  cwd?: string;
   mdxBundlerOptions?: MDXBundlerOptions;
   sortProvider?: SortProvider<MDXServiceReturnType<T>>;
   tocPlugin?: (headings: DocHeading[]) => Plugin;
