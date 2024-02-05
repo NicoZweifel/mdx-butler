@@ -15,10 +15,10 @@ Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 ### Installation
 
 ```
-pnpm i mdx-tug
+pnpm i mdx-tug mdx-bundler esbuild
 ```
 
-### Examples
+### Framework Guides
 
 - [Next.js](https://mdx-tug.com/configuration/next)
 - [Remix](https://mdx-tug.com/configuration/remix)
