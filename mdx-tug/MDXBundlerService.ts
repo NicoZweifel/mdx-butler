@@ -11,33 +11,13 @@ import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
 
-import { IMDXBundlerService } from './IMDXBundlerService';
+import { IMDXBundlerService } from './IMDXBundlerService.js';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './tocPlugin.js';
 import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 import { bundleHeadings } from './utils.js';
 import * as process from 'process';
-
-if (__dirname == undefined) {
-  // https://github.com/kentcdodds/mdx-bundler?tab=readme-ov-file#nextjs-esbuild-enoent
-  if (process.platform === 'win32') {
-    process.env.ESBUILD_BINARY_PATH = join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'esbuild.exe'
-    );
-  } else {
-    process.env.ESBUILD_BINARY_PATH = join(
-      process.cwd(),
-      'node_modules',
-      'esbuild',
-      'bin',
-      'esbuild'
-    );
-  }
-}
 
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
@@ -109,7 +89,7 @@ export class MDXBundlerService<
 
     if (files?.length > 0) return this.bundleFiles(files);
 
-    files = (await fileProvider?.()) ?? [];
+    files = (await fileProvider?.(this.options)) ?? [];
 
     return this.bundleFiles(files);
   }

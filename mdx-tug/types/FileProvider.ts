@@ -1,19 +1,8 @@
----
-description: Customize the source of the files.
----
+import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
+import { FieldDefinitions } from './FieldDefinitions';
+import { SourceFileType } from './SourceFileType';
+import { MDXServiceOptions } from './MDXServiceOptions';
 
-To add a custom file source, for example a database, pass a custom `FileProvider`.
-
-```ts {4} showLineNumbers
-return bundle({
-  // other options
-  fileProvider: (/*options*/) => {
-    // implementation
-  },
-});
-```
-
-```ts {2} showLineNumbers
 export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
@@ -25,4 +14,3 @@ export type FileProvider<
 > = (
   options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
 ) => Promise<SourceFileType[]>;
-```

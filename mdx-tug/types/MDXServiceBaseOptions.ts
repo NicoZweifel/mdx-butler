@@ -4,7 +4,6 @@ import { Plugin } from 'unified';
 import { SortProvider } from './SortProvider';
 import { UnknownFrontMatter } from './UnknownFrontMatter';
 import { MDXServiceReturnType } from './MDXServiceReturnType';
-import { SourceFileType } from './SourceFileType';
 
 export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   cwd?: string;
@@ -12,5 +11,4 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   sortProvider?: SortProvider<MDXServiceReturnType<T>>;
   tocPlugin?: (headings: DocHeading[]) => Plugin;
   filePattern?: string;
-  fileProvider?: () => Promise<SourceFileType[]>;
 };

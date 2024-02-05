@@ -5,18 +5,25 @@ import { getMDXComponent } from "mdx-tug/client";
 
 type Frontmatter = {
   title: string;
+  description: string;
 };
 
 export async  function loader({params:{slug}}:LoaderFunctionArgs) {
   return  json((await bundle<Frontmatter>({
     cwd:'/docs',
+    fields:{
+      title:{
+        required:true
+      },
+      description:{}
+    }
   })).find((x) => slug === x.path));
 }
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction<typeof loader> = ({data}) => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: data?.frontmatter.title },
+    { name: "description", content: data?.frontmatter.description },
   ];
 };
 
@@ -35,6 +42,7 @@ export default function Index() {
     }}>
       <div>
         <h1>{doc.frontmatter.title}</h1>
+        <h3>{doc.frontmatter.title}</h3>
         <Component />
       </div>
       <div

@@ -14,15 +14,16 @@ This can be useful, if you want to optimize and bundle only certain files on dem
 ```ts {4} showLineNumbers
 return bundle({
   // other options
-  frontmatterProcessor: (/*params*/) => {
+  frontmatterProcessor: (/*options*/) => {
     // implementation
   },
 });
 ```
 
 <Info>
-  To get full control over the frontmatter object, it is possible to inject a
-  custom `FontmatterProcessor`.
+  To get full control over the frontmatter object, including filtering of
+  documents based on it, it is possible to inject a custom
+  `FontmatterProcessor`.
 </Info>
 
 ```ts
