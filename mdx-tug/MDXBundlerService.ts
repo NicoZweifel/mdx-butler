@@ -4,6 +4,7 @@ import {
   MDXServiceBaseOptions,
   MDXServiceOptions,
   MDXServiceReturnType,
+  SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
 } from './types/index.js';
@@ -14,7 +15,6 @@ import { glob } from 'glob';
 import { IMDXBundlerService } from './IMDXBundlerService.js';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './tocPlugin.js';
-import { SOURCE_FILE_TYPE } from './types/SourceFileType.js';
 import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
 import { bundleHeadings } from './utils.js';
 import * as process from 'process';

@@ -1,7 +1,4 @@
-export enum SOURCE_FILE_TYPE {
-  LOCAL,
-  REMOTE,
-}
+import { SOURCE_FILE_TYPE } from './SOURCE_FILE_TYPE';
 
 export type SourceFileType =
   | { type: SOURCE_FILE_TYPE.LOCAL; name: string }
