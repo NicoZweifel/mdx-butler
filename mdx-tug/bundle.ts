@@ -1,16 +1,22 @@
 import { MDXBundlerService } from './MDXBundlerService.js';
 import {
+  FieldDefinitions,
   MDXServiceBaseOptions,
   MDXServiceOptions,
-  UnknownFrontMatter,
 } from './types/index.js';
 
 export function bundle<
-  TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
+  TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
->(options: MDXServiceOptions<TFrontmatter, TOptions>) {
-  const service = MDXBundlerService.create<TFrontmatter, TOptions>(options);
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+>(options: MDXServiceOptions<TFrontmatter, TOptions, TFields>) {
+  const service = MDXBundlerService.create<TFrontmatter, TOptions, TFields>(
+    options
+  );
 
   return service.bundle();
 }

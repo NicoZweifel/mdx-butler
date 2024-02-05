@@ -1,6 +1,6 @@
 import {
   DocHeading,
-  FrontmatterProcessor,
+  FieldDefinitions,
   MDXServiceBaseOptions,
   MDXServiceOptions,
   MDXServiceReturnType,
@@ -35,23 +35,32 @@ if (process.platform === 'win32') {
     'esbuild'
   );
 }
+
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
-> implements IMDXBundlerService<TFrontmatter, TOptions>
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+> implements IMDXBundlerService<TFrontmatter, TOptions, TFields>
 {
   protected constructor(
-    readonly options: MDXServiceOptions<TFrontmatter, TOptions>
+    readonly options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
   ) {}
 
   static create<
     TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
     TOptions extends
       MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+      TFrontmatter,
+      TOptions
+    >,
   >(
-    options: MDXServiceOptions<TFrontmatter, TOptions>
-  ): IMDXBundlerService<TFrontmatter, TOptions> {
+    options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+  ): IMDXBundlerService<TFrontmatter, TOptions, TFields> {
     options.tocPlugin = options.tocPlugin ?? tocPlugin;
     options.fileProvider =
       options.fileProvider ??
@@ -73,9 +82,7 @@ export class MDXBundlerService<
     if (options.fields != undefined) {
       options.frontmatterProcessor =
         options.frontmatterProcessor ??
-        (createFrontmatterProcessor(
-          options.fields as never
-        ) as FrontmatterProcessor<TFrontmatter, TOptions>);
+        createFrontmatterProcessor(options.fields);
     } else {
       options.frontmatterProcessor =
         options.frontmatterProcessor ?? (() => true);

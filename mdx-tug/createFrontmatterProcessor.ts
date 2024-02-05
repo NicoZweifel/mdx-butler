@@ -2,16 +2,18 @@ import {
   FrontmatterProcessor,
   MDXServiceBaseOptions,
   FieldDefinitions,
+  UnknownFrontMatter,
 } from './types/index.js';
 
 export function createFrontmatterProcessor<
-  TFields extends FieldDefinitions<Record<string, string>>,
-  TOptions extends MDXServiceBaseOptions<
-    Record<keyof TFields, string>
-  > = MDXServiceBaseOptions<Record<keyof TFields, string>>,
->(
-  fields: TFields
-): FrontmatterProcessor<Record<keyof TFields, string>, TOptions> {
+  TFrontmatter extends UnknownFrontMatter,
+  TOptions extends
+    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+>(fields: TFields): FrontmatterProcessor<TFrontmatter, TOptions, TFields> {
   return function frontmatterProcessor(options) {
     for (const key in fields) {
       const isRequired = fields[key].required;
@@ -29,7 +31,7 @@ export function createFrontmatterProcessor<
 
       if (!resolve) continue;
 
-      options.frontmatter[key] = resolve(options as never);
+      options.frontmatter[key] = resolve(options as never) as never;
     }
 
     return true;

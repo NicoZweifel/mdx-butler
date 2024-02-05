@@ -9,7 +9,8 @@ const getDocs = cache(() =>
    fields:{
       title:{
         required:true
-      }
+      },
+     description: {}
    }
   }),
 );

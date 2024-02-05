@@ -1,17 +1,20 @@
-import { UnknownFrontMatter } from './UnknownFrontMatter';
 import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
 
 import { FieldDefinitions } from './FieldDefinitions';
+import { MDXServiceOptions } from './MDXServiceOptions';
 
 export type FrontmatterProcessor<
-  TFrontmatter extends UnknownFrontMatter,
+  TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
 > = (
-  options: TOptions & {
+  options: MDXServiceOptions<TFrontmatter, TOptions, TFields> & {
     frontmatter: Partial<TFrontmatter>;
     file: string;
     path: string;
-    fields?: FieldDefinitions<TFrontmatter, TOptions>;
   }
 ) => boolean;

@@ -4,20 +4,26 @@ import { Component } from "mdx-tug/client";
 
 type Frontmatter = {
   title: string;
+  description: string;
 };
 
-const getDocs = cache( (slug?:string)=> bundle<Frontmatter>({
-  cwd:'/docs',
-  frontmatterProcessor:(x)=>{
-    const processor = createFrontmatterProcessor({
-      title:{
-        required:true,
-      }
-    })
+const getDocs = cache((slug?: string) =>
+  bundle<Frontmatter>({
+    cwd: "/docs",
+    frontmatterProcessor: (x) => {
+      const processor = createFrontmatterProcessor({
+        title: {
+          required: true,
+        },
+        description: {
+          required: false,
+        },
+      });
 
-    return  processor(x) && slug == undefined || slug === x.path
-  },
-}))
+      return (processor(x) && slug == undefined) || slug === x.path;
+    },
+  }),
+);
 
 
 export async function generateStaticParams() {
