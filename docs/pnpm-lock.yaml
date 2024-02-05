@@ -148,8 +148,6 @@ importers:
         specifier: ^1.2.1
         version: 1.2.2(@types/node@20.11.14)
 
-  dist/server: {}
-
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:
