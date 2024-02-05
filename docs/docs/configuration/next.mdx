@@ -33,7 +33,9 @@ export const getDocs = cache(() =>
 );
 ```
 
-### Dynamic routes with Static Site Generation ([SSG](https://nextjs.org/docs/app/api-reference/functions/generate-static-params))
+### Dynamic routes and Static Site Generation
+
+Export a `generateStaticParams` function to use dynamic routing and Static Site Generation ([SSG](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)).
 
 ```tsx
 export async function generateStaticParams() {

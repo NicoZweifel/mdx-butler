@@ -40,7 +40,7 @@ export function TableOfContents({
         </div>
       )}
       {components.map(({ title, Component, level }) => (
-        <div
+        <a
           key={title}
           className={
             'flex flex-row gap-1 group py-0.5 items-center text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 rounded-lg'
@@ -61,7 +61,7 @@ export function TableOfContents({
               ),
             }}
           />
-        </div>
+        </a>
       ))}
     </nav>
   );
