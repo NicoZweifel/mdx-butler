@@ -1,6 +1,6 @@
-import { bundle, createFrontmatterProcessor } from "mdx-tug";
+import { bundle, createFrontmatterProcessor } from "mdx-butler";
 import { cache } from "react";
-import { Component } from "mdx-tug/client";
+import { Component } from "mdx-butler/client";
 
 type Frontmatter = {
   title: string;

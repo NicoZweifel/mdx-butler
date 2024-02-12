@@ -1,13 +1,13 @@
-# mdx-tug
+# mdx-butler
 
-[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-tug.com/)
+[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
 
-Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
+A service for bundling and serving typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
 
 ## Notes
 
-- Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-tug.com/configuration#options) or with a custom [`FileProvider`](https://mdx-tug.com/customization/DI/fileProvider).
-- Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
+- Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-butler.com/configuration#options) or with a custom [`FileProvider`](https://mdx-butler.com/customization/DI/fileProvider).
+- Support for typed [`Frontmatter`](https://mdx-butler.com/customization/DI/frontmatter), [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
 - Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
 
 ## Setup
@@ -15,32 +15,32 @@ Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
 ### Installation
 
 ```
-pnpm i mdx-tug mdx-bundler esbuild
+pnpm i mdx-butler mdx-bundler esbuild
 ```
 
 ### Framework Guides
 
-- [Next.js](https://mdx-tug.com/configuration/next)
-- [Remix](https://mdx-tug.com/configuration/remix)
+- [Next.js](https://mdx-butler.com/configuration/next)
+- [Remix](https://mdx-butler.com/configuration/remix)
 
 ### Bundling
 
 The easiest way to get all bundled documents within a folder is to call the `bundle` function.
 
 > [!Warning]
-> Exports like `bundle`, `MDXService` or any others from the `mdx-tug` root entrypoint
+> Exports like `bundle`, `MDXService` or any others from the `mdx-butler` root entrypoint
 > should only be imported in a server or build context.
 
 Options and dependencies can be passed to `bundle` or `MDXService.create`.
 
 > [!Note]
 > If you require more control, consider [injecting
-> dependencies](https://mdx-tug.com/customization/DI) and using `MDXService` directly.
+> dependencies](https://mdx-butler.com/customization/DI) and using `MDXService` directly.
 >
-> For more information check out the [Configuration](https://mdx-tug.com/configuration) section!
+> For more information check out the [Configuration](https://mdx-butler.com/configuration) section!
 
 ```ts {1,7-10} showLineNumbers
-import { bundle } from "mdx-tug";
+import { bundle } from "mdx-butler";
 
 // ...
 
@@ -87,7 +87,7 @@ return bundle<Frontmatter>({
 ### `Component`
 
 ```tsx {1,12} showLineNumbers
-import { Component } from "mdx-tug/client";
+import { Component } from "mdx-butler/client";
 
 // ...
 
@@ -105,7 +105,7 @@ return (
 
 > [!Tip]
 > Start editing `MDX` documents inside `/docs` or the configured [working
-> directory](https://mdx-tug.com/configuration)
+> directory](https://mdx-butler.com/configuration)
 
 ## Security Notice
 

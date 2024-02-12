@@ -1,9 +1,9 @@
 {
-  "name": "mdx-tug",
-  "version": "0.2.5",
+  "name": "mdx-butler",
+  "version": "0.3.0",
   "description": "",
   "private": false,
-  "repository": "https://github.com/NicoZweifel/mdx-tug",
+  "repository": "https://github.com/NicoZweifel/mdx-butler",
   "type": "module",
   "license": "MIT",
   "author": "Nico Zweifel",

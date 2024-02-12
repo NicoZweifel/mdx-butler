@@ -8,17 +8,23 @@ order: 3
 
 <Info>
   View on
-  [GitHub](https://github.com/NicoZweifel/mdx-tug/tree/main/examples/next)
+  [GitHub](https://github.com/NicoZweifel/mdx-butler/tree/main/examples/next)
 </Info>
 
 ## Dynamic RSC page
 
-[React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) are ideal for the purpose of bundling documents because they render in a server context.
+[RSC (React Server Components)](https://nextjs.org/docs/app/building-your-application/rendering/server-components) are ideal for the purpose of bundling documents because they render in a server context.
+
+<Success>
+
+[`cache`](https://react.dev/reference/react/cache) can be utilized, if you are using [RSC](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
+
+</Success>
 
 ### Bundling documents
 
 ```tsx
-import { bundle } from 'mdx-tug';
+import { bundle } from 'mdx-butler';
 import { cache } from 'react';
 
 export const getDocs = cache(() =>
@@ -69,7 +75,7 @@ export async function generateMetadata({
 ### Creating the Page
 
 ```tsx
-import { Component } from 'mdx-tug/client';
+import { Component } from 'mdx-butler/client';
 
 // ...
 
@@ -121,9 +127,9 @@ export default async function Docs({
 For more ambitious use-cases and for filtering that depends on the `Frontmatter` object, the `getDocs` function can be adjusted to use a [`FrontmatterProcessor`](/customization/DI/frontmatter) for filtering.
 
 ```tsx
-import { bundle, createFrontmatterProcessor } from 'mdx-tug';
+import { bundle, createFrontmatterProcessor } from 'mdx-butler';
 import { cache } from 'react';
-import { Component } from 'mdx-tug/client';
+import { Component } from 'mdx-butler/client';
 
 type Frontmatter = {
   title: string;

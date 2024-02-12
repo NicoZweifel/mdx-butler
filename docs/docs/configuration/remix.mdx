@@ -7,7 +7,7 @@ Rendering with Remix requires a couple of steps.
 
 <Info>
   View on
-  [GitHub](https://github.com/NicoZweifel/mdx-tug/tree/main/examples/remix)
+  [GitHub](https://github.com/NicoZweifel/mdx-butler/tree/main/examples/remix)
 </Info>
 
 ## Server modules
@@ -18,10 +18,10 @@ Rendering with Remix requires a couple of steps.
   names.
 </Warning>
 
-Create a file named `mdx-tug.server.ts`.
+Create a file named `mdx-butler.server.ts`.
 
 ```ts
-export { bundle, createFrontmatterProcessor } from 'mdx-tug';
+export { bundle, createFrontmatterProcessor } from 'mdx-butler';
 ```
 
 ## Page
@@ -35,9 +35,9 @@ Import the previously created server exports in your page.
 
 ```tsx
 import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import { bundle } from '../mdx-tug.server';
+import { bundle } from '../mdx-butler.server';
 import { useLoaderData } from '@remix-run/react';
-import { getMDXComponent } from 'mdx-tug/client';
+import { getMDXComponent } from 'mdx-butler/client';
 
 type Frontmatter = {
   title: string;

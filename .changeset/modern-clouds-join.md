@@ -1,0 +1,5 @@
+---
+"next-example": patch
+---
+
+publish
