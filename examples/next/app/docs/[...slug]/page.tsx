@@ -1,6 +1,6 @@
-import { bundle } from "mdx-tug";
+import { bundle } from "mdx-butler";
 import { cache } from "react";
-import { Component } from "mdx-tug/client";
+import { Component } from "mdx-butler/client";
 
 const getDocs = cache(() =>
   bundle({

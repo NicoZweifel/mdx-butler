@@ -1,5 +1,0 @@
----
-"mdx-tug": patch
----
-
-bump

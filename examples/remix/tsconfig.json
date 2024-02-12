@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./app/*"],
-      "mdx-tug": ["../../mdx-tug/build/*"],
-      "mdx-tug/client": ["../../mdx-tug/build/client"],
+      "mdx-butler": ["../../mdx-butler/build/*"],
+      "mdx-butler/client": ["../../mdx-butler/build/client"],
     },
 
     // Remix takes care of building everything in `remix build`.

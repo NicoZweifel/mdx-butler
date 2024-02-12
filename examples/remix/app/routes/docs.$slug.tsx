@@ -1,7 +1,7 @@
 import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { bundle } from "../mdx-tug.server";
+import { bundle } from "mdx-butler";
 import { useLoaderData } from "@remix-run/react";
-import { getMDXComponent } from "mdx-tug/client";
+import { getMDXComponent } from "mdx-butler/client";
 
 type Frontmatter = {
   title: string;

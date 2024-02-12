@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 order: 1
-description: Easily bundle and manage typed [`MDX`](https://mdxjs.com/) files.
+description: Bundle and serve [`MDX`](https://mdxjs.com/) documents in applications that use Server *Side Rendering* or *Static Site Generation*.
 hideLayout: true
 ---
 
@@ -16,7 +16,7 @@ hideLayout: true
 ### Installation
 
 ```
-pnpm i mdx-tug mdx-bundler esbuild
+pnpm i mdx-butler mdx-bundler esbuild
 ```
 
 ### Framework Guides
@@ -28,8 +28,8 @@ pnpm i mdx-tug mdx-bundler esbuild
 The easiest way to get all bundled documents within a folder is to call the `bundle` function.
 
 <Warning>
-  `bundle`, `MDXService` or any other exports from the `mdx-tug` root entrypoint
-  should only be imported in a server or build context.
+  `bundle`, `MDXService` or any other exports from the `mdx-butler` root
+  entrypoint should only be imported in a server or build context.
 </Warning>
 
 Options and dependencies can be passed to `bundle` or `MDXService.create`.
@@ -43,7 +43,7 @@ For more information check out the [Configuration](/configuration) section!
 </Info>
 
 ```ts {1,7-10} showLineNumbers
-import { bundle } from 'mdx-tug';
+import { bundle } from 'mdx-butler';
 
 // ...
 
@@ -64,7 +64,7 @@ return bundle({
 
 ### `Component`
 
-Create a component by using the `Component` exported from `mdx-tug/client`.
+Create a component by using the `Component` exported from `mdx-butler/client`.
 
 <Info>
 
@@ -73,7 +73,7 @@ Using `getComponent`, exported by `mdx-bundler` is another valid option.
 </Info>
 
 ```tsx {1,12} showLineNumbers
-import { Component } from 'mdx-tug/client';
+import { Component } from 'mdx-butler/client';
 
 // ...
 
