@@ -88,8 +88,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(esbuild@0.19.12)
       mdx-butler:
-        specifier: 0.0.2
-        version: 0.0.2(mdx-bundler@10.0.1)
+        specifier: 0.3.0
+        version: 0.3.0(mdx-bundler@10.0.1)
       preact-render-to-string:
         specifier: ^6.3.1
         version: 6.3.1(preact@10.19.3)
@@ -3932,8 +3932,8 @@ packages:
       - supports-color
     dev: true
 
-  /mdx-butler@0.0.2(mdx-bundler@10.0.1):
-    resolution: {integrity: sha512-8Wva0LMy/tA/zoXar2JYCOv5cKRkezDQERMsNuA3j3755DiPcA+CEpdHp5o19Td0eDfROnuC4UFjxkKA3svKug==}
+  /mdx-butler@0.3.0(mdx-bundler@10.0.1):
+    resolution: {integrity: sha512-Td16rZlv72PdkfqGLlIHUE/dUhDS1jgMqL6wCMvczuk0UIBgSlgAXOAMCib83jmDZd3O5SCdzwo5C3FztW0wkA==}
     peerDependencies:
       mdx-bundler: '>= 10.0.0'
     dependencies:
