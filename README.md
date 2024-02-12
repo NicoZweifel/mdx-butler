@@ -2,12 +2,12 @@
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
 
-A service for bundling and serving [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
+A service for bundling and serving typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
 
 ## Notes
 
 - Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-butler.com/configuration#options) or with a custom [`FileProvider`](https://mdx-butler.com/customization/DI/fileProvider).
-- Support for [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
+- Support for typed [`Frontmatter`](https://mdx-butler.com/customization/DI/frontmatter), [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
 - Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
 
 ## Setup
