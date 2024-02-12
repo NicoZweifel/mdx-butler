@@ -8,7 +8,8 @@ A service for bundling and serving typed [`MDX`](https://mdxjs.com/) documents i
 
 - Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-butler.com/configuration#options) or with a custom [`FileProvider`](https://mdx-butler.com/customization/DI/fileProvider).
 - Support for typed [`Frontmatter`](https://mdx-butler.com/customization/DI/frontmatter), [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
-- Full support for custom components and snippets. Import anything in your documents, all files will be bundled in parallel with [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/).
+- Full support for custom components and snippets. Import anything in your documents.
+- Uses [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/) for blazingly fast bundling.
 
 ## Setup
 
