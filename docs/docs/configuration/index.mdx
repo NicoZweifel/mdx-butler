@@ -5,23 +5,78 @@ order: 2
 
 Configuration can be done through options or by adding or customizing styles, components or other existing implementations.
 
+<Success>
+
+You can customize the underlying [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) by passing `mdxBundlerOptions`.
+
+</Success>
+
 ## Options
 
 Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
+
+```ts {5,10,16,21,28} showLineNumbers
+export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
+  /**
+   *  The working directory used as the base for resolving file paths.
+   */
+  cwd?: string;
+
+  /**
+   * An optional glob pattern to filter MDX files for processing.
+   */
+  pattern?: string;
+
+  /**
+   * Options to customize the underlying MDX-bundler.
+   * See MDXBundlerOptions for supported configurations.
+   */
+  mdxBundlerOptions?: MDXBundlerOptions;
+
+  /**
+   * An optional sorting function for organizing the returned MDX documents.
+   */
+  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
+
+  /**
+   * A function to generate a table of contents plugin based on document headings.
+   * @param headings An array of heading objects
+   * @returns A plugin object compatible with MDX bundler.
+   */
+  tocPlugin?: (headings: DocHeading[]) => Plugin;
+};
+```
 
 <Info>
   Replace existing logic by [injecting dependencies](/customization/DI).
 </Info>
 
-```ts {2-8} showLineNumbers
-export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
-  cwd: string;
-  pattern?: string;
-  mdxBundlerOptions?: MDXBundlerOptions;
-  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
-  tocPlugin?: (headings: DocHeading[]) => Plugin;
-  filePattern?: string;
-  fileProvider?: () => Promise<SourceFileType[]>;
+```ts {13, 20, 25} showLineNumbers
+export type MDXServiceOptions<
+  TFrontmatter extends Record<keyof TFields, string>,
+  TOptions extends
+    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+> = TOptions & {
+  /**
+   * Defines custom fields in the MDX frontmatter to extract and make available during processing.
+   */
+  fields?: TFields;
+
+  /**
+   * A function to modify or transform frontmatter data before the documents are bundled.
+   * @param options Underlying configuration options for the MDX service.
+   * @returns Transformed or processed frontmatter.
+   */
+  frontmatterProcessor?: FrontmatterProcessor<TFrontmatter, TOptions, TFields>;
+  /**
+   * An optional asynchronous function to provide MDX source files.
+   * @returns A Promise resolving to an array of {@link SourceFileType} objects.
+   */
+  fileProvider?: FileProvider<TFrontmatter, TOptions, TFields>;
 };
 ```
 

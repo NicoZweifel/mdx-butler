@@ -12,9 +12,24 @@ export type FrontmatterProcessor<
     TOptions
   >,
 > = (
-  options: MDXServiceOptions<TFrontmatter, TOptions, TFields> & {
-    frontmatter: Partial<TFrontmatter>;
-    file: string;
-    path: string;
-  }
+  options: MDXServiceOptions<TFrontmatter, TOptions, TFields> &
+    FrontMatterOptions<TFrontmatter>
 ) => boolean;
+
+export type FrontMatterOptions<TFrontmatter extends Record<string, string>> = {
+  /**
+   * The parsed contents of the MDX frontmatter section. May contain only a subset
+   * of the fields defined in the complete frontmatter type.
+   */
+  frontmatter: Partial<TFrontmatter>;
+
+  /**
+   *  The full path of the MDX file.
+   */
+  file: string;
+
+  /**
+   * The relative path of the MDX file (from the configured `cwd`).
+   */
+  path: string;
+};

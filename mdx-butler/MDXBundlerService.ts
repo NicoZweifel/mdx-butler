@@ -53,7 +53,7 @@ export class MDXBundlerService<
           ? join(process.cwd(), options.cwd)
           : process.cwd();
 
-        return await glob(options.filePattern ?? '**/*.mdx', {
+        return await glob(options.pattern ?? '**/*.mdx', {
           ignore: 'node_modules/**',
           cwd,
         }).then((x) =>

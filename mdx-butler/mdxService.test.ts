@@ -10,7 +10,7 @@ describe('MDXService integration tests', () => {
     const cwd = '/data';
 
     const mdxService = MDXBundlerService.create<{ title: string }>({
-      filePattern: 'hello_world.mdx',
+      pattern: 'hello_world.mdx',
       cwd,
     });
 
