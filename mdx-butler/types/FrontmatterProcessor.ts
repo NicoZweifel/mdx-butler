@@ -21,7 +21,7 @@ export type FrontMatterOptions<TFrontmatter extends Record<string, string>> = {
    * The parsed contents of the MDX frontmatter section. May contain only a subset
    * of the fields defined in the complete frontmatter type.
    */
-  frontmatter: Partial<TFrontmatter>;
+  frontmatter: TFrontmatter;
 
   /**
    *  The full path of the MDX file.
