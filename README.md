@@ -2,18 +2,20 @@
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
 
-A service for bundling and serving typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
+#### Bundle and serve typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
 
-## Why?
+Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
+While convenient, these plugins can in some cases limit control, force specific dependencies,
+create performance bottlenecks and complicate the migration of your documentation to a Service, CMS or database in the future.
 
-Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents. While convenient, these plugins can in some cases limit control, force specific dependencies, create performance bottlenecks and complicate the migration of your documentation to a Service, CMS or database in the future.
-
-**mdx-butler** (built upon [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)) aims to offer a performant, flexible and framework-agnostic way to manage your MDX documentation. This maximizes flexibility and future-proofs your work for easy updates, migrations, and changes to your content source.
+**mdx-butler** (built upon [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)) aims to offer a performant,
+flexible and framework-agnostic way to manage your [`MDX`](https://mdxjs.com/) documents.
+This maximizes flexibility and future-proofs your work for easy updates, migrations, and changes to your content source.
 
 - **Enhanced content organization** with **typed Frontmatter** and **MDX syntax** support within key document elements.
 - **Framework independent:** Work smoothly without worrying about framework-specific plugins and dependencies.
 - **Adaptability:** Switch content sources (Backend/Service, CMS, database, etc.) without major rewrites.
-- **Performance:** Leverages [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) and [esbuild](https://esbuild.github.io/) for efficient compilation and bundling of MDX with imported dependencies.
+- **Performance:** Leverages [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) and [esbuild](https://esbuild.github.io/) for efficient compilation and bundling of [`MDX`](https://mdxjs.com/) documents with imported dependencies.
 - **Customization:** Easily inject globals, components, and application logic for rich, interactive documentation.
 
 ## Setup

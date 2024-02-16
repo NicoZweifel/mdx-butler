@@ -7,17 +7,17 @@ import {
   SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
-} from './types/index.js';
+} from './types';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
 
 import { IMDXBundlerService } from './IMDXBundlerService.js';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
-import { tocPlugin } from './tocPlugin.js';
-import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
-import { bundleHeadings } from './utils.js';
+import { tocPlugin } from './utils/tocPlugin.js';
+import { createFrontmatterProcessor } from './utils/createFrontmatterProcessor.js';
 import * as process from 'process';
+import { bundleHeadings } from './utils/bundleHeadings';
 
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,

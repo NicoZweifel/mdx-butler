@@ -4,7 +4,7 @@ import { FieldDefinitions } from './FieldDefinitions';
 import { MDXServiceOptions } from './MDXServiceOptions';
 
 export type FrontmatterProcessor<
-  TFrontmatter extends Record<keyof TFields, string | number>,
+  TFrontmatter extends Partial<Record<keyof TFields, string>>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
@@ -16,7 +16,9 @@ export type FrontmatterProcessor<
     FrontMatterOptions<Record<keyof TFrontmatter, string>>
 ) => boolean;
 
-export type FrontMatterOptions<TFrontmatter extends Record<string, string>> = {
+export type FrontMatterOptions<
+  TFrontmatter extends Partial<Record<string, string>>,
+> = {
   /**
    * The parsed contents of the MDX frontmatter section. May contain only a subset
    * of the fields defined in the complete frontmatter type.

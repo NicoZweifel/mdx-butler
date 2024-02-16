@@ -1,6 +1,6 @@
 {
   "name": "mdx-butler",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "description": "",
   "private": false,
   "repository": "https://github.com/NicoZweifel/mdx-butler",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "publish": "pnpm publish -r",
-    "prepublish": "npm-run-all clean build",
+    "prepublish": "npm-run-all build:clean build",
     "compile": "tsc",
     "compile:watch": "tsc",
     "watch": "npm-run-all compile:watch",

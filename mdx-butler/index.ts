@@ -1,6 +1,6 @@
 import { MDXBundlerService } from './MDXBundlerService.js';
-import { bundle } from './bundle.js';
-import { createFrontmatterProcessor } from './createFrontmatterProcessor.js';
+import { bundle } from './utils/bundle.js';
+import { createFrontmatterProcessor } from './utils/createFrontmatterProcessor.js';
 
 export * from 'mdx-bundler';
 
