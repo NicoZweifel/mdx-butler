@@ -19,8 +19,6 @@ export function createFrontmatterProcessor<
       const isRequired = fields[key]?.required;
       const isDefined = options.frontmatter[key] != undefined;
 
-      if (!isDefined) options.frontmatter[key] = '' as never;
-
       if (!isRequired || isDefined) continue;
 
       throw new Error(`Missing required field - '${key}'.`);
