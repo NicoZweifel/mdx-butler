@@ -4,16 +4,17 @@ import { useLoaderData } from "@remix-run/react";
 import { getMDXComponent } from "mdx-butler/client";
 
 type Frontmatter = {
-  title: string;
+  title: number;
   description: string;
 };
 
 export async  function loader({params:{slug}}:LoaderFunctionArgs) {
-  return  json((await bundle<Frontmatter>({
+  return json((await bundle<Frontmatter>({
     cwd:'/docs',
     fields:{
       title:{
-        required:true
+        required:true,
+        resolve: (x)=> x.frontmatter.title as number
       },
       description:{}
     }

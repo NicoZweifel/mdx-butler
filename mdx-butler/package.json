@@ -19,12 +19,12 @@
   },
   "scripts": {
     "publish": "pnpm publish -r",
-    "prepublish": "pnpm build",
+    "prepublish": "npm-run-all clean build",
     "compile": "tsc",
     "compile:watch": "tsc",
-    "watch": "npm-run-all build:clean compile:watch",
+    "watch": "npm-run-all compile:watch",
     "build:clean": "rimraf ./build",
-    "build": "npm-run-all build:clean compile",
+    "build": "npm-run-all compile",
     "format": "prettier **/*.{cjs,js,ts,tsx,css,json,md,mdx} --write",
     "lint": "eslint **/*.{ts,tsx,mdx} --fix",
     "test": "vitest"

@@ -5,7 +5,7 @@ import { FrontMatterOptions } from './FrontmatterProcessor';
 export type FieldDefinitions<
   TFrontmatter extends Record<
     keyof FieldDefinitions,
-    string
+    string | number
   > = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
@@ -29,6 +29,8 @@ export type FieldDefinitions<
      *   * path: The relative path of the MDX file (from the configured `cwd`).
      * @returns The resolved value to assign to the frontmatter field.
      */
-    resolve?: (options: TOptions & FrontMatterOptions<TFrontmatter>) => string;
+    resolve?: (
+      options: TOptions & FrontMatterOptions<Record<keyof TFrontmatter, string>>
+    ) => string | number;
   }
 >;
