@@ -5,7 +5,7 @@ import { FrontMatterOptions } from './FrontmatterProcessor';
 export type FieldDefinitions<
   TFrontmatter extends Record<
     keyof FieldDefinitions,
-    string | number
+    string
   > = UnknownFrontMatter,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
@@ -31,6 +31,6 @@ export type FieldDefinitions<
      */
     resolve?: (
       options: TOptions & FrontMatterOptions<Record<keyof TFrontmatter, string>>
-    ) => string | number;
+    ) => string;
   }
 >;

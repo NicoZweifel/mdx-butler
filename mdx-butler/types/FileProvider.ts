@@ -4,7 +4,7 @@ import { SourceFileType } from './SourceFileType';
 import { MDXServiceOptions } from './MDXServiceOptions';
 
 export type FileProvider<
-  TFrontmatter extends Record<keyof TFields, string | number>,
+  TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
