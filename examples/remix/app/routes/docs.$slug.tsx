@@ -9,11 +9,11 @@ type Frontmatter = {
 };
 
 export async  function loader({params:{slug}}:LoaderFunctionArgs) {
-  return  json((await bundle<Frontmatter>({
+  return json((await bundle<Frontmatter>({
     cwd:'/docs',
     fields:{
       title:{
-        required:true
+        required:true,
       },
       description:{}
     }

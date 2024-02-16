@@ -4,7 +4,7 @@ import { FieldDefinitions } from './FieldDefinitions';
 import { MDXServiceOptions } from './MDXServiceOptions';
 
 export type FrontmatterProcessor<
-  TFrontmatter extends Record<keyof TFields, string>,
+  TFrontmatter extends Record<keyof TFields, string | number>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
@@ -13,7 +13,7 @@ export type FrontmatterProcessor<
   >,
 > = (
   options: MDXServiceOptions<TFrontmatter, TOptions, TFields> &
-    FrontMatterOptions<TFrontmatter>
+    FrontMatterOptions<Record<keyof TFrontmatter, string>>
 ) => boolean;
 
 export type FrontMatterOptions<TFrontmatter extends Record<string, string>> = {
@@ -21,7 +21,7 @@ export type FrontMatterOptions<TFrontmatter extends Record<string, string>> = {
    * The parsed contents of the MDX frontmatter section. May contain only a subset
    * of the fields defined in the complete frontmatter type.
    */
-  frontmatter: Partial<TFrontmatter>;
+  frontmatter: TFrontmatter;
 
   /**
    *  The full path of the MDX file.

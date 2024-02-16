@@ -125,7 +125,7 @@ export class MDXBundlerService<
     const path = file.name.substring(0, file.name.lastIndexOf('.'));
 
     return new Promise((resolve, reject) =>
-      bundleMDX<Partial<TFrontmatter>>({
+      bundleMDX<TFrontmatter>({
         ...mdxBundlerOptions,
         ...source,
         cwd,
