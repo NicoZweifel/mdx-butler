@@ -4,12 +4,17 @@
 
 A service for bundling and serving typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
 
-## Notes
+## Why?
 
-- Bundle mdx files in a `docs` folder, with [any file pattern](https://mdx-butler.com/configuration#options) or with a custom [`FileProvider`](https://mdx-butler.com/customization/DI/fileProvider).
-- Support for typed [`Frontmatter`](https://mdx-butler.com/customization/DI/frontmatter), [`MDX`](https://mdxjs.com/) syntax in descriptions, table of contents, headings and more.
-- Full support for custom components and snippets. Import anything in your documents.
-- Uses [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) and [`esbuild`](https://esbuild.github.io/) for blazingly fast bundling.
+Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents. While convenient, these plugins can in some cases limit control, force specific dependencies, create performance bottlenecks and complicate the migration of your documentation to a Service, CMS or database in the future.
+
+**mdx-butler** (built upon [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)) aims to offer a performant, flexible and framework-agnostic way to manage your MDX documentation. This maximizes flexibility and future-proofs your work for easy updates, migrations, and changes to your content source.
+
+- **Enhanced content organization** with **typed Frontmatter** and **MDX syntax** support within key document elements.
+- **Framework independent:** Work smoothly without worrying about framework-specific plugins and dependencies.
+- **Adaptability:** Switch content sources (Backend/Service, CMS, database, etc.) without major rewrites.
+- **Performance:** Leverages [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) and [esbuild](https://esbuild.github.io/) for efficient compilation and bundling of MDX with imported dependencies.
+- **Customization:** Easily inject globals, components, and application logic for rich, interactive documentation.
 
 ## Setup
 
