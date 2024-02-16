@@ -1,5 +1,5 @@
-import { DocHeading } from './types/index.js';
 import { bundleMDX } from 'mdx-bundler';
+import { DocHeading } from '../types';
 
 export async function bundleHeading(heading: DocHeading) {
   return {
@@ -10,8 +10,4 @@ export async function bundleHeading(heading: DocHeading) {
       })
     ).code,
   };
-}
-
-export async function bundleHeadings(headings: DocHeading[]) {
-  return Promise.all(headings.map(bundleHeading));
 }

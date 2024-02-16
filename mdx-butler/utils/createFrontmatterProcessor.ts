@@ -3,7 +3,7 @@ import {
   MDXServiceBaseOptions,
   FieldDefinitions,
   UnknownFrontMatter,
-} from './types/index.js';
+} from '../types';
 
 export function createFrontmatterProcessor<
   TFrontmatter extends UnknownFrontMatter,
@@ -16,7 +16,7 @@ export function createFrontmatterProcessor<
 >(fields: TFields): FrontmatterProcessor<TFrontmatter, TOptions, TFields> {
   return function frontmatterProcessor(options) {
     for (const key in fields) {
-      const isRequired = fields[key].required;
+      const isRequired = fields[key]?.required;
       const isDefined = options.frontmatter[key] != undefined;
 
       if (!isDefined) options.frontmatter[key] = '' as never;
@@ -27,7 +27,7 @@ export function createFrontmatterProcessor<
     }
 
     for (const key in fields) {
-      const resolve = fields[key].resolve;
+      const resolve = fields[key]?.resolve;
 
       if (!resolve) continue;
 

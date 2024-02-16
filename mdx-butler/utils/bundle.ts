@@ -1,12 +1,12 @@
-import { MDXBundlerService } from './MDXBundlerService.js';
+import { MDXBundlerService } from '../MDXBundlerService';
 import {
   FieldDefinitions,
   MDXServiceBaseOptions,
   MDXServiceOptions,
-} from './types/index.js';
+} from '../types';
 
 export function bundle<
-  TFrontmatter extends Record<keyof TFields, string>,
+  TFrontmatter extends Partial<Record<keyof TFields, string>>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
