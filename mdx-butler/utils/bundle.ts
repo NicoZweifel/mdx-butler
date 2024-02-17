@@ -3,7 +3,7 @@ import {
   FieldDefinitions,
   MDXServiceBaseOptions,
   MDXServiceOptions,
-} from '../types';
+} from '../types/index.js';
 
 export function bundle<
   TFrontmatter extends Partial<Record<keyof TFields, string>>,

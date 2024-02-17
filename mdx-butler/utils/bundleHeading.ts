@@ -1,5 +1,5 @@
 import { bundleMDX } from 'mdx-bundler';
-import { DocHeading } from '../types';
+import { DocHeading } from '../types/index.js';
 
 export async function bundleHeading(heading: DocHeading) {
   return {

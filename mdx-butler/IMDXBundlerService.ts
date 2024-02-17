@@ -5,7 +5,7 @@ import {
   MDXServiceReturnType,
   SourceFileType,
   FieldDefinitions,
-} from './types';
+} from './types/index.js';
 
 export interface IMDXBundlerService<
   TFrontmatter extends UnknownFrontMatter,
