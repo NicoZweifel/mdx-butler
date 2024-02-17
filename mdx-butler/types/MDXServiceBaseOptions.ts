@@ -28,7 +28,8 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   sortProvider?: SortProvider<MDXServiceReturnType<T>>;
 
   /**
-   * A function to generate a table of contents plugin based on document headings.
+   * A function to generate a table of contents plugin.
+   * The plugin should fill the array with the headings of the document.
    * @param headings An array of heading objects
    * @returns A plugin object compatible with MDX bundler.
    */
