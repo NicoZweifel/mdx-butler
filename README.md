@@ -9,7 +9,7 @@ Manage and serve typed [`MDX`](https://mdxjs.com/) documents in applications, th
 
 Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
 While convenient, these plugins can in some cases limit control, force specific dependencies,
-create performance bottlenecks and complicate the migration of your documentation to a Service, CMS or database in the future.
+create performance bottlenecks and complicate the migration of your documentation to a Microservice, CMS or database in the future.
 
 **mdx-butler** (built upon [mdx-bundler](https://github.com/kentcdodds/mdx-bundler)) aims to offer a performant,
 flexible and framework-agnostic abstraction to manage your [`MDX`](https://mdxjs.com/) documents.
