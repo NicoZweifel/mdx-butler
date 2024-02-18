@@ -36,13 +36,13 @@ pnpm i mdx-butler mdx-bundler esbuild
 
 ### Bundling
 
-The easiest way to get all bundled documents within a folder is to call the `bundle` function.
+The easiest way to get all bundled documents within a folder is to call the `docs` function.
 
 > [!Warning]
-> Exports like `bundle`, `MDXService` or any others from the `mdx-butler` root entrypoint
+> Exports like `docs`, `MDXService` or any others from the `mdx-butler` root entrypoint
 > should only be imported in a server or build context.
 
-Options and dependencies can be passed to `bundle` or `MDXService.create`.
+Options and dependencies can be passed to `docs` or `MDXService.create`.
 
 > [!Note]
 > If you require more control, consider [injecting
