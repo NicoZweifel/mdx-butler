@@ -117,9 +117,7 @@ return docs({
   fields: {
     title: {
       required: true,
-      resolve: (x) => {
-        return x.frontmatter.title.toUpperCase();
-      },
+      resolve: (x) => x.frontmatter.title.toUpperCase(),
     },
   },
 });
