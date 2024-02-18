@@ -56,7 +56,6 @@ import { docs } from "mdx-butler";
 // ...
 
 return docs({
-  cwd: "/docs",
   fields: {
     title: {
       required: true,
@@ -81,7 +80,6 @@ type Frontmatter = {
 // ...
 
 return bundle<Frontmatter>({
-  cwd: "/docs",
   fields: {
     title: {
       required: true,
