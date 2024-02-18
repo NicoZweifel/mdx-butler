@@ -55,7 +55,7 @@ import { bundle } from "mdx-butler";
 
 // ...
 
-return bundle({
+return docs({
   cwd: "/docs",
   fields: {
     title: {
