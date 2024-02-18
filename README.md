@@ -5,7 +5,7 @@ Manage and serve typed [`MDX`](https://mdxjs.com/) documents in applications, th
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
 ![logo](/docs/public/butler.png)
 
-## Why create a Service?
+## Why use a Service?
 
 Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
 While convenient, these plugins can in some cases limit control, force specific dependencies,
