@@ -10,7 +10,7 @@ You can Override the default table of contents plugin by passing an alternative 
   possible to inject a custom `tocPlugin`.
 </Info>
 
-```ts {4} showLineNumbers
+```ts {3-5} showLineNumbers
 return docs({
   // other options
   tocPlugin: (/*params*/) => {
@@ -24,7 +24,7 @@ return docs({
   are retrieving when parsing the `AST`.
 </Warning>
 
-```ts {2} showLineNumbers
+```ts {3} showLineNumbers
 export type DocServiceOptions = Pick<ConfigOptions, 'baseRoute'> & {
   // other options
   tocPlugin?: (headings: DocHeading[]) => unified.Plugin;

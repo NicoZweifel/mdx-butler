@@ -4,7 +4,7 @@ description: Customize the source of the files.
 
 To add a custom file source, for example a database, pass a custom `FileProvider`.
 
-```ts {4} showLineNumbers
+```ts {3-5} showLineNumbers
 return docs({
   // other options
   fileProvider: (/*options*/) => {
@@ -29,7 +29,7 @@ export type SourceFileType =
     };
 ```
 
-```ts {2} showLineNumbers
+```ts
 export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
