@@ -172,6 +172,7 @@ export class MDXBundlerService<
               file: file.name,
               path,
             });
+
             throw new FileNotRequiredError();
           }
 
