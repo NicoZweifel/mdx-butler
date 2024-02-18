@@ -1,9 +1,9 @@
-import { bundle } from "mdx-butler";
+import { docs } from "mdx-butler";
 import { cache } from "react";
 import { Component } from "mdx-butler/client";
 
 const getDocs = cache(() =>
-  bundle({
+  docs({
     cwd:'/docs',
    fields:{
       title:{

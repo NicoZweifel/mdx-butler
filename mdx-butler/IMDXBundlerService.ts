@@ -17,7 +17,7 @@ export interface IMDXBundlerService<
   >,
 > {
   readonly options: MDXServiceOptions<TFrontmatter, TOptions, TFields>;
-  bundle(
+  docs(
     ...files: SourceFileType[]
   ): Promise<MDXServiceReturnType<TFrontmatter>[]>;
 }

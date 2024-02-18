@@ -5,7 +5,7 @@ import {
   MDXServiceOptions,
 } from '../types/index.js';
 
-export function bundle<
+export function docs<
   TFrontmatter extends Partial<Record<keyof TFields, string>>,
   TOptions extends
     MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
@@ -18,5 +18,5 @@ export function bundle<
     options
   );
 
-  return service.bundle();
+  return service.docs();
 }

@@ -21,7 +21,7 @@ Rendering with Remix requires a couple of steps.
 Create a file named `mdx-butler.server.ts`.
 
 ```ts
-export { bundle, createFrontmatterProcessor } from 'mdx-butler';
+export { docs, createFrontmatterProcessor } from 'mdx-butler';
 ```
 
 ## Page
@@ -35,7 +35,7 @@ Import the previously created server exports in your page.
 
 ```tsx
 import { json, LoaderFunctionArgs, MetaFunction } from '@remix-run/node';
-import { bundle } from '../mdx-butler.server';
+import { docs } from '../mdx-butler.server';
 import { useLoaderData } from '@remix-run/react';
 import { getMDXComponent } from 'mdx-butler/client';
 
@@ -46,7 +46,7 @@ type Frontmatter = {
 export async function loader({ params: { slug } }: LoaderFunctionArgs) {
   return json(
     (
-      await bundle<Frontmatter>({
+      await docs<Frontmatter>({
         cwd: '/docs',
       })
     ).find((x) => slug === x.path)

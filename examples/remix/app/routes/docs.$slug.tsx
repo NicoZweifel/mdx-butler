@@ -1,5 +1,5 @@
 import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { bundle } from "../mdx-tug.server";
+import { docs } from "../mdx-tug.server";
 import { useLoaderData } from "@remix-run/react";
 import { getMDXComponent } from "mdx-butler/client";
 
@@ -9,7 +9,7 @@ type Frontmatter = {
 };
 
 export async  function loader({params:{slug}}:LoaderFunctionArgs) {
-  return json((await bundle<Frontmatter>({
+  return json((await docs<Frontmatter>({
     cwd:'/docs',
     fields:{
       title:{

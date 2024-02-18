@@ -82,7 +82,7 @@ export class MDXBundlerService<
     return new MDXBundlerService(options);
   }
 
-  async bundle(
+  async docs(
     ...files: SourceFileType[]
   ): Promise<MDXServiceReturnType<TFrontmatter>[]> {
     const { fileProvider } = this.options;

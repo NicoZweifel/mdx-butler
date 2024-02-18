@@ -1,1 +1,1 @@
-export { bundle,createFrontmatterProcessor } from "mdx-butler";
+export { docs,createFrontmatterProcessor } from "mdx-butler";

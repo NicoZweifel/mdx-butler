@@ -1,5 +1,5 @@
 import { MDXBundlerService } from './MDXBundlerService.js';
-import { bundle } from './utils/bundle.js';
+import { docs } from './utils/docs';
 import { createFrontmatterProcessor } from './utils/createFrontmatterProcessor.js';
 
 export * from 'mdx-bundler';
@@ -20,6 +20,6 @@ export type {
   MDXServiceOptions,
   MDXServiceReturnType,
 } from './types/index.js';
-export { MDXBundlerService, bundle, createFrontmatterProcessor };
+export { MDXBundlerService, docs, createFrontmatterProcessor };
 
-export default bundle;
+export default docs;

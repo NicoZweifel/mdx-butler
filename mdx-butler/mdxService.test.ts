@@ -14,7 +14,7 @@ describe('MDXService integration tests', () => {
       cwd,
     });
 
-    const result = await mdxService.bundle();
+    const result = await mdxService.docs();
 
     expect(result[0].file).toEqual('hello_world.mdx');
     expect(result[0].headings.length).toEqual(3);

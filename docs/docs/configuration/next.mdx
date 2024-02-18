@@ -24,11 +24,11 @@ order: 3
 ### Bundling documents
 
 ```tsx
-import { bundle } from 'mdx-butler';
+import { docs } from 'mdx-butler';
 import { cache } from 'react';
 
 export const getDocs = cache(() =>
-  bundle({
+  docs({
     cwd: '/docs',
     fields: {
       title: {
@@ -127,7 +127,7 @@ export default async function Docs({
 For more ambitious use-cases and for filtering that depends on the `Frontmatter` object, the `getDocs` function can be adjusted to use a [`FrontmatterProcessor`](/customization/DI/frontmatter) for filtering.
 
 ```tsx
-import { bundle, createFrontmatterProcessor } from 'mdx-butler';
+import { docs, createFrontmatterProcessor } from 'mdx-butler';
 import { cache } from 'react';
 import { Component } from 'mdx-butler/client';
 
@@ -137,7 +137,7 @@ type Frontmatter = {
 };
 
 const getDocs = cache((path?: string) =>
-  bundle<Frontmatter>({
+  docs<Frontmatter>({
     cwd: '/docs',
     frontmatterProcessor: (x) => {
       const processor = createFrontmatterProcessor<Frontmatter>({
