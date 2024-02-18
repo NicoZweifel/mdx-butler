@@ -56,7 +56,7 @@ export class PageService {
       ];
     }
 
-    const docs = await mdxService.bundle();
+    const docs = await mdxService.docs();
 
     await Promise.all(
       docs.map(async (x) => {
