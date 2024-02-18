@@ -44,13 +44,7 @@ type Frontmatter = {
 };
 
 export async function loader({ params: { slug } }: LoaderFunctionArgs) {
-  return json(
-    (
-      await docs<Frontmatter>({
-        cwd: '/docs',
-      })
-    ).find((x) => slug === x.path)
-  );
+  return json((await docs<Frontmatter>()).find((x) => slug === x.path));
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {

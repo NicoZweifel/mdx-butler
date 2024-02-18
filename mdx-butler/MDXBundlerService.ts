@@ -42,44 +42,45 @@ export class MDXBundlerService<
       TOptions
     >,
   >(
-    options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+    options?: MDXServiceOptions<TFrontmatter, TOptions, TFields>
   ): IMDXBundlerService<TFrontmatter, TOptions, TFields> {
-    options.tocPlugin = options.tocPlugin ?? tocPlugin;
-    options.fileProvider =
-      options.fileProvider ??
-      (async () => {
-        // absolute
-        const cwd = options.cwd
-          ? join(process.cwd(), options.cwd)
-          : process.cwd();
+    if (options) {
+      options.tocPlugin = options.tocPlugin ?? tocPlugin;
+      options.fileProvider =
+        options.fileProvider ??
+        (async () => {
+          // absolute
+          const cwd = options.cwd
+            ? join(process.cwd(), options.cwd)
+            : process.cwd();
 
-        return await glob(options.pattern ?? '**/*.mdx', {
-          ignore: 'node_modules/**',
-          cwd,
-        }).then((x) =>
-          x.map((x) => ({
-            type: SOURCE_FILE_TYPE.LOCAL,
-            name: x.replaceAll('\\', '/'),
-          }))
-        );
-      });
+          return await glob(options.pattern ?? '**/*.mdx', {
+            ignore: 'node_modules/**',
+            cwd,
+          }).then((x) =>
+            x.map((x) => ({
+              type: SOURCE_FILE_TYPE.LOCAL,
+              name: x.replaceAll('\\', '/'),
+            }))
+          );
+        });
 
-    if (options.fields != undefined) {
-      options.frontmatterProcessor =
-        options.frontmatterProcessor ??
-        createFrontmatterProcessor(options.fields);
-    } else {
-      options.frontmatterProcessor =
-        options.frontmatterProcessor ?? (() => true);
+      if (options.fields != undefined) {
+        options.frontmatterProcessor =
+          options.frontmatterProcessor ??
+          createFrontmatterProcessor(options.fields);
+      } else {
+        options.frontmatterProcessor =
+          options.frontmatterProcessor ?? (() => true);
+      }
+
+      options.sortProvider =
+        options.sortProvider ??
+        ((x) => {
+          return x.sort((a, b) => a.file.localeCompare(b.file));
+        });
     }
-
-    options.sortProvider =
-      options.sortProvider ??
-      ((x) => {
-        return x.sort((a, b) => a.file.localeCompare(b.file));
-      });
-
-    return new MDXBundlerService(options);
+    return new MDXBundlerService(options ?? ({} as TOptions));
   }
 
   async docs(

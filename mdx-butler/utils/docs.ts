@@ -13,7 +13,7 @@ export function docs<
     TFrontmatter,
     TOptions
   >,
->(options: MDXServiceOptions<TFrontmatter, TOptions, TFields>) {
+>(options?: MDXServiceOptions<TFrontmatter, TOptions, TFields>) {
   const service = MDXBundlerService.create<TFrontmatter, TOptions, TFields>(
     options
   );

@@ -29,7 +29,6 @@ import { cache } from 'react';
 
 export const getDocs = cache(() =>
   docs({
-    cwd: '/docs',
     fields: {
       title: {
         required: true,
@@ -138,7 +137,6 @@ type Frontmatter = {
 
 const getDocs = cache((path?: string) =>
   docs<Frontmatter>({
-    cwd: '/docs',
     frontmatterProcessor: (x) => {
       const processor = createFrontmatterProcessor<Frontmatter>({
         title: {
