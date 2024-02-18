@@ -4,12 +4,11 @@ description: Change how frontmatter is processed
 
 Frontmatter can be manipulated by passing a `FrontmatterProcessor`, which makes changes to the `frontmatter` object.
 
-<Warning>
-  Returning `undefined` or `false` will prevent the file from being bundled.
-
-This can be useful, if you want to optimize and bundle only certain files on demand.
-
-</Warning>
+<Info>
+  To get full control over the frontmatter object, including filtering of
+  documents based on it, it is possible to inject a custom
+  `FontmatterProcessor`.
+</Info>
 
 ```ts {4} showLineNumbers
 return docs({
@@ -20,11 +19,12 @@ return docs({
 });
 ```
 
-<Info>
-  To get full control over the frontmatter object, including filtering of
-  documents based on it, it is possible to inject a custom
-  `FontmatterProcessor`.
-</Info>
+<Warning>
+  Returning `undefined` or `false` will prevent the file from being bundled.
+
+This can be useful, if you want to optimize and bundle only certain files on demand.
+
+</Warning>
 
 ```ts
 export type FrontmatterProcessor<
