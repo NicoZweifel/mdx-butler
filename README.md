@@ -51,7 +51,7 @@ Options and dependencies can be passed to `bundle` or `MDXService.create`.
 > For more information check out the [Configuration](https://mdx-butler.com/configuration) section!
 
 ```ts {1,7-10} showLineNumbers
-import { bundle } from "mdx-butler";
+import { docs } from "mdx-butler";
 
 // ...
 
