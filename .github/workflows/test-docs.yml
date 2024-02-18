@@ -28,9 +28,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
     - name: Install dependencies
-      working-directory: /docs
+      working-directory: docs
       run: pnpm install
     - name: Test
-      working-directory: /docs
+      working-directory: docs
       run: pnpm test
 
