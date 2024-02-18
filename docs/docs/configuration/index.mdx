@@ -107,6 +107,32 @@ If a required field is `undefined`, an `Error` will be thrown.
 
 </Info>
 
+### Using the `MDXBundlerService` class
+
+<Info>
+  If you require more control, consider [injecting
+  dependencies](/customization/DI) and using `MDXService` directly.
+
+For more information check out the [Configuration](/configuration) section!
+
+</Info>
+
+```ts {1,5-11} showLineNumbers
+import { MDXBundlerService } from 'mdx-butler';
+
+// ...
+
+const docService = MDXBundlerService.create({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+
+return docService.docs();
+```
+
 ### Examples
 
 <Examples />

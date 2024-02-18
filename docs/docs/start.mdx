@@ -43,32 +43,6 @@ return docs({
   `fields`.
 </Success>
 
-#### Service class (optional)
-
-<Info>
-  If you require more control, consider [injecting
-  dependencies](/customization/DI) and using `MDXService` directly.
-
-For more information check out the [Configuration](/configuration) section!
-
-</Info>
-
-```ts {1,5-11} showLineNumbers
-import { MDXBundlerService } from 'mdx-butler';
-
-// ...
-
-const docService = MDXBundlerService.create({
-  fields: {
-    title: {
-      required: true,
-    },
-  },
-});
-
-return docService.docs();
-```
-
 ### `Component`
 
 Create a component by using the `Component` exported from `mdx-butler/client`.
