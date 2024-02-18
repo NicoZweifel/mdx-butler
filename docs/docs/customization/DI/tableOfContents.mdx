@@ -6,8 +6,8 @@ description: Change how the table of contents is generated
 You can Override the default table of contents plugin by passing an alternative plugin.
 
 <Info>
-  The array that is passed to the plugin should be filled with the headings that
-  are retrieving when parsing the `AST`.
+  To get full control of the `header` and `tableOfContents` creation, it is
+  possible to inject a custom `tocPlugin`.
 </Info>
 
 ```ts {4} showLineNumbers
@@ -19,10 +19,10 @@ return docs({
 });
 ```
 
-<Info>
-  To get full control of the `header` and `tableOfContents` creation, it is
-  possible to inject a custom `tocPlugin`.
-</Info>
+<Warning>
+  The array that is passed to the plugin should be filled with the headings that
+  are retrieving when parsing the `AST`.
+</Warning>
 
 ```ts {2} showLineNumbers
 export type DocServiceOptions = Pick<ConfigOptions, 'baseRoute'> & {
