@@ -17,7 +17,7 @@ import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './utils/tocPlugin.js';
 import { createFrontmatterProcessor } from './utils/createFrontmatterProcessor.js';
 import * as process from 'process';
-import { bundleHeadings } from './utils/bundleHeadings';
+import { bundleHeadings } from './utils/bundleHeadings.js';
 
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,

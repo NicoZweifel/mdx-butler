@@ -1,4 +1,4 @@
-import { bundleHeading } from './bundleHeading';
+import { bundleHeading } from './bundleHeading.js';
 import { DocHeading } from '../types/index.js';
 
 export async function bundleHeadings(headings: DocHeading[]) {
