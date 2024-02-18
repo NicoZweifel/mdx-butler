@@ -7,27 +7,26 @@ import { Parent } from 'unist';
 
 export const tocPlugin =
   (headings: DocHeading[]): unified.Plugin =>
-  () => {
-    return async (node) => {
-      for (const element of (node as Parent | undefined)?.children.filter(
-        (_: unist.Node) => _.type === 'heading'
-      ) ?? []) {
-        if (element.type === 'heading') {
-          const elm = element as MdxJsxTextElement & {
-            depth: 1 | 2 | 3 | 4 | 5 | 6;
-          };
+  () =>
+  async (node) => {
+    for (const element of (node as Parent | undefined)?.children.filter(
+      (_: unist.Node) => _.type === 'heading'
+    ) ?? []) {
+      if (element.type === 'heading') {
+        const elm = element as MdxJsxTextElement & {
+          depth: 1 | 2 | 3 | 4 | 5 | 6;
+        };
 
-          const title = toMarkdown(
-            { type: 'paragraph', children: elm.children },
-            { extensions: [mdxToMarkdown()] }
-          )
-            .trim()
-            .replace(/<.*$/g, '')
-            .replace(/\\/g, '')
-            .trim();
+        const title = toMarkdown(
+          { type: 'paragraph', children: elm.children },
+          { extensions: [mdxToMarkdown()] }
+        )
+          .trim()
+          .replace(/<.*$/g, '')
+          .replace(/\\/g, '')
+          .trim();
 
-          headings.push({ level: elm.depth, title });
-        }
+        headings.push({ level: elm.depth, title });
       }
-    };
+    }
   };
