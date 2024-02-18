@@ -123,7 +123,7 @@ export class MDXBundlerService<
 
     const path = file.name.substring(0, file.name.lastIndexOf('.'));
 
-    return this.bundlePromise({
+    return this.getBundleFilePromise({
       file,
       source,
       path,
@@ -132,7 +132,7 @@ export class MDXBundlerService<
     });
   }
 
-  protected bundlePromise({
+  protected getBundleFilePromise({
     file,
     source,
     cwd,
