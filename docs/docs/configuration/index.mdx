@@ -107,7 +107,25 @@ If a required field is `undefined`, an `Error` will be thrown.
 
 </Info>
 
-### `MDXBundlerService`
+## Dynamic fields
+
+Fields can be resolved dynamically in the order they are defined.
+
+```tsx
+return docs({
+  cwd: '/docs',
+  fields: {
+    title: {
+      required: true,
+      resolve: (x) => {
+        return x.frontmatter.title.toUpperCase();
+      },
+    },
+  },
+});
+```
+
+## `MDXBundlerService`
 
 <Info>
   If you require more control, consider [injecting
@@ -131,7 +149,7 @@ const docService = MDXBundlerService.create({
 return docService.docs();
 ```
 
-### Examples
+## Examples
 
 <Examples />
 

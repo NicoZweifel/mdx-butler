@@ -7,7 +7,7 @@ const getDocs = cache(() =>
     cwd:'/docs',
    fields:{
       title:{
-        required:true
+        required:true,
       },
    }
   }),
