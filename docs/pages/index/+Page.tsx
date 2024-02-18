@@ -2,7 +2,7 @@ import { usePageContext } from '../../context/PageContext';
 import mdxComponents from '../../components/mdxComponents';
 import { PageLayout } from '../../components';
 import { Page as ErrorPage } from '../_error/+Page';
-import { Component } from 'mdx-butler/client';
+import { getMDXComponent } from 'mdx-bundler/client';
 
 export { Page };
 
@@ -16,9 +16,11 @@ function Page() {
       </div>
     );
 
+  const Component = getMDXComponent(code);
+
   return (
     <PageLayout>
-      <Component doc={{ code }} components={mdxComponents} />
+      <Component components={mdxComponents} />
     </PageLayout>
   );
 }
