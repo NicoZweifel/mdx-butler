@@ -1,6 +1,7 @@
 # mdx-butler
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
+![logo](/docs/public/butler.png)
 
 #### Bundle and serve typed [`MDX`](https://mdxjs.com/) documents in applications that use Server _Side Rendering_ or _Static Site Generation_.
 
