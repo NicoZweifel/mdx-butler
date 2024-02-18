@@ -1,4 +1,4 @@
-import { MDXBundlerService } from '../MDXBundlerService';
+import { MDXBundlerService } from '../MDXBundlerService.js';
 import {
   FieldDefinitions,
   MDXServiceBaseOptions,
