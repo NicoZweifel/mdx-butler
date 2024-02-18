@@ -83,7 +83,7 @@ type Frontmatter = {
 
 // ...
 
-return bundle<Frontmatter>({
+return docs<Frontmatter>({
   fields: {
     title: {
       required: true,
