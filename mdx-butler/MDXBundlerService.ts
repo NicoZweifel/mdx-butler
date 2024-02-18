@@ -105,8 +105,6 @@ export class MDXBundlerService<
   protected async bundleFile(
     file: SourceFileType
   ): Promise<MDXBundlerServiceReturnType<TFrontmatter>> {
-    const { mdxBundlerOptions, frontmatterProcessor, tocPlugin } = this.options;
-
     // absolute
     const cwd = this.options.cwd
       ? join(process.cwd(), this.options.cwd)
@@ -125,6 +123,31 @@ export class MDXBundlerService<
 
     const path = file.name.substring(0, file.name.lastIndexOf('.'));
 
+    return this.bundlePromise({
+      file,
+      source,
+      path,
+      cwd,
+      headings,
+    });
+  }
+
+  protected bundlePromise({
+    file,
+    source,
+    cwd,
+    path,
+    headings,
+  }: {
+    file: SourceFileType;
+    source:
+      | { file: string; source?: undefined }
+      | { source: string; file?: undefined };
+    cwd: string;
+    path: string;
+    headings: DocHeading[];
+  }): Promise<MDXBundlerServiceReturnType<TFrontmatter>> {
+    const { mdxBundlerOptions, frontmatterProcessor, tocPlugin } = this.options;
     return new Promise((resolve, reject) =>
       bundleMDX<TFrontmatter>({
         ...mdxBundlerOptions,
