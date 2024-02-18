@@ -88,21 +88,21 @@ export class MDXBundlerService<
   ): Promise<MDXBundlerServiceReturnType<TFrontmatter>[]> {
     const { fileProvider } = this.options;
 
-    if (files?.length > 0) return this.bundleFiles(files);
+    if (files?.length > 0) return this.bundleDoc(files);
 
     files = (await fileProvider?.(this.options)) ?? [];
 
-    return this.bundleFiles(files);
+    return this.bundleDoc(files);
   }
 
-  protected bundleFiles(files: SourceFileType[]) {
+  protected bundleDoc(files: SourceFileType[]) {
     const { sortProvider } = this.options;
-    return Promise.all(files.map(this.bundleFile.bind(this))).then(
+    return Promise.all(files.map(this.bundleDocs.bind(this))).then(
       sortProvider
     );
   }
 
-  protected async bundleFile(
+  protected async bundleDocs(
     file: SourceFileType
   ): Promise<MDXBundlerServiceReturnType<TFrontmatter>> {
     // absolute
@@ -123,7 +123,7 @@ export class MDXBundlerService<
 
     const path = file.name.substring(0, file.name.lastIndexOf('.'));
 
-    return this.getBundleFilePromise({
+    return this.getBundleDocsPromise({
       file,
       source,
       path,
@@ -132,7 +132,7 @@ export class MDXBundlerService<
     });
   }
 
-  protected getBundleFilePromise({
+  protected getBundleDocsPromise({
     file,
     source,
     cwd,
