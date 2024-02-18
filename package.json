@@ -10,6 +10,7 @@
   "author": "Nico Zweifel",
   "scripts": {
     "ci:publish": "pnpm --filter mdx-butler publish",
+    "ci:version": "pnpm --filter mdx-butler version",
     "test": "pnpm --parallel test",
     "build": "pnpm --filter mdx-butler build",
     "watch": "pnpm --parallel --filter mdx-butler watch",
