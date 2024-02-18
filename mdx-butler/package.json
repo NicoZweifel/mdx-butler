@@ -19,6 +19,7 @@
   },
   "scripts": {
     "publish": "pnpm publish -r",
+    "version": "pnpm version -r",
     "prepublish": "npm-run-all build:clean build",
     "compile": "tsc",
     "compile:watch": "tsc",
