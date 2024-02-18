@@ -1,9 +1,13 @@
 ---
-title: Getting Started
+title: Introduction
 order: 1
-description: Bundle and serve typed [`MDX`](https://mdxjs.com/) documents in applications, that use Server *Side Rendering* or *Static Site Generation*.
+description: Manage typed [`MDX`](https://mdxjs.com/) documents in applications, that use Server *Side Rendering* or *Static Site Generation* with **mdx-butler**
 hideLayout: true
 ---
+
+<img src={'/butler.png'} />
+
+## Why create a Service?
 
 Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
 While convenient, these plugins can in some cases limit control, force specific dependencies,
@@ -18,109 +22,6 @@ This maximizes flexibility and future-proofs your work for easy updates, migrati
 - **Adaptability:** Switch content sources (Backend/Service, CMS, database, etc.) without major rewrites.
 - **Performance:** Leverages [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) and [esbuild](https://esbuild.github.io/) for efficient compilation and bundling of [`MDX`](https://mdxjs.com/) documents with imported dependencies.
 - **Customization:** Easily inject globals, components, and application logic for rich, interactive documentation.
-
-## Setup
-
-### Installation
-
-```
-pnpm i mdx-butler mdx-bundler esbuild
-```
-
-### Framework Guides
-
-<Examples />
-
-### Bundling
-
-The easiest way to get all bundled documents within a folder is to call the `bundle` function.
-
-<Warning>
-  `bundle`, `MDXService` or any other exports from the `mdx-butler` root
-  entrypoint should only be imported in a server or build context.
-</Warning>
-
-Options and dependencies can be passed to `bundle` or `MDXService.create`.
-
-```ts {1,7-10} showLineNumbers
-import { docs } from 'mdx-butler';
-
-// ...
-
-return docs({
-  fields: {
-    title: {
-      required: true,
-    },
-  },
-});
-```
-
-<Success>
-  Automatically generates a `FrontmatterProcessor`, according to the given
-  `fields`.
-</Success>
-
-#### Service class (optional)
-
-<Info>
-  If you require more control, consider [injecting
-  dependencies](/customization/DI) and using `MDXService` directly.
-
-For more information check out the [Configuration](/configuration) section!
-
-</Info>
-
-```tsx
-import { MDXBundlerService } from 'mdx-butler';
-
-// ...
-
-const docService = MDXBundlerService.create({
-  fields: {
-    title: {
-      required: true,
-    },
-  },
-});
-
-return docService.docs();
-```
-
-### `Component`
-
-Create a component by using the `Component` exported from `mdx-butler/client`.
-
-<Info>
-
-Using `getComponent`, exported by `mdx-bundler` is another valid option.
-
-</Info>
-
-```tsx {1,12} showLineNumbers
-import { Component } from 'mdx-butler/client';
-
-// ...
-
-const doc = docs.filter((x) => slug === x.path)[0];
-
-if (!doc) return <div>not found</div>;
-
-return (
-  <div>
-    <h1>{doc.frontmatter.title}</h1>
-    <Component
-      doc={doc}
-      /* other props like global components */
-    />
-  </div>
-);
-```
-
-<Success>
-  Start editing `MDX` documents inside `/docs` or the configured [working
-  directory](/configuration)
-</Success>
 
 ## Mentions
 
