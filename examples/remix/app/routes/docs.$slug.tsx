@@ -1,5 +1,5 @@
 import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
-import { docs } from "../mdx-tug.server";
+import { docs } from "../mdx-butler.server";
 import { useLoaderData } from "@remix-run/react";
 import { getMDXComponent } from "mdx-butler/client";
 
