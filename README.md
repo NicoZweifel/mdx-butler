@@ -3,6 +3,7 @@
 Manage and serve typed [`MDX`](https://mdxjs.com/) documents in applications, that use Server _Side Rendering_ or _Static Site Generation_.
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
+
 ![logo](/docs/public/butler.png)
 
 ## Why use a Service?
