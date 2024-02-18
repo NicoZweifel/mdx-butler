@@ -42,14 +42,6 @@ The easiest way to get all bundled documents within a folder is to call the `bun
 
 Options and dependencies can be passed to `bundle` or `MDXService.create`.
 
-<Info>
-  If you require more control, consider [injecting
-  dependencies](/customization/DI) and using `MDXService` directly.
-
-For more information check out the [Configuration](/configuration) section!
-
-</Info>
-
 ```ts {1,7-10} showLineNumbers
 import { docs } from 'mdx-butler';
 
@@ -62,6 +54,30 @@ return docs({
     },
   },
 });
+```
+
+<Info>
+  If you require more control, consider [injecting
+  dependencies](/customization/DI) and using `MDXService` directly.
+
+For more information check out the [Configuration](/configuration) section!
+
+</Info>
+
+```tsx
+import { MDXBundlerService } from 'mdx-butler';
+
+// ...
+
+const docService = MDXBundlerService.create({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+
+return docService.docs();
 ```
 
 <Success>
