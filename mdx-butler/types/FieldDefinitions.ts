@@ -1,5 +1,5 @@
 import { UnknownFrontMatter } from './UnknownFrontMatter';
-import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
 import { FieldDefinition } from './FieldDefinition';
 
 export type FieldDefinitions<
@@ -8,7 +8,7 @@ export type FieldDefinitions<
     string | undefined
   > = UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
 > = Partial<
   Record<keyof TFrontmatter, FieldDefinition<TFrontmatter, TOptions>>
 >;

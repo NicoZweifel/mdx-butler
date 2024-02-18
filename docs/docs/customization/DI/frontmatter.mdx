@@ -30,7 +30,7 @@ This can be useful, if you want to optimize and bundle only certain files on dem
 export type FrontmatterProcessor<
   TFrontmatter extends UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
 > = (
   options: TOptions & {
     frontmatter: Partial<TFrontmatter>;

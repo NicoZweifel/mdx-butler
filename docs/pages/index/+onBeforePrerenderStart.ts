@@ -10,7 +10,7 @@ import { Frontmatter } from '../../types/Frontmatter';
 export { onBeforePrerenderStart };
 
 async function onBeforePrerenderStart() {
-  const mdxService = MDXBundlerService.create<Frontmatter, Options>({
+  const mdxBundlerService = MDXBundlerService.create<Frontmatter, Options>({
     sortProvider,
     frontmatterProcessor,
     ...options,
@@ -19,7 +19,7 @@ async function onBeforePrerenderStart() {
   const pageService = new PageService({
     navGenerator,
     ...options,
-    mdxService,
+    mdxBundlerService,
   });
 
   return pageService.getPages();

@@ -1,18 +1,18 @@
-import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
 
 import { FieldDefinitions } from './FieldDefinitions';
-import { MDXServiceOptions } from './MDXServiceOptions';
+import { MDXBundlerServiceOptions } from './MDXBundlerServiceOptions';
 
 export type FrontmatterProcessor<
   TFrontmatter extends Partial<Record<keyof TFields, string>>,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
   >,
 > = (
-  options: MDXServiceOptions<TFrontmatter, TOptions, TFields> &
+  options: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields> &
     FrontMatterOptions<Record<keyof TFrontmatter, string>>
 ) => boolean;
 

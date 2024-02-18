@@ -1,16 +1,16 @@
-import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
 import { FieldDefinitions } from './FieldDefinitions';
 import { SourceFileType } from './SourceFileType';
-import { MDXServiceOptions } from './MDXServiceOptions';
+import { MDXBundlerServiceOptions } from './MDXBundlerServiceOptions';
 
 export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string | undefined>,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
   >,
 > = (
-  options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+  options: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>
 ) => Promise<SourceFileType[]>;

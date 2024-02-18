@@ -1,9 +1,9 @@
 import {
   DocHeading,
   FieldDefinitions,
-  MDXServiceBaseOptions,
-  MDXServiceOptions,
-  MDXServiceReturnType,
+  MDXBundlerServiceBaseOptions,
+  MDXBundlerServiceOptions,
+  MDXBundlerServiceReturnType,
   SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
@@ -22,7 +22,7 @@ import { bundleHeadings } from './utils/bundleHeadings.js';
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
@@ -30,19 +30,19 @@ export class MDXBundlerService<
 > implements IMDXBundlerService<TFrontmatter, TOptions, TFields>
 {
   protected constructor(
-    readonly options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+    readonly options: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>
   ) {}
 
   static create<
     TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
     TOptions extends
-      MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+      MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
     TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
       TFrontmatter,
       TOptions
     >,
   >(
-    options?: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+    options?: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>
   ): IMDXBundlerService<TFrontmatter, TOptions, TFields> {
     if (options) {
       options.tocPlugin = options.tocPlugin ?? tocPlugin;
@@ -85,7 +85,7 @@ export class MDXBundlerService<
 
   async docs(
     ...files: SourceFileType[]
-  ): Promise<MDXServiceReturnType<TFrontmatter>[]> {
+  ): Promise<MDXBundlerServiceReturnType<TFrontmatter>[]> {
     const { fileProvider } = this.options;
 
     if (files?.length > 0) return this.bundleFiles(files);
@@ -104,7 +104,7 @@ export class MDXBundlerService<
 
   protected async bundleFile(
     file: SourceFileType
-  ): Promise<MDXServiceReturnType<TFrontmatter>> {
+  ): Promise<MDXBundlerServiceReturnType<TFrontmatter>> {
     const { mdxBundlerOptions, frontmatterProcessor, tocPlugin } = this.options;
 
     // absolute

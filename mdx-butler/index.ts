@@ -6,7 +6,7 @@ export * from 'mdx-bundler';
 
 export type { IMDXBundlerService } from './IMDXBundlerService';
 export type {
-  MDXServiceBaseOptions,
+  MDXBundlerServiceBaseOptions,
   DocHeading,
   MDXOptions,
   MDXBundlerOptions,
@@ -17,8 +17,8 @@ export type {
   FieldDefinitions,
   UnknownFrontMatter,
   SOURCE_FILE_TYPE,
-  MDXServiceOptions,
-  MDXServiceReturnType,
+  MDXBundlerServiceOptions,
+  MDXBundlerServiceReturnType,
 } from './types/index.js';
 export { MDXBundlerService, docs, createFrontmatterProcessor };
 

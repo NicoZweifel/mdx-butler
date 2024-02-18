@@ -16,7 +16,7 @@ You can customize the underlying [`mdx-bundler`](https://github.com/kentcdodds/m
 Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
 
 ```ts {5,10,16,21,28} showLineNumbers
-export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
+export type MDXBundlerServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
    *  The working directory used as the base for resolving file paths and imports.
    */
@@ -36,7 +36,7 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
    * An optional sorting function for organizing the returned MDX documents.
    */
-  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
+  sortProvider?: SortProvider<MDXBundlerServiceReturnType<T>>;
 
   /**
    * A function to generate a table of contents plugin.
@@ -53,10 +53,10 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
 </Info>
 
 ```ts {13, 20, 25} showLineNumbers
-export type MDXServiceOptions<
+export type MDXBundlerServiceOptions<
   TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

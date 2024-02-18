@@ -1,5 +1,5 @@
 import { UnknownFrontMatter } from './UnknownFrontMatter';
-import { MDXServiceBaseOptions } from './MDXServiceBaseOptions';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
 import { FrontMatterOptions } from './FrontmatterProcessor';
 import { FieldDefinitions } from './FieldDefinitions';
 
@@ -9,7 +9,7 @@ export type FieldDefinition<
     string | undefined
   > = UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
 > = {
   /**
    *  Indicates whether a specific frontmatter field is mandatory.
@@ -22,7 +22,7 @@ export type FieldDefinition<
    * Useful for calculated values or values extracted from external sources.
    *
    * @param options An object containing:
-   *   * options:  The underlying MDXServiceOptions configuration.
+   *   * options:  The underlying MDXBundlerServiceOptions configuration.
    *   * frontmatter: The potentially incomplete frontmatter, allowing default or calculated values.
    *   * file: The full path of the MDX file.
    *   * path: The relative path of the MDX file (from the configured `cwd`).

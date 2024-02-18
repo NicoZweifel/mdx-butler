@@ -3,9 +3,9 @@ import { DocHeading } from './DocHeading';
 import { Plugin } from 'unified';
 import { SortProvider } from './SortProvider';
 import { UnknownFrontMatter } from './UnknownFrontMatter';
-import { MDXServiceReturnType } from './MDXServiceReturnType';
+import { MDXBundlerServiceReturnType } from './MDXBundlerServiceReturnType';
 
-export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
+export type MDXBundlerServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
    *  The working directory used as the base for resolving file paths and imports.
    */
@@ -25,7 +25,7 @@ export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
    * An optional sorting function for organizing the returned MDX documents.
    */
-  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
+  sortProvider?: SortProvider<MDXBundlerServiceReturnType<T>>;
 
   /**
    * A function to generate a table of contents plugin.

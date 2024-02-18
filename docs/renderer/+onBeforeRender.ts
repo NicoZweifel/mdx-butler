@@ -29,7 +29,7 @@ async function onBeforeRender(pageContext: PageContext) {
   const pageService = new PageService({
     navGenerator,
     ...opts,
-    mdxService: docService,
+    mdxBundlerService: docService,
   });
 
   return (await pageService.getPages())[0];

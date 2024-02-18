@@ -1,6 +1,6 @@
 import {
   FrontmatterProcessor,
-  MDXServiceBaseOptions,
+  MDXBundlerServiceBaseOptions,
   FieldDefinitions,
   UnknownFrontMatter,
 } from '../types';
@@ -8,7 +8,7 @@ import {
 export function createFrontmatterProcessor<
   TFrontmatter extends UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

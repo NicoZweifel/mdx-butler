@@ -1,8 +1,8 @@
 import {
-  MDXServiceBaseOptions,
+  MDXBundlerServiceBaseOptions,
   UnknownFrontMatter,
-  MDXServiceOptions,
-  MDXServiceReturnType,
+  MDXBundlerServiceOptions,
+  MDXBundlerServiceReturnType,
   SourceFileType,
   FieldDefinitions,
 } from './types/index.js';
@@ -10,14 +10,14 @@ import {
 export interface IMDXBundlerService<
   TFrontmatter extends UnknownFrontMatter,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
   >,
 > {
-  readonly options?: MDXServiceOptions<TFrontmatter, TOptions, TFields>;
+  readonly options?: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>;
   docs(
     ...files: SourceFileType[]
-  ): Promise<MDXServiceReturnType<TFrontmatter>[]>;
+  ): Promise<MDXBundlerServiceReturnType<TFrontmatter>[]>;
 }

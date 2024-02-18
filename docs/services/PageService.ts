@@ -12,7 +12,7 @@ export type NavGenerator = (frontMatter: Record<string, any>[]) => {
 };
 
 export type PageServiceOptions = ConfigOptions & {
-  mdxService: IMDXBundlerService<Frontmatter, Options>;
+  mdxBundlerService: IMDXBundlerService<Frontmatter, Options>;
   navGenerator: NavGenerator;
   route?: string;
   isApi?: boolean;
@@ -23,7 +23,7 @@ export class PageService {
 
   async getPages(opts?: Partial<PageServiceOptions>) {
     const {
-      mdxService,
+      mdxBundlerService,
       navGenerator,
       name,
       license,
@@ -56,7 +56,7 @@ export class PageService {
       ];
     }
 
-    const docs = await mdxService.docs();
+    const docs = await mdxBundlerService.docs();
 
     await Promise.all(
       docs.map(async (x) => {
