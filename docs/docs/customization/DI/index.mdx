@@ -15,16 +15,6 @@ Please feel free to replace existing implementations like the following:
 - [`Table of contents`](/customization/DI/tableOfContents)
 - [`FileProvider`](/customization/DI/fileProvider)
 
-<Info>Contributions to the existing implementations are always welcome!</Info>
-
-Feel free to check the [`GitHub Issues`](https://github.com/NicoZweifel/vike-docsServer-template/issues) for any potential overlap.
-
-```tsx
-export type DocServiceOptions = ConfigOptions & {
-  // other options
-  mdxBundlerOptions: MDXBundlerOptions;
-  frontmatterProcessor?: FrontmatterProcessor;
-  sortProvider?: SortProvider<Awaited<ReturnType<typeof bundleMDX>>>;
-  tocPlugin?: (headings: DocHeading[]) => unified.Plugin;
-};
-```
+<Success>
+  Contributions to the existing implementations are always welcome!
+</Success>
