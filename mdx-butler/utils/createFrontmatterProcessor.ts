@@ -5,19 +5,16 @@ import {
   UnknownFrontMatter,
 } from '../types';
 
-export const createFrontmatterProcessor =
-  <
-    TFrontmatter extends UnknownFrontMatter,
-    TOptions extends
-      MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
-    TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
-      TFrontmatter,
-      TOptions
-    >,
-  >(
-    fields: TFields
-  ): FrontmatterProcessor<TFrontmatter, TOptions, TFields> =>
-  (options) => {
+export function createFrontmatterProcessor<
+  TFrontmatter extends UnknownFrontMatter,
+  TOptions extends
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+>(fields: TFields): FrontmatterProcessor<TFrontmatter, TOptions, TFields> {
+  return function frontmatterProcessor(options) {
     for (const key in fields) {
       const isRequired = fields[key]?.required;
       const isDefined = options.frontmatter[key] != undefined;
@@ -37,3 +34,4 @@ export const createFrontmatterProcessor =
 
     return true;
   };
+}
