@@ -56,6 +56,13 @@ return docs({
 });
 ```
 
+<Success>
+  Automatically generates a `FrontmatterProcessor`, according to the given
+  `fields`.
+</Success>
+
+#### Service class (optional)
+
 <Info>
   If you require more control, consider [injecting
   dependencies](/customization/DI) and using `MDXService` directly.
@@ -79,11 +86,6 @@ const docService = MDXBundlerService.create({
 
 return docService.docs();
 ```
-
-<Success>
-  Automatically generates a `FrontmatterProcessor`, according to the given
-  `fields`.
-</Success>
 
 ### `Component`
 
