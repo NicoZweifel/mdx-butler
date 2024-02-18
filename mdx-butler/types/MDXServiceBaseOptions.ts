@@ -7,7 +7,7 @@ import { MDXServiceReturnType } from './MDXServiceReturnType';
 
 export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
-   *  The working directory used as the base for resolving file paths.
+   *  The working directory used as the base for resolving file paths and imports.
    */
   cwd?: string;
 

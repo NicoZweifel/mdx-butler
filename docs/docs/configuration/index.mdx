@@ -18,7 +18,7 @@ Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
 ```ts {5,10,16,21,28} showLineNumbers
 export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**
-   *  The working directory used as the base for resolving file paths.
+   *  The working directory used as the base for resolving file paths and imports.
    */
   cwd?: string;
 
