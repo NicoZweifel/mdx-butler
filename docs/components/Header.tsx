@@ -27,13 +27,15 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
         <div className={'flex flex-row items-stretch justify-between'}>
           <a href={'/'}>
             <div className={'flex flex-row place-items-center gap-2'}>
-              <Image
-                alt={'Logo'}
-                src={logo}
-                layout={'fixed'}
-                height={20}
-                width={20}
-              />
+              <div className={' bg-black '}>
+                <Image
+                  alt={'Logo'}
+                  src={logo}
+                  layout={'fixed'}
+                  height={20}
+                  width={20}
+                />
+              </div>
               <p
                 className={
                   'text-lg font-bold shrink-0 text-ellipsis overflow-hidden'
