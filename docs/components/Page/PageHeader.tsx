@@ -26,7 +26,7 @@ export function PageHeader({
             <a key={x} href={basePath}>
               <p
                 className={
-                  'font-semibold text-xl text-neutral-600 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-300'
+                  'font-semibold text-xl text-secondary-900/80 hover:text-secondary-900/60 dark:text-secondary-300/80 dark:hover:text-secondary-300/60'
                 }
               >
                 {x.charAt(0).toUpperCase() +
@@ -46,7 +46,7 @@ export function PageHeader({
               <div
                 {...p}
                 className={cn(
-                  'font-semibold text-lg text-neutral-700 dark:text-neutral-300',
+                  'font-semibold text-lg text-secondary-800/60 dark:text-secondary-200/60',
                   className
                 )}
               />

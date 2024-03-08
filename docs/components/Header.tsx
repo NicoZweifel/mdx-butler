@@ -17,7 +17,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
     <header
       {...props}
       className={cn(
-        'fixed bg-neutral-100/60 dark:bg-neutral-950/40 flex flex-col top-0 w-full backdrop-blur flex-none border-b border-neutral-300/40 dark:border-neutral-800/40 grow items-center z-10 ',
+        'fixed bg-secondary-100/40 dark:bg-secondary-900/5 flex flex-col top-0 w-full backdrop-blur flex-none border-b border-secondary-300/40 dark:border-secondary-900/20 grow items-center z-10 ',
         className
       )}
     >
@@ -27,13 +27,15 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
         <div className={'flex flex-row items-stretch justify-between'}>
           <a href={'/'}>
             <div className={'flex flex-row place-items-center gap-2'}>
-              <Image
-                alt={'Logo'}
-                src={logo}
-                layout={'fixed'}
-                height={20}
-                width={20}
-              />
+              <div className={' bg-black '}>
+                <Image
+                  alt={'Logo'}
+                  src={logo}
+                  layout={'fixed'}
+                  height={20}
+                  width={20}
+                />
+              </div>
               <p
                 className={
                   'text-lg font-bold shrink-0 text-ellipsis overflow-hidden'
@@ -47,7 +49,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
             <div className={'flex place-items-center'}>
               <LinkButton
                 className={
-                  'px-0.5 py-1 grow rounded-xl hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-30 text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 '
+                  'px-1 group pt-1.5 pb-0.5 grow rounded-xl hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-30 text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 '
                 }
                 id={'github_button'}
                 name={'Repository Button'}
@@ -63,7 +65,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
               onClick={() => (expanded.value = !expanded.value)}
               aria-label={'Expand/Collapse the navigation menu'}
               className={
-                'place-items-center lg:hidden py-0 px-1.5 rounded flex hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 text-neutral-600/80 hover:text-neutral-800/80 dark:text-neutral-300/80 dark:hover:text-neutral-200/80 text-neutral-800 dark:text-neutral-200 '
+                'place-items-center lg:hidden py-0 px-1.5 rounded flex group:hover:bg-neutral-200/80 group:dark:hover:bg-neutral-800/60 text-neutral-600/80 group:hover:text-neutral-800/80 dark:text-neutral-300/80 group:dark:hover:text-neutral-200/80 text-neutral-800 dark:text-neutral-200 '
               }
             >
               <Menu />

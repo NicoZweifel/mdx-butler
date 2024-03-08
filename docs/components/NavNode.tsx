@@ -29,7 +29,7 @@ const useNavNode = ({ node, flex }: NavNodeProps) => {
       <div
         className={cn(
           !isBaseRoute
-            ? 'ml-1 pl-2 border-l border-neutral-300/60 dark:border-neutral-800/40'
+            ? 'ml-1 pl-2 border-l border-secondary-300/40 dark:border-secondary-900/20 '
             : undefined,
           `flex flex-${flex ?? 'col'} gap-1`
         )}
@@ -39,7 +39,7 @@ const useNavNode = ({ node, flex }: NavNodeProps) => {
             {navItems.map(({ title, route }) => (
               <Link
                 key={route}
-                className={`${isBaseRoute ? 'font-semibold' : ''} whitespace-nowrap text-sm py-1 px-2 flex items-center hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 rounded text-neutral-600 hover:text-neutral-900 dark:text-neutral-100 dark:hover:text-neutral-300`}
+                className={`${isBaseRoute ? 'font-semibold' : ''} whitespace-nowrap text-sm py-1 px-2 flex items-center hover:bg-secondary-300/80 dark:hover:bg-secondary-800/20 rounded text-secondary-900 hover:text-secondary-900 dark:text-secondary-100 dark:hover:text-secondary-300`}
                 href={route}
               >
                 {title}
@@ -79,7 +79,7 @@ export const NavNode = ({
         <Link
           href={path}
           className={
-            'font-semibold text-sm text-start py-1 pl-2  hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 rounded text-neutral-600 hover:text-neutral-900 dark:text-neutral-100 dark:hover:text-neutral-300'
+            'font-semibold text-sm text-start py-1 pl-2  hover:bg-secondary-200/80 dark:hover:bg-secondary-800/20 rounded text-secondary-900 hover:text-secondary-900 dark:text-secondary-100 dark:hover:text-secondary-300'
           }
         >
           {name.charAt(0).toUpperCase() + name.slice(1)}

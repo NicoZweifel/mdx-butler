@@ -16,7 +16,7 @@ export const PageFooter = ({
     <footer
       {...props}
       className={cn(
-        'border-t gap-8 flex flex-col mt-10 py-12 border-neutral-300/40 dark:border-neutral-800/40',
+        'border-t gap-8 flex flex-col mt-10 py-12 border-secondary-300/40 dark:border-secondary-900/20',
         className
       )}
     >

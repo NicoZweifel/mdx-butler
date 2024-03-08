@@ -1,5 +1,5 @@
 import resolveConfig from 'tailwindcss/resolveConfig';
-
+import colors from 'tailwindcss/colors';
 const config = resolveConfig({
   darkMode: 'class',
   content: [
@@ -9,7 +9,16 @@ const config = resolveConfig({
     './docs/**/*.{tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: {
+          ...colors.lime,
+        },
+        secondary: {
+          ...colors.purple,
+        },
+      },
+    },
   },
   plugins: [],
 });
