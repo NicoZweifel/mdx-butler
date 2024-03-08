@@ -32,7 +32,7 @@ export function TableOfContents({
           <List size={16} />
           <p
             className={
-              'font-semibold text-sm shrink-0 text-neutral-900 dark:text-neutral-100'
+              'font-semibold text-sm shrink-0 text-secondary-900 dark:text-secondary-100'
             }
           >
             On this page
@@ -43,7 +43,7 @@ export function TableOfContents({
         <a
           key={title}
           className={
-            'flex flex-row gap-1 group py-0.5 items-center text-neutral-600 hover:text-secondary-900 dark:hover:text-secondary-300 dark:text-neutral-100 rounded-lg'
+            'flex flex-row gap-1 group py-0.5 items-center text-secondary-600 hover:text-secondary-900 dark:hover:text-secondary-300 dark:text-secondary-100 rounded-lg'
           }
           style={{
             marginLeft: `${Math.max(0, 13 * Math.max(level - lowest, 0))}px`,
