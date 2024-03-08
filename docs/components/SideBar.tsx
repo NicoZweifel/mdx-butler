@@ -12,7 +12,7 @@ export function SideBar({ className, ...props }: ComponentProps<'nav'>) {
     <nav
       {...props}
       className={cn(
-        'flex px-2 py-4 flex-col border-r border-neutral-300/40 dark:border-neutral-800/40',
+        'flex px-2 py-4 flex-col border-r border-secondary-300/40 dark:border-secondary-900/20 ',
         className
       )}
     >

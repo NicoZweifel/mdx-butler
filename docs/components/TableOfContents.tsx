@@ -23,7 +23,7 @@ export function TableOfContents({
     <nav
       {...props}
       className={cn(
-        `${components.length > 0 ? 'border-l' : 'border-none'} max-w-[12rem] border-neutral-300/40 dark:border-neutral-800/40 px-2 py-4 flex-col gap-1`,
+        `${components.length > 0 ? 'border-l' : 'border-none'} max-w-[12rem] border-secondary-300/40 dark:border-secondary-900/20 px-2 py-4 flex-col gap-1`,
         className
       )}
     >

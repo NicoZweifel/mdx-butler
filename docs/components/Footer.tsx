@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <footer
       className={
-        'flex flex-col items-center min-w-full border-t border-neutral-300/40 dark:border-neutral-800/40'
+        'flex flex-col items-center min-w-full border-t border-secondary-300/40 dark:border-secondary-900/20 '
       }
     >
       <div

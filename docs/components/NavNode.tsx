@@ -29,7 +29,7 @@ const useNavNode = ({ node, flex }: NavNodeProps) => {
       <div
         className={cn(
           !isBaseRoute
-            ? 'ml-1 pl-2 border-l border-neutral-300/60 dark:border-neutral-800/40'
+            ? 'ml-1 pl-2 border-l border-secondary-300/40 dark:border-secondary-900/20 '
             : undefined,
           `flex flex-${flex ?? 'col'} gap-1`
         )}
