@@ -17,7 +17,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
     <header
       {...props}
       className={cn(
-        'fixed bg-secondary-100/40 dark:bg-secondary-900/10 flex flex-col top-0 w-full backdrop-blur flex-none border-b border-secondary-300/40 dark:border-secondary-900/20 grow items-center z-10 ',
+        'fixed bg-secondary-100/40 dark:bg-secondary-900/5 flex flex-col top-0 w-full backdrop-blur flex-none border-b border-secondary-300/40 dark:border-secondary-900/20 grow items-center z-10 ',
         className
       )}
     >
