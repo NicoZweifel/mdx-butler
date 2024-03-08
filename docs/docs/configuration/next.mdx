@@ -8,22 +8,27 @@ order: 3
 
 <Info>
   View on
-  [GitHub](https://github.com/NicoZweifel/mdx-tug/tree/main/examples/next)
+  [GitHub](https://github.com/NicoZweifel/mdx-butler/tree/main/examples/next)
 </Info>
 
 ## Dynamic RSC page
 
-[React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components) are ideal for the purpose of bundling documents because they render in a server context.
+[RSC (React Server Components)](https://nextjs.org/docs/app/building-your-application/rendering/server-components) are ideal for the purpose of bundling documents because they render in a server context.
+
+<Success>
+
+[`cache`](https://react.dev/reference/react/cache) can be utilized, if you are using [RSC](https://nextjs.org/docs/app/building-your-application/rendering/server-components).
+
+</Success>
 
 ### Bundling documents
 
 ```tsx
-import { bundle } from 'mdx-tug';
+import { docs } from 'mdx-butler';
 import { cache } from 'react';
 
 export const getDocs = cache(() =>
-  bundle({
-    cwd: '/docs',
+  docs({
     fields: {
       title: {
         required: true,
@@ -33,7 +38,7 @@ export const getDocs = cache(() =>
 );
 ```
 
-### Dynamic routes and Static Site Generation
+### Static Site Generation
 
 Export a `generateStaticParams` function to use dynamic routing and Static Site Generation ([SSG](https://nextjs.org/docs/app/api-reference/functions/generate-static-params)).
 
@@ -69,7 +74,7 @@ export async function generateMetadata({
 ### Creating the Page
 
 ```tsx
-import { Component } from 'mdx-tug/client';
+import { Component } from 'mdx-butler/client';
 
 // ...
 
@@ -121,9 +126,8 @@ export default async function Docs({
 For more ambitious use-cases and for filtering that depends on the `Frontmatter` object, the `getDocs` function can be adjusted to use a [`FrontmatterProcessor`](/customization/DI/frontmatter) for filtering.
 
 ```tsx
-import { bundle, createFrontmatterProcessor } from 'mdx-tug';
+import { docs, createFrontmatterProcessor } from 'mdx-butler';
 import { cache } from 'react';
-import { Component } from 'mdx-tug/client';
 
 type Frontmatter = {
   title: string;
@@ -131,8 +135,7 @@ type Frontmatter = {
 };
 
 const getDocs = cache((path?: string) =>
-  bundle<Frontmatter>({
-    cwd: '/docs',
+  docs<Frontmatter>({
     frontmatterProcessor: (x) => {
       const processor = createFrontmatterProcessor<Frontmatter>({
         title: {
@@ -146,27 +149,7 @@ const getDocs = cache((path?: string) =>
   })
 );
 
-export async function generateStaticParams() {
-  const docs = await getDocs();
-  return docs.map((x) => ({
-    slug: x.path.split('/'),
-  }));
-}
-
-export async function generateMetadata({
-  params: { slug },
-}: {
-  params: { slug: string[] };
-}) {
-  const path = slug.join('/');
-  const docs = await getDocs(path);
-
-  const doc = docs.find((x) => path === x.path);
-
-  return {
-    title: doc?.frontmatter.title,
-  };
-}
+// ...
 
 export default async function Docs({
   params: { slug },
@@ -180,33 +163,6 @@ export default async function Docs({
 
   if (!doc) return <div>not found</div>;
 
-  return (
-    <div
-      style={{
-        display: 'flex',
-        gap: '1rem',
-        flexDirection: 'row',
-      }}
-    >
-      <div>
-        <h1>optimized: {doc.frontmatter.title}</h1>
-        <Component doc={doc} />
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          gap: '1rem',
-          flexDirection: 'column',
-        }}
-      >
-        <h2>On this page</h2>
-        {doc.headings.map((x) => (
-          <a key={x.title} href={`#${x.title}`}>
-            {x.title}
-          </a>
-        ))}
-      </div>
-    </div>
-  );
+  // ...
 }
 ```

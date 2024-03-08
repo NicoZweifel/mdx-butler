@@ -5,27 +5,149 @@ order: 2
 
 Configuration can be done through options or by adding or customizing styles, components or other existing implementations.
 
+<Success>
+
+You can customize the underlying [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) by passing `mdxBundlerOptions`.
+
+</Success>
+
 ## Options
 
 Configure the `cwd`, `pattern` and other options like `rehype`/`remark` plugins.
+
+```ts {5,10,16,21,29} showLineNumbers
+export type MDXBundlerServiceBaseOptions<T extends UnknownFrontMatter> = {
+  /**
+   *  The working directory used as the base for resolving file paths and imports.
+   */
+  cwd?: string;
+
+  /**
+   * An optional glob pattern to filter MDX files for processing.
+   */
+  pattern?: string;
+
+  /**
+   * Options to customize the underlying MDX-bundler.
+   * See MDXBundlerOptions for supported configurations.
+   */
+  mdxBundlerOptions?: MDXBundlerOptions;
+
+  /**
+   * An optional sorting function for organizing the returned MDX documents.
+   */
+  sortProvider?: SortProvider<MDXBundlerServiceReturnType<T>>;
+
+  /**
+   * A function to generate a table of contents plugin.
+   * The plugin should fill the array with the headings of the document.
+   * @param headings An array of heading objects
+   * @returns A plugin object compatible with MDX bundler.
+   */
+  tocPlugin?: (headings: DocHeading[]) => Plugin;
+};
+```
 
 <Info>
   Replace existing logic by [injecting dependencies](/customization/DI).
 </Info>
 
-```ts {2-8} showLineNumbers
-export type MDXServiceBaseOptions<T extends UnknownFrontMatter> = {
-  cwd: string;
-  pattern?: string;
-  mdxBundlerOptions?: MDXBundlerOptions;
-  sortProvider?: SortProvider<MDXServiceReturnType<T>>;
-  tocPlugin?: (headings: DocHeading[]) => Plugin;
-  filePattern?: string;
-  fileProvider?: () => Promise<SourceFileType[]>;
+```ts {13, 20, 25} showLineNumbers
+export type MDXBundlerServiceOptions<
+  TFrontmatter extends Record<keyof TFields, string>,
+  TOptions extends
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
+    TFrontmatter,
+    TOptions
+  >,
+> = TOptions & {
+  /**
+   * Defines custom fields in the MDX frontmatter to extract and make available during processing.
+   */
+  fields?: TFields;
+
+  /**
+   * A function to modify or transform frontmatter data before the documents are bundled.
+   * @param options Underlying configuration options for the MDX service.
+   * @returns Transformed or processed frontmatter.
+   */
+  frontmatterProcessor?: FrontmatterProcessor<TFrontmatter, TOptions, TFields>;
+  /**
+   * An optional asynchronous function to provide MDX source files.
+   * @returns A Promise resolving to an array of {@link SourceFileType} objects.
+   */
+  fileProvider?: FileProvider<TFrontmatter, TOptions, TFields>;
 };
 ```
 
-### Examples
+## Types
+
+To guarantee a correct type inference, specifying the `Frontmatter` type is recommended.
+
+```ts {1-3,7} showLineNumbers
+type Frontmatter = {
+  title: string;
+};
+
+// ...
+
+return docs<Frontmatter>({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+```
+
+<Info>
+
+If a required field is `undefined`, an `Error` will be thrown.
+
+</Info>
+
+## Dynamic fields
+
+Fields can be resolved dynamically in the order they were defined in.
+
+```ts {6} showLineNumbers
+return docs({
+  cwd: '/docs',
+  fields: {
+    title: {
+      required: true,
+      resolve: (x) => x.frontmatter.title.toUpperCase(),
+    },
+  },
+});
+```
+
+## `MDXBundlerService`
+
+<Info>
+  If you require more control, consider [injecting
+  dependencies](/customization/DI) and using the `MDXBundlerService` class
+  directly.
+</Info>
+
+```ts {1,5-11} showLineNumbers
+import { MDXBundlerService } from 'mdx-butler';
+
+// ...
+
+const docService = MDXBundlerService.create({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+
+return docService.docs();
+```
+
+## Examples
 
 <Examples />
 

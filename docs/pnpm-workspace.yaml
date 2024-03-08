@@ -1,4 +1,4 @@
 ## Messes up some of the React dependencies.
 ## Can be uncommented to test docs with local package.
 #packages:
-#  - ../mdx-tug
+#  - ../mdx-butler

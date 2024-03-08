@@ -1,0 +1,86 @@
+---
+title: Getting started
+description: Install and configure **mdx-butler**.
+---
+
+### Installation
+
+```
+pnpm i mdx-butler mdx-bundler esbuild
+```
+
+### Framework Guides
+
+<Examples />
+
+### Bundling
+
+The easiest way to get all bundled documents within a folder is to call the `docs` function.
+
+<Warning>
+  `docs`, `MDXBundlerService` or any other exports from the `mdx-butler` root
+  entrypoint should only be imported in a server or build context.
+</Warning>
+
+Options and dependencies can be passed to `docs` or `MDXBundlerService.create`.
+
+```ts {1,7-10} showLineNumbers
+import { docs } from 'mdx-butler';
+
+// ...
+
+return docs({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+```
+
+<Success>
+  Automatically generates a `FrontmatterProcessor`, according to the given
+  `fields`.
+</Success>
+
+<Info>
+  Sometimes properties depend on each other or need to be calculated.
+
+In these cases, fields can be resolved [dynamically](/configuration#dynamic-fields) in the order that they were defined in.
+
+</Info>
+
+### `Component`
+
+Create a component by using the `Component` exported from `mdx-butler/client`.
+
+<Info>
+
+Using `getComponent`, exported by `mdx-bundler` is another valid option.
+
+</Info>
+
+```tsx {1,12} showLineNumbers
+import { Component } from 'mdx-butler/client';
+
+// ...
+
+const doc = docs.filter((x) => slug === x.path)[0];
+
+if (!doc) return <div>not found</div>;
+
+return (
+  <div>
+    <h1>{doc.frontmatter.title}</h1>
+    <Component
+      doc={doc}
+      /* other props like global components */
+    />
+  </div>
+);
+```
+
+<Success>
+  Start editing `MDX` documents inside `/docs` or the configured [working
+  directory](/configuration)
+</Success>

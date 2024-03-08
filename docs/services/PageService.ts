@@ -1,7 +1,7 @@
 import { ConfigOptions, NavItem } from '../types';
 import { NavTreeNode } from '../types/NavTreeNode';
 import { bundleMDX } from 'mdx-bundler';
-import { IMDXService } from 'mdx-tug';
+import { IMDXBundlerService } from 'mdx-butler';
 import { Frontmatter } from '../types/Frontmatter';
 import { Options } from './index';
 
@@ -12,7 +12,7 @@ export type NavGenerator = (frontMatter: Record<string, any>[]) => {
 };
 
 export type PageServiceOptions = ConfigOptions & {
-  mdxService: IMDXService<Frontmatter, Options>;
+  mdxBundlerService: IMDXBundlerService<Frontmatter, Options>;
   navGenerator: NavGenerator;
   route?: string;
   isApi?: boolean;
@@ -23,7 +23,7 @@ export class PageService {
 
   async getPages(opts?: Partial<PageServiceOptions>) {
     const {
-      mdxService,
+      mdxBundlerService,
       navGenerator,
       name,
       license,
@@ -56,7 +56,7 @@ export class PageService {
       ];
     }
 
-    const docs = await mdxService.bundle();
+    const docs = await mdxBundlerService.docs();
 
     await Promise.all(
       docs.map(async (x) => {

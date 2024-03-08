@@ -1,6 +1,6 @@
-import { bundle, createFrontmatterProcessor } from "mdx-tug";
+import { docs, createFrontmatterProcessor } from "mdx-butler";
 import { cache } from "react";
-import { Component } from "mdx-tug/client";
+import { Component } from "mdx-butler/client";
 
 type Frontmatter = {
   title: string;
@@ -8,7 +8,7 @@ type Frontmatter = {
 };
 
 const getDocs = cache((path?: string) =>
-  bundle<Frontmatter>({
+  docs<Frontmatter>({
     cwd: "/docs",
     frontmatterProcessor: (x) => {
       const processor = createFrontmatterProcessor<Frontmatter>({

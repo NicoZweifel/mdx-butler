@@ -4,8 +4,8 @@ description: Customize the source of the files.
 
 To add a custom file source, for example a database, pass a custom `FileProvider`.
 
-```ts {4} showLineNumbers
-return bundle({
+```ts {3-5} showLineNumbers
+return docs({
   // other options
   fileProvider: (/*options*/) => {
     // implementation
@@ -29,16 +29,16 @@ export type SourceFileType =
     };
 ```
 
-```ts {2} showLineNumbers
+```ts
 export type FileProvider<
   TFrontmatter extends Record<keyof TFields, string>,
   TOptions extends
-    MDXServiceBaseOptions<TFrontmatter> = MDXServiceBaseOptions<TFrontmatter>,
+    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
   >,
 > = (
-  options: MDXServiceOptions<TFrontmatter, TOptions, TFields>
+  options: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>
 ) => Promise<SourceFileType[]>;
 ```

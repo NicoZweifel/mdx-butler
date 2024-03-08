@@ -1,4 +1,4 @@
-# mdx-tug-docs
+# mdx-butler-docs
 
 ## based on: [vike-docs-template](https://github.com/NicoZweifel/vike-docs-template)
 

@@ -4,10 +4,13 @@ description: Change how sorting is handled
 
 The sort order can be customized by passing a `SortProvider`.
 
-<Info>Documents are sorted alphabetically by their path.</Info>
+<Info>
+  To get full control over how sorting is handled, it is possible to inject a
+  custom `SortProvider`.
+</Info>
 
-```ts {4} showLineNumbers
-return bundle({
+```ts {3-5} showLineNumbers
+return docs({
   // other options
   sortProvider: (/*params*/) => {
     // implementation
@@ -15,10 +18,9 @@ return bundle({
 });
 ```
 
-<Info>
-  To get full control over how sorting is handled, it is possible to inject a
-  custom `SortProvider`.
-</Info>
+<Success>
+  By default, documents are sorted alphabetically by their path.
+</Success>
 
 ```ts
 export type SortProvider<

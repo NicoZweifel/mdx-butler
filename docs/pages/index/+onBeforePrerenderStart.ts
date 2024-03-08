@@ -4,13 +4,13 @@ import { Options, PageService } from '../../services';
 import { frontmatterProcessor } from '../../utils/frontmatterProcessor';
 import { navGenerator } from '../../utils/navGenerator';
 import { sortProvider } from '../../utils/sortProvider';
-import { MDXBundlerService } from 'mdx-tug';
+import { MDXBundlerService } from 'mdx-butler';
 import { Frontmatter } from '../../types/Frontmatter';
 
 export { onBeforePrerenderStart };
 
 async function onBeforePrerenderStart() {
-  const mdxService = MDXBundlerService.create<Frontmatter, Options>({
+  const mdxBundlerService = MDXBundlerService.create<Frontmatter, Options>({
     sortProvider,
     frontmatterProcessor,
     ...options,
@@ -19,7 +19,7 @@ async function onBeforePrerenderStart() {
   const pageService = new PageService({
     navGenerator,
     ...options,
-    mdxService,
+    mdxBundlerService,
   });
 
   return pageService.getPages();

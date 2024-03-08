@@ -32,7 +32,7 @@ export const Card = ({
     case 'warning':
       x = {
         className:
-          'text-amber-400/90 dark:text-amber-300/80 bg-amber-300/10 border-amber-500/10',
+          'text-amber-700/90 dark:text-amber-300/80 bg-amber-300/10 border-amber-500/10',
         icon: <AlertTriangle size={size} />,
       };
       break;

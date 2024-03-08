@@ -1,13 +1,13 @@
-import { bundle } from "mdx-tug";
+import { docs } from "mdx-butler";
 import { cache } from "react";
-import { Component } from "mdx-tug/client";
+import { Component } from "mdx-butler/client";
 
 const getDocs = cache(() =>
-  bundle({
+  docs({
     cwd:'/docs',
    fields:{
       title:{
-        required:true
+        required:true,
       },
    }
   }),
