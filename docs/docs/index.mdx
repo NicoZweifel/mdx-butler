@@ -22,16 +22,16 @@ description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in app
 ### Prepare
 
 ```ts
+// define types
 type Frontmatter = {
   title: string;
 };
 
-// define types manually
+// or automatically infer them from frontmatter field definitions
 return docs<Frontmatter>({
   fields: {
     title: {
       required: true,
-      // or infer them from arguments
       resolve: (x) => x.frontmatter.title.toUpperCase(),
     },
   },
