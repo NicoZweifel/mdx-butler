@@ -12,10 +12,10 @@ const config = resolveConfig({
     extend: {
       colors: {
         primary: {
-          ...colors.lime,
+          ...colors.purple,
         },
         secondary: {
-          ...colors.purple,
+          ...colors.blue,
         },
       },
     },

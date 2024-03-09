@@ -26,7 +26,7 @@ export const DarkModeToggle = ({
         }}
       />
       <div
-        className={`w-9 h-5 bg-secondary-300/60 dark:bg-secondary-700/20 peer-focus:outline-none rounded-full dark:after:translate-x-full rtl:dark:after:-translate-x-full after:content-[''] after:absolute after:top-[6px] after:start-[2px] after:bg-neutral-100 after:rounded-full after:h-4 after:w-4 after:transition-all `}
+        className={`w-9 h-5 bg-primary-300/60 dark:bg-primary-700/20 peer-focus:outline-none rounded-full dark:after:translate-x-full rtl:dark:after:-translate-x-full after:content-[''] after:absolute after:top-[6px] after:start-[2px] after:bg-neutral-100 after:rounded-full after:h-4 after:w-4 after:transition-all `}
       />
     </label>
   );

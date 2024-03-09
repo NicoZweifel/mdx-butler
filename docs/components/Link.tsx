@@ -27,9 +27,9 @@ export function Link({ className, href, ...props }: ComponentProps<'a'>) {
       className={cn(
         className,
         isActive
-          ? 'font-semibold bg-secondary-200/80 dark:bg-secondary-800/20 text-secondary-900 dark:text-secondary-300'
+          ? 'font-semibold bg-primary-200/80 dark:bg-primary-800/20 text-primary-900 dark:text-primary-300'
           : isParent
-            ? 'font-bold text-secondary-950/80 dark:text-secondary-100'
+            ? 'font-bold text-primary-950/80 dark:text-primary-100'
             : undefined
       )}
     />
