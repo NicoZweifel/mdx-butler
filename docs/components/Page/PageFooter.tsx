@@ -21,7 +21,7 @@ export const PageFooter = ({
       )}
     >
       <div className={'flex flex-row justify-between'}>
-        <div className={'text-sm'}>
+        <div className={'text-sm gap-1 flex flex-col'}>
           <p className={'pl-1'}>Was this article helpful to you?</p>
           <LinkButton
             aria-label={'Submit issue button'}
@@ -32,7 +32,7 @@ export const PageFooter = ({
             <GitHub size={14} /> Submit issue
           </LinkButton>
         </div>
-        <div className={'text-sm'}>
+        <div className={'text-sm gap-1 flex flex-col'}>
           <p className={'pl-1'}>Last edited on {frontmatter.lastEdited}</p>
           <LinkButton
             aria-label={'Edit Page button'}
