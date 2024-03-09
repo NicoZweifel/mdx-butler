@@ -46,7 +46,7 @@ export function PageHeader({
               <div
                 {...p}
                 className={cn(
-                  'font-semibold text-lg text-secondary-800/60 dark:text-secondary-300/80',
+                  'font-semibold text-lg text-secondary-800/60 dark:text-secondary-300/60',
                   className
                 )}
               />
