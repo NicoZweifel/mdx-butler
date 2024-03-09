@@ -11,17 +11,24 @@ description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in app
 
 <div className={'flex flex-col xl:flex-row gap-2'}>
 
-<div className={'mt-12'}>
+<div className={'lg:mt-[130px]'}>
 <img width={600} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
 </div>
 <div className={'flex flex-col gap-2'}>
 ### Prepare
 
 ```ts
-return docs({
+type Frontmatter = {
+  title: string;
+};
+
+// define types manually
+return docs<Frontmatter>({
   fields: {
     title: {
       required: true,
+      // or infer them from arguments
+      resolve: (x) => x.frontmatter.title.toUpperCase(),
     },
   },
 });
@@ -32,7 +39,7 @@ return docs({
 ```tsx
 import { Component } from 'mdx-butler/client';
 
-// ..
+const doc = docs.filter((x) => slug === x.path)[0];
 
 return (
   <div>
