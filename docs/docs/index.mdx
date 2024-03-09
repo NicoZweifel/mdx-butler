@@ -9,7 +9,42 @@ description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in app
 [![test](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml)
 [![test-docs](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml)
 
-<img alt={'banner'} className={'bg-black'} src={'/butler.png'} />
+<div className={'flex flex-col xl:flex-row gap-2'}>
+
+<div className={'mt-[100px]'}>
+<img width={600} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
+</div>
+<div className={'flex flex-col gap-2'}>
+### Prepare
+
+```ts
+return docs({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+```
+
+### Serve
+
+```tsx
+import { Component } from 'mdx-butler/client';
+
+// ..
+
+return (
+  <div>
+    <h1>{doc.frontmatter.title}</h1>
+    <Component doc={doc} />
+  </div>
+);
+```
+
+</div>
+
+</div>
 
 ## Why use a Service?
 
