@@ -23,7 +23,7 @@ export function TableOfContents({
     <nav
       {...props}
       className={cn(
-        `${components.length > 0 ? 'border-l' : 'border-none'} max-w-[12rem] border-secondary-300/40 dark:border-secondary-900/20 px-2 py-4 flex-col gap-1`,
+        `${components.length > 0 ? 'border-l' : 'border-none'} max-w-[12rem] border-primary-300/40 dark:border-primary-900/20 px-2 py-4 flex-col gap-1`,
         className
       )}
     >
@@ -32,7 +32,7 @@ export function TableOfContents({
           <List size={16} />
           <p
             className={
-              'font-semibold text-sm shrink-0 text-secondary-900 dark:text-secondary-100'
+              'font-semibold text-sm shrink-0 text-primary-900 dark:text-primary-100'
             }
           >
             On this page
@@ -43,7 +43,7 @@ export function TableOfContents({
         <a
           key={title}
           className={
-            'flex flex-row gap-1 group py-0.5 items-center text-secondary-900 hover:text-secondary-900 dark:hover:text-secondary-300 dark:text-secondary-100 rounded-lg'
+            'flex flex-row gap-1 group py-0.5 items-center text-primary-900 hover:text-primary-900 dark:hover:text-primary-300 dark:text-primary-100 rounded-lg'
           }
           style={{
             marginLeft: `${Math.max(0, 13 * Math.max(level - lowest, 0))}px`,

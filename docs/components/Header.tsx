@@ -17,7 +17,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
     <header
       {...props}
       className={cn(
-        'fixed bg-secondary-100/40 dark:bg-secondary-900/5 flex flex-col top-0 w-full backdrop-blur flex-none border-b border-secondary-300/40 dark:border-secondary-900/20 grow items-center z-10 ',
+        'fixed bg-primary-300/10 dark:bg-primary-950/5 flex flex-col top-0 w-full backdrop-blur flex-none border-b shadow-primary-300/5 dark:shadow-primary-950/5 shadow-xl border-primary-200/40 dark:border-primary-900/20 grow items-center z-10 ',
         className
       )}
     >
@@ -49,7 +49,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
             <div className={'flex place-items-center'}>
               <LinkButton
                 className={
-                  'px-1 group pt-1.5 pb-0.5 grow rounded-xl hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-30 text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 '
+                  'px-1 group pt-1 pb-0.5 grow rounded-xl hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-30 text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 '
                 }
                 id={'github_button'}
                 name={'Repository Button'}
