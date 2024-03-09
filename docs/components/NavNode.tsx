@@ -39,7 +39,7 @@ const useNavNode = ({ node, flex }: NavNodeProps) => {
             {navItems.map(({ title, route }) => (
               <Link
                 key={route}
-                className={`${isBaseRoute ? 'font-semibold' : ''} whitespace-nowrap text-sm py-1 px-2 flex items-center hover:bg-primary-300/80 dark:hover:bg-primary-800/20 rounded text-primary-900 hover:text-primary-900 dark:text-primary-100 dark:hover:text-primary-300`}
+                className={`${isBaseRoute ? 'font-semibold' : ''} whitespace-nowrap text-sm py-1 px-2 flex items-center hover:bg-primary-200/40 dark:hover:bg-primary-900/20 rounded text-primary-900 hover:text-primary-900 dark:text-primary-100 dark:hover:text-primary-300`}
                 href={route}
               >
                 {title}
@@ -79,7 +79,7 @@ export const NavNode = ({
         <Link
           href={path}
           className={
-            'font-semibold text-sm text-start py-1 pl-2  hover:bg-primary-200/80 dark:hover:bg-primary-800/20 rounded text-primary-900 hover:text-primary-900 dark:text-primary-100 dark:hover:text-primary-300'
+            'font-semibold text-sm text-start py-1 pl-2  hover:bg-primary-200/40 dark:hover:bg-primary-900/20 rounded text-primary-900 hover:text-primary-900 dark:text-primary-100 dark:hover:text-primary-300'
           }
         >
           {name.charAt(0).toUpperCase() + name.slice(1)}
