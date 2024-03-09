@@ -73,18 +73,30 @@ pre::-webkit-scrollbar-thumb:hover {
  * 1. Make the element just wide enough to fit its content.
  * 2. Always fill the visible space in .code-highlight.
  */
+
 .code-highlight {
   float: left; /* 1 */
   min-width: calc(100% - 3px); /* 2 */
 }
-
+code[class*='language-'],
+pre[class*='language-'] {
+  background: #1a1b26;
+}
+.token.tag {
+  color: #9ece6a;
+}
 .code-line {
   display: block;
+  color: #c0caf5;
   padding-left: 16px;
   padding-right: 16px;
   margin-left: -16px;
   margin-right: -16px;
   border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
+}
+
+.token.function {
+  color: #7aa2f7;
 }
 
 .code-line.inserted {
@@ -102,7 +114,7 @@ pre::-webkit-scrollbar-thumb:hover {
   border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
 }
 
-.line-number::before {
+. .line-number::before {
   display: inline-block;
   width: 1rem;
   text-align: right;
