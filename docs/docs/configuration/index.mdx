@@ -83,7 +83,9 @@ export type MDXBundlerServiceOptions<
 
 ## Types
 
-To guarantee a correct type inference, specifying the `Frontmatter` type is recommended.
+Types can be defined or inferred.
+
+### Define
 
 ```ts {1-3,7} showLineNumbers
 type Frontmatter = {
@@ -93,6 +95,19 @@ type Frontmatter = {
 // ...
 
 return docs<Frontmatter>({
+  fields: {
+    title: {
+      required: true,
+    },
+  },
+});
+```
+
+### Infer
+
+```tsx {5} showLineNumbers
+// or infer
+return docs({
   fields: {
     title: {
       required: true,

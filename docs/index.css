@@ -98,6 +98,9 @@ pre[class*='language-'] {
 .token.function {
   color: #7aa2f7;
 }
+.token.class-name {
+  color: #0db9d7;
+}
 
 .code-line.inserted {
   background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */

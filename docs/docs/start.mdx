@@ -65,7 +65,7 @@ import { Component } from 'mdx-butler/client';
 
 // ...
 
-const doc = docs.filter((x) => path === x.path)[0];
+const doc = docs.find((x) => path === x.path);
 
 if (!doc) return <div>not found</div>;
 
