@@ -11,7 +11,7 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 
 <div className={'flex flex-col xl:flex-row gap-2'}>
 
-<div className={'xl:mt-[130px]'}>
+<div>
 
 <img width={600} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
 
@@ -22,19 +22,7 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 ### Prepare
 
 ```ts
-// define
 return docs<{ title: string }>();
-```
-
-```tsx
-// or infer
-return docs({
-  fields: {
-    title: {
-      required: true,
-    },
-  },
-});
 ```
 
 <Info>
