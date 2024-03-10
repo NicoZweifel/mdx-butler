@@ -13,7 +13,7 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 
 <div>
 
-<img width={450} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
+<img width={500} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
 
 </div>
 
@@ -22,6 +22,8 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 ### Prepare
 
 ```ts
+import docs from 'mdx-butler/client';
+
 return docs<{ title: string }>().find(/* ... */);
 ```
 
