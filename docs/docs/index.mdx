@@ -1,7 +1,7 @@
 ---
 title: Introduction
 order: 1
-description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in applications, that use Server *Side Rendering* or *Static Site Generation*.
+description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in applications, that use Server *Side Rendering* or *Static Site Generation*.
 ---
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
@@ -11,9 +11,9 @@ description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in app
 
 <div className={'flex flex-col xl:flex-row gap-2'}>
 
-<div className={'xl:mt-[130px]'}>
+<div>
 
-<img width={600} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
+<img width={500} alt={'banner'} className={'bg-black'} src={'/butler.png'} />
 
 </div>
 
@@ -22,36 +22,22 @@ description: Manage and serve typed [`MDX`](https://mdxjs.com/) documents in app
 ### Prepare
 
 ```ts
-// define `Frontmatter` field types
+import docs from 'mdx-butler/client';
+
 return docs<{ title: string }>();
 ```
 
-```tsx
-// or infer types
-return docs({
-  fields: {
-    title: {
-      required: true,
-      // dynamic field
-      resolve: (x) => x.frontmatter.title.toUpperCase(),
-    },
-  },
-});
-```
+<Info>
+  Fields and their types can be [dynamically](/configuration#dynamic-fields)
+  resolved and inferred.
+</Info>
 
 ### Serve
 
 ```tsx
 import { Component } from 'mdx-butler/client';
 
-const doc = docs.filter((x) => slug === x.path)[0];
-
-return (
-  <div>
-    <h1>{doc.frontmatter.title}</h1>
-    <Component doc={doc} />
-  </div>
-);
+return <Component doc={doc} />;
 ```
 
 </div>

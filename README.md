@@ -1,6 +1,6 @@
 # mdx-butler
 
-Manage and serve typed [`MDX`](https://mdxjs.com/) documents in applications, that use Server _Side Rendering_ or _Static Site Generation_.
+Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in applications, that use Server _Side Rendering_ or _Static Site Generation_.
 
 [![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
 [![npm](https://img.shields.io/badge/npm-v0.5.6-red)](https://www.npmjs.com/package/mdx-butler)
