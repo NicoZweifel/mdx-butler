@@ -22,7 +22,7 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 ### Prepare
 
 ```ts
-return docs<{ title: string }>();
+return docs<{ title: string }>().find(/* ... */);
 ```
 
 <Info>
@@ -35,7 +35,7 @@ return docs<{ title: string }>();
 ```tsx
 import { Component } from 'mdx-butler/client';
 
-return <Component doc={docs.find((x) => path === x.path)} />;
+return <Component doc={doc} />;
 ```
 
 </div>
