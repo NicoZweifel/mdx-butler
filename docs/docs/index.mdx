@@ -15,27 +15,26 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
   </div>
   <div className={'flex flex-col gap-2'}>
 
-### Prepare
-
-```ts
+```tsx
 import docs from 'mdx-butler';
+import { Component } from 'mdx-butler/client';
 
-return docs<{ title: string }>();
+// Prepare
+const doc = docs<{ title: string }>()[0];
+
+// Serve
+return (
+  <>
+    <h1>{doc.frontmatter.title}</h1>
+    <Component doc={doc} />
+  </>
+);
 ```
 
 <Info>
   Fields and their [types](/configuration/#types) can be
   [dynamically](/configuration#dynamic-fields) resolved and inferred.
 </Info>
-
-### Serve
-
-```tsx
-import { Component } from 'mdx-butler/client';
-
-return <Component doc={doc} />;
-```
-
   </div>
 </div>
 
