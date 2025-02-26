@@ -2,7 +2,7 @@
 
 Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in applications, that use Server _Side Rendering_ or _Static Site Generation_.
 
-[![Docs](https://img.shields.io/badge/docs-online-green)](https://mdx-butler.com/)
+
 [![npm](https://img.shields.io/badge/npm-v0.5.6-red)](https://www.npmjs.com/package/mdx-butler)
 [![test](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml)
 [![test-docs](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml)
