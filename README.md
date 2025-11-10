@@ -35,8 +35,8 @@ pnpm i mdx-butler mdx-bundler esbuild
 
 ### Framework Guides
 
-- [Next.js](https://mdx-butler.com/configuration/next)
-- [Remix](https://mdx-butler.com/configuration/remix)
+- [Next.js](/examples/next)
+- [Remix](/examples/next)
 
 ### Bundling
 
