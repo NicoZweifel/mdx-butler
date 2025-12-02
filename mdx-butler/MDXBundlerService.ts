@@ -7,7 +7,7 @@ import {
   SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
-} from './types/index.js';
+} from './types';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
@@ -21,22 +21,21 @@ import { bundleHeadings } from './utils/bundleHeadings.js';
 
 export class MDXBundlerService<
   TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions
   >,
-> implements IMDXBundlerService<TFrontmatter, TOptions, TFields>
-{
+> implements IMDXBundlerService<TFrontmatter, TOptions, TFields> {
   protected constructor(
     readonly options: MDXBundlerServiceOptions<TFrontmatter, TOptions, TFields>
   ) {}
 
   static create<
     TFrontmatter extends UnknownFrontMatter = UnknownFrontMatter,
-    TOptions extends
-      MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+    TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+      MDXBundlerServiceBaseOptions<TFrontmatter>,
     TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
       TFrontmatter,
       TOptions
@@ -180,13 +179,13 @@ export class MDXBundlerService<
           // The syntax might look weird, but it protects you in case we add/remove
           // plugins in the future.
           processorOptions.remarkPlugins = [
-            tocPlugin?.(headings),
+            ...(tocPlugin ? [tocPlugin?.(headings)] : []),
             ...(processorOptions.remarkPlugins ?? []),
-            ...(mdxBundlerOptions?.mdxOptions.remarkPlugins ?? []),
+            ...(mdxBundlerOptions?.mdxOptions?.remarkPlugins ?? []),
           ];
           processorOptions.rehypePlugins = [
             ...(processorOptions.rehypePlugins ?? []),
-            ...(mdxBundlerOptions?.mdxOptions.rehypePlugins ?? []),
+            ...(mdxBundlerOptions?.mdxOptions?.rehypePlugins ?? []),
           ];
 
           return {
