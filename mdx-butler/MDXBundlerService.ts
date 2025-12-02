@@ -7,7 +7,7 @@ import {
   SOURCE_FILE_TYPE,
   SourceFileType,
   UnknownFrontMatter,
-} from './types';
+} from './types/index.js';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
 import { glob } from 'glob';
