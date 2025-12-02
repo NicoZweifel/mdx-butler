@@ -91,8 +91,8 @@ importers:
         specifier: ^10.1.1
         version: 10.1.1(esbuild@0.19.12)
       mdx-butler:
-        specifier: ^0.5.7
-        version: 0.5.7(mdx-bundler@10.1.1(esbuild@0.19.12))
+        specifier: ^0.5.8
+        version: 0.5.8(mdx-bundler@10.1.1(esbuild@0.19.12))
       preact-render-to-string:
         specifier: ^6.6.3
         version: 6.6.3(preact@10.28.0)
@@ -2462,8 +2462,8 @@ packages:
     peerDependencies:
       esbuild: 0.*
 
-  mdx-butler@0.5.7:
-    resolution: {integrity: sha512-utNVfxloZGVSN2wr4Mi0h7zUbRhLatkz0LG9OBEmLH3vBPVrWt1q4I6tH0pUJWoU3sKsPcyJHjIie98z5/1M2g==}
+  mdx-butler@0.5.8:
+    resolution: {integrity: sha512-I2xSCluXGdctDCvGuX4KnJkMiaR0iX/acqA5E0tk0/0bdq/7+KROCPjaUfYVR+7NWQLxND6y0OITO+NvDhAE0w==}
     peerDependencies:
       mdx-bundler: '>= 10.0.0'
 
@@ -6461,7 +6461,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  mdx-butler@0.5.7(mdx-bundler@10.1.1(esbuild@0.19.12)):
+  mdx-butler@0.5.8(mdx-bundler@10.1.1(esbuild@0.19.12)):
     dependencies:
       estree-util-build-jsx: 3.0.0
       glob: 10.5.0
