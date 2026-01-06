@@ -12,7 +12,7 @@ const options: Options = {
   license: packageJsonFile.license,
   author: packageJsonFile.author,
   basePath: '/',
-  logo: '/butler.png',
+  logo: '/logo.png',
   cwd: '/docs',
   mdxBundlerOptions: {
     mdxOptions: {

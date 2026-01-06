@@ -20,7 +20,7 @@
   "keywords": [],
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
-    "@types/node": "^20.19.25",
+    "@types/node": "^20.19.27",
     "husky": "^8.0.3",
     "lint-staged": "^15.5.2"
   },
