@@ -2,7 +2,6 @@
 
 Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in applications, that use Server _Side Rendering_ or _Static Site Generation_.
 
-
 [![npm](https://img.shields.io/badge/npm-v0.5.6-red)](https://www.npmjs.com/package/mdx-butler)
 [![test](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml)
 [![test-docs](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml)
@@ -47,10 +46,10 @@ The easiest way to get all bundled documents within a folder is to call the `doc
 Options and dependencies can be passed to `docs` or `MDXBundlerService.create`.
 
 > [!Note]
-> If you require more control, consider [injecting
-> dependencies](https://mdx-butler.com/customization/DI) and using `MDXBundlerService` directly.
+> If you require more control, consider injecting
+> dependencies and using `MDXBundlerService` directly.
 >
-> For more information check out the [Configuration](https://mdx-butler.com/configuration) section!
+> For more information check out the Configuration section!
 
 ```ts {1,7-10} showLineNumbers
 import { docs } from "mdx-butler";
@@ -115,8 +114,8 @@ return (
 ```
 
 > [!Tip]
-> Start editing `MDX` documents inside `/docs` or the configured [working
-> directory](https://mdx-butler.com/configuration)
+> Start editing `MDX` documents inside `/docs` or the configured working
+> directory
 
 ## Security Notice
 
