@@ -1,9 +1,9 @@
-import { MDXBundlerOptions } from './MDXBundlerOptions';
-import { DocHeading } from './DocHeading';
+import { MDXBundlerOptions } from './MDXBundlerOptions.js';
+import { DocHeading } from './DocHeading.js';
 import { Plugin } from 'unified';
-import { SortProvider } from './SortProvider';
-import { UnknownFrontMatter } from './UnknownFrontMatter';
-import { MDXBundlerServiceReturnType } from './MDXBundlerServiceReturnType';
+import { SortProvider } from './SortProvider.js';
+import { UnknownFrontMatter } from './UnknownFrontMatter.js';
+import { MDXBundlerServiceReturnType } from './MDXBundlerServiceReturnType.js';
 
 export type MDXBundlerServiceBaseOptions<T extends UnknownFrontMatter> = {
   /**

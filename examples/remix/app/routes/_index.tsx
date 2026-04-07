@@ -8,11 +8,12 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
-      <a style={{fontWeight:600,fontSize:'24px'}} href={'/docs/hello'}>GO TO DOCS EXAMPLE</a>
+      <a style={{ fontWeight: 600, fontSize: "24px" }} href={"/docs/hello"}>
+        GO TO DOCS EXAMPLE
+      </a>
       <ul>
         <li>
           <a

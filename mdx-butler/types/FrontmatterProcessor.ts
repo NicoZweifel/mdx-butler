@@ -1,12 +1,12 @@
-import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions.js';
 
-import { FieldDefinitions } from './FieldDefinitions';
-import { MDXBundlerServiceOptions } from './MDXBundlerServiceOptions';
+import { FieldDefinitions } from './FieldDefinitions.js';
+import { MDXBundlerServiceOptions } from './MDXBundlerServiceOptions.js';
 
 export type FrontmatterProcessor<
-  TFrontmatter extends Partial<Record<keyof TFields, string>>,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TFrontmatter extends Partial<Record<keyof TFields, string | boolean>>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

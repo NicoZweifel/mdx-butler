@@ -1,15 +1,15 @@
-import { UnknownFrontMatter } from './UnknownFrontMatter';
-import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions';
-import { FrontMatterOptions } from './FrontmatterProcessor';
-import { FieldDefinitions } from './FieldDefinitions';
+import { UnknownFrontMatter } from './UnknownFrontMatter.js';
+import { MDXBundlerServiceBaseOptions } from './MDXBundlerServiceBaseOptions.js';
+import { FrontMatterOptions } from './FrontmatterProcessor.js';
+import { FieldDefinitions } from './FieldDefinitions.js';
 
 export type FieldDefinition<
   TFrontmatter extends Record<
     keyof FieldDefinitions,
-    string | undefined
+    string | boolean | undefined
   > = UnknownFrontMatter,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
 > = {
   /**
    *  Indicates whether a specific frontmatter field is mandatory.

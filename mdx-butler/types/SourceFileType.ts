@@ -1,4 +1,4 @@
-import { SOURCE_FILE_TYPE } from './SOURCE_FILE_TYPE';
+import { SOURCE_FILE_TYPE } from './SOURCE_FILE_TYPE.js';
 
 export type SourceFileType =
   | { type: SOURCE_FILE_TYPE.LOCAL; name: string }

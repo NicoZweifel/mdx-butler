@@ -3,12 +3,12 @@ import {
   MDXBundlerServiceBaseOptions,
   FieldDefinitions,
   UnknownFrontMatter,
-} from '../types';
+} from '../types/index.js';
 
 export function createFrontmatterProcessor<
   TFrontmatter extends UnknownFrontMatter,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

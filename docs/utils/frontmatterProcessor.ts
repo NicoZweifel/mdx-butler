@@ -22,7 +22,7 @@ export const frontmatterProcessor: FrontmatterProcessor<
   frontmatter.title =
     frontmatter.title ?? fileName.charAt(0).toUpperCase() + fileName.slice(1);
   frontmatter.file = file;
-  frontmatter.route = `${basePath}/${frontmatter.route && frontmatter.route.startsWith('/') ? frontmatter.route.slice(1) : frontmatter.route ?? `${name}`}`;
+  frontmatter.route = `${basePath}/${frontmatter.route && frontmatter.route.startsWith('/') ? frontmatter.route.slice(1) : (frontmatter.route ?? `${name}`)}`;
 
   if ((frontmatter.route?.length ?? 0) === 0) frontmatter.route = '/';
 

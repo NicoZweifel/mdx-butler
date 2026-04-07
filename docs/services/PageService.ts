@@ -76,12 +76,10 @@ export class PageService {
     if (route) {
       const doc =
         docs.find(
-          (x) => x.frontmatter.route.toLowerCase() === route.toLowerCase()
-        ) ??
-        docs.find(
-          (x) => x.frontmatter.path.toLowerCase() === route.toLowerCase()
-        ) ??
-        docs[0];
+          (x) =>
+            x.frontmatter.route.toLowerCase() === route.toLowerCase() ||
+            x.frontmatter.path.toLowerCase() === route.toLowerCase()
+        ) ?? docs[0];
 
       const pageProps = {
         ...doc,

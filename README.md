@@ -6,7 +6,7 @@ Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in
 [![test](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml)
 [![test-docs](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml)
 
-## Why use a Service?
+## Why use this?
 
 Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
 While convenient, these plugins can in some cases limit control, force specific dependencies,

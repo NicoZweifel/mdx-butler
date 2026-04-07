@@ -7,8 +7,8 @@ import {
 
 export const docs = <
   TFrontmatter extends Partial<Record<keyof TFields, string>>,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

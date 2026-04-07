@@ -10,9 +10,8 @@ export const Footer = () => {
   } = usePageContext();
   return (
     <footer
-      className={
-        'flex flex-col items-center min-w-full border-t border-primary-300/40 dark:border-primary-900/20 '
-      }
+      className={`flex flex-col items-center min-w-full border-t border-primary-300/40
+        dark:border-primary-900/20`}
     >
       <div
         className={

@@ -8,18 +8,22 @@ type Frontmatter = {
   description?: string;
 };
 
-export async  function loader({params:{slug}}:LoaderFunctionArgs) {
-  return json((await docs<Frontmatter>({
-    cwd:'/docs',
-    fields:{
-      title:{
-        required:true,
-      },
-    }
-  })).find((x) => slug === x.path));
+export async function loader({ params: { slug } }: LoaderFunctionArgs) {
+  return json(
+    (
+      await docs<Frontmatter>({
+        cwd: "/docs",
+        fields: {
+          title: {
+            required: true,
+          },
+        },
+      })
+    ).find((x) => slug === x.path),
+  );
 }
 
-export const meta: MetaFunction<typeof loader> = ({data}) => {
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     { title: data?.frontmatter.title },
     { name: "description", content: data?.frontmatter.description },
@@ -31,14 +35,16 @@ export default function Index() {
 
   if (!doc) return <div>not found</div>;
 
- const Component = getMDXComponent(doc.code)
+  const Component = getMDXComponent(doc.code);
 
   return (
-    <div style={{
-      display:'flex',
-      gap:'1rem',
-      flexDirection:"row"
-    }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        flexDirection: "row",
+      }}
+    >
       <div>
         <h1>{doc.frontmatter.title}</h1>
         <h3>{doc.frontmatter.title}</h3>
@@ -46,15 +52,18 @@ export default function Index() {
       </div>
       <div
         style={{
-          display:'flex',
-          gap:'1rem',
-          flexDirection:"column"
+          display: "flex",
+          gap: "1rem",
+          flexDirection: "column",
         }}
       >
         <h2>On this page</h2>
-        {doc.headings.map(x=> <a key={x.title} href={`#${x.title}`}>{x.title}</a>)}
+        {doc.headings.map((x) => (
+          <a key={x.title} href={`#${x.title}`}>
+            {x.title}
+          </a>
+        ))}
       </div>
     </div>
   );
-
 }
