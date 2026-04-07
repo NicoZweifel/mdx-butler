@@ -126,6 +126,8 @@ return (
 
 ## Mentions
 
-- [`vike`](https://vike.dev/) for providing a customizable, versatile web framework.
+- [`mdx](https://mdxjs.com/) for improving the devex around beautiful, interactive documentation.
+- [`vike`](https://vike.dev/), which is used by the [docs](/docs).
 - [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) for providing a blazingly fast [`esbuild`](https://esbuild.github.io/mdx-bundler) based bundler for [`MDX`](https://mdxjs.com/) files.
 - [`Contentlayer`](https://contentlayer.dev/) for providing inspiration around the [`MDX`](https://mdxjs.com/) Developer Experience.
+- All other technologies that were/are used in any way, sorry if you were not mentioned here <3
