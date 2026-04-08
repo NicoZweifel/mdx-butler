@@ -33,7 +33,9 @@ pnpm i mdx-butler mdx-bundler esbuild
 ### Framework Guides
 
 - [Next.js](/examples/next)
-- [Remix](/examples/next)
+- [React-Router](/examples/react-router)
+- [Astro](/examples/astro)
+- [Waku](/examples/waku)
 
 ### Bundling
 
@@ -126,6 +128,7 @@ return (
 
 ## Mentions
 
+- [Logo (edited)](https://www.vecteezy.com/vector-art/8569613-vector-of-tray-food-icon-restaurant-cloche-symbol-of-serving-food)
 - [`mdx](https://mdxjs.com/) for improving the devex around beautiful, interactive documentation.
 - [`vike`](https://vike.dev/), which is used by the [docs](/docs).
 - [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) for providing a blazingly fast [`esbuild`](https://esbuild.github.io/mdx-bundler) based bundler for [`MDX`](https://mdxjs.com/) files.

@@ -10,9 +10,10 @@ description: Manage and serve [`MDX`](https://mdxjs.com/) documents with typed F
 
 <div className={'flex flex-col xl:flex-row gap-2'}>
   <div>
-    <img width={500} alt={'banner'} className={'bg-black'} src={'/logo.png'} />
+    <img className={'dark:hidden'} width={500} alt={'banner'}  src={'/logo.png'} />
+    <img className={'hidden dark:block'} width={500} alt={'banner'} src={'/logo_dark.png'} />
   </div>
-  <div className={'flex flex-col gap-2'}>
+<div className={'flex flex-col gap-2'}>
 
 ```tsx
 import docs from 'mdx-butler';
@@ -55,6 +56,7 @@ This maximizes flexibility and future-proofs your work for easy updates, migrati
 
 ## Mentions
 
+- [Logo (edited)](https://www.vecteezy.com/vector-art/8569613-vector-of-tray-food-icon-restaurant-cloche-symbol-of-serving-food)
 - [`vike`](https://vike.dev/) for providing a customizable, versatile web framework.
 - [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) for providing a blazingly fast [`esbuild`](https://esbuild.github.io/mdx-bundler) based bundler for [`MDX`](https://mdxjs.com/) files.
 - [`Contentlayer`](https://contentlayer.dev/) for providing inspiration around the [`MDX`](https://mdxjs.com/) Developer Experience.
