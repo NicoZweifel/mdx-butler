@@ -13,12 +13,22 @@ export const Info = (p: ActionCardProps) => <Card {...p} variant={'info'} />;
 export const Error = (p: ActionCardProps) => <Card {...p} variant={'error'} />;
 
 export const Examples = () => (
-  <div className={'flex sm:flex-row flex-col gap-4'}>
+  <div
+    className={
+      'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 whitespace-nowrap'
+    }
+  >
     <a className={'grow'} href={'/configuration/next'}>
       <Card className={'font-bold flex flex-row'}>Next.js</Card>
     </a>
-    <a className={'grow'} href={'/configuration/remix'}>
-      <Card className={'font-bold'}>Remix</Card>
+    <a className={'grow'} href={'/configuration/react-router'}>
+      <Card className={'font-bold'}>React-Router</Card>
+    </a>
+    <a className={'grow'} href={'/configuration/astro'}>
+      <Card className={'font-bold'}>Astro</Card>
+    </a>
+    <a className={'grow'} href={'/configuration/waku'}>
+      <Card className={'font-bold'}>Waku</Card>
     </a>
   </div>
 );

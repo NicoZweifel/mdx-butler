@@ -13,6 +13,7 @@ const options: Options = {
   author: packageJsonFile.author,
   basePath: '/',
   logo: '/logo.png',
+  logoDark: '/logo_dark.png',
   cwd: '/docs',
   mdxBundlerOptions: {
     mdxOptions: {

@@ -6,7 +6,7 @@ Manage and serve [`MDX`](https://mdxjs.com/) documents with typed Frontmatter in
 [![test](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test.yml)
 [![test-docs](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml/badge.svg)](https://github.com/NicoZweifel/mdx-butler/actions/workflows/test-docs.yml)
 
-## Why use a Service?
+## Why use this?
 
 Most web frameworks and build tools offer plugins to handle [`MDX`](https://mdxjs.com/) documents.
 While convenient, these plugins can in some cases limit control, force specific dependencies,
@@ -33,7 +33,9 @@ pnpm i mdx-butler mdx-bundler esbuild
 ### Framework Guides
 
 - [Next.js](/examples/next)
-- [Remix](/examples/next)
+- [React-Router](/examples/react-router)
+- [Astro](/examples/astro)
+- [Waku](/examples/waku)
 
 ### Bundling
 
@@ -126,6 +128,9 @@ return (
 
 ## Mentions
 
-- [`vike`](https://vike.dev/) for providing a customizable, versatile web framework.
+- [Logo (edited)](https://www.vecteezy.com/vector-art/8569613-vector-of-tray-food-icon-restaurant-cloche-symbol-of-serving-food)
+- [`mdx](https://mdxjs.com/) for improving the devex around beautiful, interactive documentation.
+- [`vike`](https://vike.dev/), which is used by the [docs](/docs).
 - [`mdx-bundler`](https://github.com/kentcdodds/mdx-bundler) for providing a blazingly fast [`esbuild`](https://esbuild.github.io/mdx-bundler) based bundler for [`MDX`](https://mdxjs.com/) files.
 - [`Contentlayer`](https://contentlayer.dev/) for providing inspiration around the [`MDX`](https://mdxjs.com/) Developer Experience.
+- All other technologies that were/are used in any way, sorry if you were not mentioned here <3

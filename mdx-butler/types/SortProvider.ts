@@ -1,4 +1,4 @@
-import { UnknownFrontMatter } from './UnknownFrontMatter';
+import { UnknownFrontMatter } from './UnknownFrontMatter.js';
 
 export type SortProvider<
   T extends { frontmatter: UnknownFrontMatter } = {

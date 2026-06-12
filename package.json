@@ -19,10 +19,10 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
-    "@types/node": "^20.19.27",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.5.2"
+    "@changesets/cli": "^2.30.0",
+    "@types/node": "^25.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0"
   },
   "lint-staged": {
     "*.{md,json,cjs,js,css}": "prettier --write",

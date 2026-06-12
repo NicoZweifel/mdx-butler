@@ -4,7 +4,7 @@ import { Component } from "mdx-butler/client";
 
 export async function getStaticPaths() {
   const allDocs = await docs({
-		cwd: 'docs/',
+    cwd: 'docs/',
     fields: {
       title: { required: true },
     }

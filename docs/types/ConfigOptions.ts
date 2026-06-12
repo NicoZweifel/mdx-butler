@@ -3,6 +3,7 @@ export type ConfigOptions = {
   license: string;
   repository: string;
   logo: string;
+  logoDark: string;
   author: string;
   basePath: string;
 };

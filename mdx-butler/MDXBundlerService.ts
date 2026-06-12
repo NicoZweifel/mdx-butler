@@ -9,14 +9,14 @@ import {
   UnknownFrontMatter,
 } from './types/index.js';
 import { bundleMDX } from 'mdx-bundler';
-import { join } from 'path';
+import { join } from 'node:path';
 import { glob } from 'glob';
 
 import { IMDXBundlerService } from './IMDXBundlerService.js';
 import { FileNotRequiredError } from './FileNotRequiredError.js';
 import { tocPlugin } from './utils/tocPlugin.js';
 import { createFrontmatterProcessor } from './utils/createFrontmatterProcessor.js';
-import * as process from 'process';
+import * as process from 'node:process';
 import { bundleHeadings } from './utils/bundleHeadings.js';
 
 export class MDXBundlerService<

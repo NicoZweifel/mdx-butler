@@ -1,18 +1,17 @@
 import { usePageContext } from '../context/PageContext';
-import { Image } from '@unpic/preact';
 import { LinkButton } from './LinkButton';
 import { GitHub } from 'react-feather';
 import { NavNode } from './NavNode';
+import Logo from './Logo';
 
 export const Footer = () => {
   const {
-    pageProps: { name, navTree, license, repository, logo, author },
+    pageProps: { name, navTree, license, repository, author },
   } = usePageContext();
   return (
     <footer
-      className={
-        'flex flex-col items-center min-w-full border-t border-primary-300/40 dark:border-primary-900/20 '
-      }
+      className={`flex flex-col items-center min-w-full border-t border-primary-300/40
+        dark:border-primary-900/20`}
     >
       <div
         className={
@@ -24,14 +23,7 @@ export const Footer = () => {
             href={'/'}
             className={'flex flex-row place-items-center gap-2 items-stretch'}
           >
-            <Image
-              alt={'logo'}
-              src={logo}
-              className={'my-0.5'}
-              layout={'fixed'}
-              height={16}
-              width={16}
-            />
+            <Logo layout={'fixed'} height={20} width={20} />
             <p className={'text font-bold flex-shrink-0'}>{name}</p>
           </a>
           <div className={'flex flex-row gap-1'}>
@@ -50,7 +42,6 @@ export const Footer = () => {
           <div className={'flex flex-row gap-2'}>
             <LinkButton
               id={'github_button'}
-              name={'Repository Button'}
               aria-label={'Navigate to repository'}
               hideExternalIcon
               href={repository}

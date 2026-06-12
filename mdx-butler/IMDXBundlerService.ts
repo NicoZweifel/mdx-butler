@@ -9,8 +9,8 @@ import {
 
 export interface IMDXBundlerService<
   TFrontmatter extends UnknownFrontMatter,
-  TOptions extends
-    MDXBundlerServiceBaseOptions<TFrontmatter> = MDXBundlerServiceBaseOptions<TFrontmatter>,
+  TOptions extends MDXBundlerServiceBaseOptions<TFrontmatter> =
+    MDXBundlerServiceBaseOptions<TFrontmatter>,
   TFields extends FieldDefinitions<TFrontmatter, TOptions> = FieldDefinitions<
     TFrontmatter,
     TOptions

@@ -2,15 +2,15 @@ import { usePageContext } from '../context/PageContext';
 import { DarkModeToggle } from './DarkModeToggle';
 import { ComponentProps } from 'preact';
 import { cn } from '../utils/cn';
-import { Image } from '@unpic/preact';
 import { GitHub, Menu } from 'react-feather';
 import { NavNode } from './NavNode';
 import { useSignal } from '@preact/signals';
 import { LinkButton } from './LinkButton';
+import Logo from './Logo';
 
 export function Header({ className, ...props }: ComponentProps<'header'>) {
   const {
-    pageProps: { name, repository, logo, navTree },
+    pageProps: { name, repository, navTree },
   } = usePageContext();
   const expanded = useSignal(false);
   return (
@@ -27,15 +27,7 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
         <div className={'flex flex-row items-stretch justify-between'}>
           <a href={'/'}>
             <div className={'flex flex-row place-items-center gap-2'}>
-              <div className={' bg-black '}>
-                <Image
-                  alt={'Logo'}
-                  src={logo}
-                  layout={'fixed'}
-                  height={20}
-                  width={20}
-                />
-              </div>
+              <Logo layout={'fixed'} height={20} width={20} />
               <p
                 className={
                   'text-lg font-bold shrink-0 text-ellipsis overflow-hidden'
@@ -52,7 +44,6 @@ export function Header({ className, ...props }: ComponentProps<'header'>) {
                   'px-1 group pt-1 pb-0.5 grow rounded-xl hover:bg-neutral-200/80 dark:hover:bg-neutral-800/60 dark:hover:text-neutral-30 text-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-300 dark:text-neutral-100 '
                 }
                 id={'github_button'}
-                name={'Repository Button'}
                 aria-label={'Navigate to repository'}
                 hideExternalIcon
                 href={repository}

@@ -1,0 +1,30 @@
+{
+  "name": "waku",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "waku dev",
+    "build": "waku build",
+    "start": "waku start"
+  },
+  "dependencies": {
+    "hono": "^4.12.5",
+    "react": "~19.2.4",
+    "react-dom": "~19.2.4",
+    "react-server-dom-webpack": "~19.2.4",
+    "waku": "1.0.0-alpha.6",
+    "esbuild": "^0.27.4",
+    "mdx-bundler": "^10.1.1",
+    "mdx-butler": "workspace:*"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.0",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}
