@@ -7,7 +7,7 @@ export default defineConfig({
   vite: {
     ssr: {
       // This helps during development in a monorepo
-      // You don't need this
+      // You don't need this if you are not in a monorepo
       noExternal: ["mdx-butler"],
     },
   },
